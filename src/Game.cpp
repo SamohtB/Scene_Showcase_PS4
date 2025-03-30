@@ -5,6 +5,13 @@
 
 Game::Game()
 {
+    initializeWindow();
+
+    this->mesh = new Mesh("Models/spot.obj");
+}
+
+void Game::initializeWindow()
+{
     if (!glfwInit())
     {
         exit(-1);
@@ -60,4 +67,5 @@ void Game::update(float deltaTime)
 
 void Game::render()
 {
+    this->mesh->draw();
 }

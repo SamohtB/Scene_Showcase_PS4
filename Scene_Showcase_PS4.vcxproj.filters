@@ -13,11 +13,11 @@
     <Filter Include="Dependencies\gRPC">
       <UniqueIdentifier>{f8432a62-4d72-47cd-9d31-2cef6bf88854}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utilitiy">
+      <UniqueIdentifier>{7ce02508-ca63-4709-ad4d-5c039bf1b987}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\AMesh.cpp">
-      <Filter>Abstract</Filter>
-    </ClCompile>
     <ClCompile Include="src\Game.cpp">
       <Filter>Core</Filter>
     </ClCompile>
@@ -30,11 +30,14 @@
     <ClCompile Include="src\LevelData.pb.cc">
       <Filter>Dependencies\gRPC</Filter>
     </ClCompile>
+    <ClCompile Include="src\Mesh.cpp">
+      <Filter>Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Debug.cpp">
+      <Filter>Utilitiy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\AMesh.h">
-      <Filter>Abstract</Filter>
-    </ClInclude>
     <ClInclude Include="src\config.h">
       <Filter>Core</Filter>
     </ClInclude>
@@ -46,6 +49,12 @@
     </ClInclude>
     <ClInclude Include="src\LevelData.grpc.pb.h">
       <Filter>Dependencies\gRPC</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mesh.h">
+      <Filter>Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Debug.h">
+      <Filter>Utilitiy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
