@@ -45,9 +45,6 @@
     <ClCompile Include="src\Mesh.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="src\Debug.cpp">
-      <Filter>Utilitiy</Filter>
-    </ClCompile>
     <ClCompile Include="src\Shader.cpp">
       <Filter>Object</Filter>
     </ClCompile>
@@ -75,6 +72,15 @@
     <ClCompile Include="src\NetworkManager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
+    <ClCompile Include="src\IETThread.cpp">
+      <Filter>Threads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Debug.cpp">
+      <Filter>Utilitiy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventBroadcaster.cpp">
+      <Filter>Utilitiy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\config.h">
@@ -91,9 +97,6 @@
     </ClInclude>
     <ClInclude Include="src\Mesh.h">
       <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Debug.h">
-      <Filter>Utilitiy</Filter>
     </ClInclude>
     <ClInclude Include="src\Shader.h">
       <Filter>Object</Filter>
@@ -127,6 +130,12 @@
     </ClInclude>
     <ClInclude Include="src\NetworkManager.h">
       <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IETThread.h">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Debug.h">
+      <Filter>Utilitiy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

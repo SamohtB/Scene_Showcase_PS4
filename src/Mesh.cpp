@@ -20,11 +20,11 @@ void Mesh::compileVertexData(String meshFilePath)
     bool success = tinyobj::LoadObj(&attributes, &shapes, &materials, &error, &warning, meshFilePath.c_str());
 
     if (!success) {
-        Debug::LogError("Failed to load OBJ: " + error);
+        Debug::Log("Failed to load OBJ: " + error);
         return;
     }
     if (!warning.empty()) {
-        Debug::LogWarning("OBJ Warning: " + warning);
+        Debug::Log("OBJ Warning: " + warning);
     }
 
     std::vector<glm::vec3> tangents;

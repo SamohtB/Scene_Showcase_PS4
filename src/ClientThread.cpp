@@ -3,7 +3,6 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
-#include "ChatScreen.h"
 #include "Debug.h"
 #include "EventBroadcaster.h"
 #include "NetworkManager.h"
@@ -15,7 +14,7 @@ ClientThread::ClientThread()
 
 void ClientThread::clientStart()
 {
-	NetworkManager::getInstance()->clientState == NetworkManager::ClientState::ATTEMPTING_SERVER_CONNECT;
+	NetworkManager::getInstance()->clientState = NetworkManager::ClientState::ATTEMPTING_SERVER_CONNECT;
 	struct addrinfo* result = nullptr, * ptr = nullptr, hints;
 
 	ZeroMemory(&hints, sizeof(hints));
@@ -55,7 +54,7 @@ void ClientThread::clientStart()
 	{
 		Debug::Log("Unable to connect to server \n");
 		WSACleanup();
-		NetworkManager::getInstance()->clientState == NetworkManager::ClientState::CLIENT_INACTIVE;
+		NetworkManager::getInstance()->clientState = NetworkManager::ClientState::CLIENT_INACTIVE;
 		return;
 	}
 
