@@ -7,7 +7,8 @@ Game::Game()
 {
     initializeWindow();
 
-    this->mesh = new Mesh("Models/spot.obj");
+    this->model = new TestModel("Models/spot.obj", "Models/bricks2.jpg");
+    this->shader = new Shader("Shaders/Shader.vert", "Shaders/Shader.frag");
 }
 
 void Game::initializeWindow()
@@ -67,5 +68,5 @@ void Game::update(float deltaTime)
 
 void Game::render()
 {
-    this->mesh->draw();
+    this->model->draw(this->shader->GetShaderProgram());
 }

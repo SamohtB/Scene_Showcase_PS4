@@ -1,4 +1,4 @@
-#include "Mesh.h"
+ #include "Mesh.h"
 #define TINYOBJLOADER_IMPLEMENTATION
 #include "tiny_obj_loader.h"
 
@@ -39,8 +39,8 @@ void Mesh::compileVertexData(String meshFilePath)
             vertexData.push_back(attributes.vertices[vData.vertex_index * 3]);
             vertexData.push_back(attributes.vertices[vData.vertex_index * 3 + 1]);
             vertexData.push_back(attributes.vertices[vData.vertex_index * 3 + 2]);
-            vertexData.push_back(attributes.vertices[vData.texcoord_index * 2]);
-            vertexData.push_back(attributes.vertices[vData.texcoord_index * 2 + 1]);
+            vertexData.push_back(attributes.texcoords[vData.texcoord_index * 2]);
+            vertexData.push_back(attributes.texcoords[vData.texcoord_index * 2 + 1]);
         }
     }
 }

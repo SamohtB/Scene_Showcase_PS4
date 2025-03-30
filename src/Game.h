@@ -3,7 +3,8 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "Mesh.h"
+#include "TestModel.h"
+#include "Shader.h"
 
 class Game
 {
@@ -19,7 +20,7 @@ private:
 
 private:
 	GLFWwindow* gameWindow;
-	Mesh* mesh = nullptr;
-
+	TestModel* model = nullptr;
+	Shader* shader = nullptr;
 };
 

@@ -4,9 +4,6 @@
     <Filter Include="Core">
       <UniqueIdentifier>{0bd8d4d0-7254-4134-b6a1-74c29d1c369a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Abstract">
-      <UniqueIdentifier>{3073ca30-ec61-429c-a115-22d0ddae8148}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Dependencies">
       <UniqueIdentifier>{0df1df2a-9a68-4346-97a4-3b0f9c8a2b4d}</UniqueIdentifier>
     </Filter>
@@ -15,6 +12,9 @@
     </Filter>
     <Filter Include="Utilitiy">
       <UniqueIdentifier>{7ce02508-ca63-4709-ad4d-5c039bf1b987}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{3073ca30-ec61-429c-a115-22d0ddae8148}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,10 +31,19 @@
       <Filter>Dependencies\gRPC</Filter>
     </ClCompile>
     <ClCompile Include="src\Mesh.cpp">
-      <Filter>Abstract</Filter>
+      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="src\Debug.cpp">
       <Filter>Utilitiy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shader.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestModel.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -51,10 +60,23 @@
       <Filter>Dependencies\gRPC</Filter>
     </ClInclude>
     <ClInclude Include="src\Mesh.h">
-      <Filter>Abstract</Filter>
+      <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="src\Debug.h">
       <Filter>Utilitiy</Filter>
     </ClInclude>
+    <ClInclude Include="src\Shader.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TestModel.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="Shaders\Shader.vert" />
+    <CopyFileToFolders Include="Shaders\Shader.frag" />
   </ItemGroup>
 </Project>

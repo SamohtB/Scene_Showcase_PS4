@@ -6,13 +6,12 @@
 #include <string>
 #include <memory>
 
-using String = std::string;
-
 class Mesh 
 {
 public:
+    using String = std::string;
+
     Mesh(String meshFilePath);
-    
     ~Mesh();
 
     void draw();
