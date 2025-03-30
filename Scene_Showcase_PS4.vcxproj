@@ -19,26 +19,40 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\AUIScreen.cpp" />
+    <ClCompile Include="src\ClientThread.cpp" />
+    <ClCompile Include="src\ConsoleScreen.cpp" />
     <ClCompile Include="src\Mesh.cpp" />
     <ClCompile Include="src\Debug.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\LevelData.grpc.pb.cc" />
     <ClCompile Include="src\LevelData.pb.cc" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\NetworkManager.cpp" />
+    <ClCompile Include="src\ServerThread.cpp" />
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\TestModel.cpp" />
+    <ClCompile Include="src\UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\AUIScreen.h" />
+    <ClInclude Include="src\ClientThread.h" />
+    <ClInclude Include="src\ConsoleScreen.h" />
+    <ClInclude Include="src\EventBroadcaster.h" />
+    <ClInclude Include="src\EventNames.h" />
     <ClInclude Include="src\Mesh.h" />
     <ClInclude Include="src\config.h" />
     <ClInclude Include="src\Debug.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\LevelData.grpc.pb.h" />
     <ClInclude Include="src\LevelData.pb.h" />
+    <ClInclude Include="src\NetworkManager.h" />
+    <ClInclude Include="src\ServerThread.h" />
     <ClInclude Include="src\Shader.h" />
     <ClInclude Include="src\Texture.h" />
     <ClInclude Include="src\TestModel.h" />
+    <ClInclude Include="src\UIManager.h" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Shaders\Shader.frag">

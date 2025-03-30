@@ -1,45 +1,46 @@
 #include "Debug.h"
+#include <iostream>
+#include <sstream>
 
-bool Debug::timestampEnabled = true;
+Debug* Debug::sharedInstance = NULL;
 
-// ANSI color codes
-#define RESET   "\033[0m"
-#define YELLOW  "\033[33m"
-#define RED     "\033[31m"
-
-std::string Debug::GetTimestamp()
+void Debug::initialize()
 {
-    std::time_t now = std::time(nullptr);
-    struct tm dateTime;
-    localtime_s(&dateTime, &now);
-    char buffer[20];
-    std::strftime(buffer, sizeof(buffer), "[%H:%M:%S]", &dateTime);
-    return String(buffer);
+	sharedInstance = new Debug();
 }
 
-void Debug::Log(const String& message)
+void Debug::destroy()
 {
-    Print(message, "[LOG]", RESET);
+	delete sharedInstance;
 }
 
-void Debug::LogWarning(const String& message)
+void Debug::Log(String msg)
 {
-    Print(message, "[WARNING]", YELLOW);
+	if (sharedInstance->console != NULL) {
+		sharedInstance->console->appendText(msg);
+	}
+	else {
+		sharedInstance->pendingMessages.push_back(msg);
+	}
+
+	std::cout << msg;
 }
 
-void Debug::LogError(const String& message)
+void Debug::assignConsole(ConsoleScreen* console)
 {
-    Print(message, "[ERROR]", RED);
+	sharedInstance->console = console;
+	//print first pending messages
+	for (int i = 0; i < sharedInstance->pendingMessages.size(); i++) {
+		sharedInstance->console->appendText(sharedInstance->pendingMessages[i]);
+	}
+	sharedInstance->pendingMessages.clear();
 }
 
-void Debug::Print(const String& message, const String& prefix, const String& colorCode)
+Debug::Debug()
 {
-    std::ostringstream output;
+}
 
-    if (timestampEnabled)
-        output << GetTimestamp() << " ";
-
-    output << prefix << " " << message;
-
-    std::cout << colorCode << output.str() << RESET << std::endl;
+Debug::~Debug()
+{
+	this->console = NULL;
 }

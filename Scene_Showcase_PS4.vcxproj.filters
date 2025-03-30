@@ -16,6 +16,18 @@
     <Filter Include="Object">
       <UniqueIdentifier>{3073ca30-ec61-429c-a115-22d0ddae8148}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Abstract">
+      <UniqueIdentifier>{afee024b-b09a-4761-a4bb-954a70660299}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Threads">
+      <UniqueIdentifier>{742fd5cb-8b66-4457-b84d-5dcb0703eb90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\UI">
+      <UniqueIdentifier>{abb9f111-6f2c-491d-a15e-28984fe3a58d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Managers">
+      <UniqueIdentifier>{13b24f8c-7d86-4066-a027-8820452ba5db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -45,6 +57,24 @@
     <ClCompile Include="src\TestModel.cpp">
       <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="src\AUIScreen.cpp">
+      <Filter>Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ClientThread.cpp">
+      <Filter>Threads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ServerThread.cpp">
+      <Filter>Threads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ConsoleScreen.cpp">
+      <Filter>Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UIManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NetworkManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\config.h">
@@ -73,6 +103,30 @@
     </ClInclude>
     <ClInclude Include="src\TestModel.h">
       <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AUIScreen.h">
+      <Filter>Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ClientThread.h">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ServerThread.h">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ConsoleScreen.h">
+      <Filter>Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventBroadcaster.h">
+      <Filter>Utilitiy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventNames.h">
+      <Filter>Utilitiy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UIManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NetworkManager.h">
+      <Filter>Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

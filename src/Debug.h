@@ -1,22 +1,31 @@
-
-#include <iostream>
-#include <ctime>
-#include <sstream>
-
-using String = std::string;
+#pragma once
+#include <string>
+#include "ConsoleScreen.h"
+#include <vector>
 
 class Debug
 {
 public:
-    static void Log(const String& message);
-    static void LogWarning(const String& message);
-    static void LogError(const String& message);
+	typedef std::string String;
+	typedef std::vector<String> PendingList;
+
+	static void initialize();
+	static void destroy();
+	static void Log(String msg);
+	static void assignConsole(ConsoleScreen* console);
 
 private:
-    static bool timestampEnabled;
+	Debug();
+	~Debug();
+	Debug(Debug const&) {};             // copy constructor is private
+	Debug& operator=(Debug const&) {};  // assignment operator is private*/
 
-    static String GetTimestamp();
-    static void Print(const String& message, const String& prefix, const String& colorCode);
+	static Debug* sharedInstance;
+
+	ConsoleScreen* console;
+	PendingList pendingMessages;
+
+
+
 };
-
 
