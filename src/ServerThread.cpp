@@ -75,7 +75,7 @@ void ServerThread::serverStart()
 	}
 
 	//no longer needs a listening socket since only one client is allowed
-	closesocket(listenSocket);
+	//closesocket(listenSocket);
 
 	//Receive messages from client until it either both of them shuts down.
 	NetworkManager::getInstance()->serverState = NetworkManager::ServerState::CLIENTS_CONNECTED;
@@ -86,7 +86,8 @@ void ServerThread::serverStart()
 	// Receive until the peer shuts down the connection
 	do {
 		this->iResult = recv(clientSocket, recvbuf, recvbuflen, 0);
-		if (this->iResult > 0) {
+		if (this->iResult > 0) 
+		{
 			std::shared_ptr<Parameters> params = std::make_shared<Parameters>(EventNames::ON_RECEIVED_MSG);
 			params->encodeString(ParameterKeys::MSG_KEY, recvbuf);
 			params->encodeInt(ParameterKeys::SOURCE_KEY, 1);
@@ -114,7 +115,6 @@ void ServerThread::serverStart()
 			return;
 		}
 
-		// std::cout << "iResult: " << this->iResult << "\n" << std::endl;
 	} while (iResult > 0);
 
 }

@@ -10,7 +10,7 @@ class Game
 {
 public:
 	Game();
-	void initializeWindow();
+	~Game();
 	void run();
 
 private:
@@ -18,6 +18,7 @@ private:
 	void update(float deltaTime);
 	void render();
 
+	void initializeWindow();
 private:
 	GLFWwindow* gameWindow;
 	TestModel* model = nullptr;

@@ -1,7 +1,16 @@
 #include "Game.h"
 
 #include <stdlib.h>
+
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
+
 #include "config.h"
+#include "Debug.h"
+#include "EventBroadcaster.h"
+#include "NetworkManager.h"
+#include "UIManager.h"
 
 Game::Game()
 {
@@ -9,10 +18,29 @@ Game::Game()
 
     this->model = new TestModel("Models/spot.obj", "Models/bricks2.jpg");
     this->shader = new Shader("Shaders/Shader.vert", "Shaders/Shader.frag");
+
+    EventBroadcaster::initialize();
+    Debug::initialize();
+    NetworkManager::initialize();
+    UIManager::initialize(this->gameWindow);
+
+    NetworkManager::getInstance()->setThreadingEnabled(true);
+    NetworkManager::getInstance()->clientStart();
+}
+
+Game::~Game()
+{
+    UIManager::destroy();
+    NetworkManager::destroy();
+    Debug::destroy();
+    EventBroadcaster::destroy();
 }
 
 void Game::initializeWindow()
 {
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+
     if (!glfwInit())
     {
         exit(-1);
@@ -23,6 +51,7 @@ void Game::initializeWindow()
     if (!gameWindow)
     {
         glfwTerminate();
+        glfwSwapInterval(1);
         exit(-1);
     }
 
@@ -55,6 +84,7 @@ void Game::run()
         glfwPollEvents();
     }
 
+    glfwDestroyWindow(this->gameWindow);
     glfwTerminate();
 }
 
@@ -68,5 +98,6 @@ void Game::update(float deltaTime)
 
 void Game::render()
 {
+    UIManager::getInstance()->drawAllUI();
     this->model->draw(this->shader->GetShaderProgram());
 }

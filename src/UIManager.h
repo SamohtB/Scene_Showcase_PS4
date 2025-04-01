@@ -4,7 +4,7 @@
 #include <string>
 #include <unordered_map>
 #include "AUIScreen.h"
-
+#include <GLFW/glfw3.h>	
 
 class UINames {
 public:
@@ -22,7 +22,7 @@ public:
 	typedef std::unordered_map<String, AUIScreen*> UITable;
 
 	static UIManager* getInstance();
-	static void initialize();
+	static void initialize(GLFWwindow* gameWindow);
 	static void destroy();
 
 	void drawAllUI();
@@ -31,7 +31,7 @@ public:
 	static const int WINDOW_HEIGHT = 720;
 
 private:
-	UIManager();
+	UIManager(GLFWwindow* gameWindow);
 	~UIManager();
 	UIManager(UIManager const&) {};             // copy constructor is private
 	UIManager& operator=(UIManager const&) {};  // assignment operator is private*/

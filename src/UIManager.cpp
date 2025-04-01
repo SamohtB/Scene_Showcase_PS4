@@ -12,9 +12,9 @@ UIManager* UIManager::getInstance()
     return sharedInstance;
 }
 
-void UIManager::initialize()
+void UIManager::initialize(GLFWwindow* gameWindow)
 {
-    sharedInstance = new UIManager();
+    sharedInstance = new UIManager(gameWindow);
 }
 
 void UIManager::destroy()
@@ -24,13 +24,34 @@ void UIManager::destroy()
 
 void UIManager::drawAllUI()
 {
-	for (int i = 0; i < this->uiList.size(); i++) {
+	ImGui_ImplOpenGL3_NewFrame();
+	ImGui_ImplGlfw_NewFrame();
+	ImGui::NewFrame();
+
+	for (int i = 0; i < this->uiList.size(); i++) 
+	{
 		this->uiList[i]->drawUI();
 	}
+
+	ImGui::Render();
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
 
-UIManager::UIManager()
+UIManager::UIManager(GLFWwindow* gameWindow)
 {
+	const char* glsl_version = "#version 130";
+	// Setup Dear ImGui context
+	IMGUI_CHECKVERSION();
+	ImGui::CreateContext();
+	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+	io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
+
+	ImGui::StyleColorsDark();
+
+	ImGui_ImplGlfw_InitForOpenGL(gameWindow, true);
+	ImGui_ImplOpenGL3_Init(glsl_version);
+
 	//populate UI table
 	UINames uiNames;
 	ConsoleScreen* consoleScreen = new ConsoleScreen();
@@ -41,4 +62,7 @@ UIManager::UIManager()
 
 UIManager::~UIManager()
 {
+	ImGui_ImplOpenGL3_Shutdown();
+	ImGui_ImplGlfw_Shutdown();
+	ImGui::DestroyContext();
 }

@@ -9,10 +9,6 @@
 class NetworkManager
 {
 public:
-	// static constexpr std::string DEFAULT_IP_ADDRESS = "192.168.1.134";
-	// static constexpr std::string DEFAULT_PORT = "8088";
-	// static constexpr int DEFAULT_BUFFER_LEN = 512;
-
 	static NetworkManager* getInstance();
 	static void initialize();
 	static void destroy();

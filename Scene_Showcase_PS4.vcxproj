@@ -19,12 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ServerMain.cpp" />
+    <ClCompile Include="src\LevelDataClient.cpp" />
     <ClCompile Include="src\AUIScreen.cpp" />
     <ClCompile Include="src\ClientThread.cpp" />
     <ClCompile Include="src\ConsoleScreen.cpp" />
     <ClCompile Include="src\Debug.cpp" />
     <ClCompile Include="src\EventBroadcaster.cpp" />
     <ClCompile Include="src\IETThread.cpp" />
+    <ClCompile Include="src\LevelDataServer.cpp" />
     <ClCompile Include="src\Mesh.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\LevelData.grpc.pb.cc" />
@@ -38,6 +41,8 @@
     <ClCompile Include="src\UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ServerMain.h" />
+    <ClInclude Include="src\LevelDataClient.h" />
     <ClInclude Include="src\AUIScreen.h" />
     <ClInclude Include="src\ClientThread.h" />
     <ClInclude Include="src\ConsoleScreen.h" />
@@ -45,6 +50,7 @@
     <ClInclude Include="src\EventBroadcaster.h" />
     <ClInclude Include="src\EventNames.h" />
     <ClInclude Include="src\IETThread.h" />
+    <ClInclude Include="src\LevelDataServer.h" />
     <ClInclude Include="src\Mesh.h" />
     <ClInclude Include="src\config.h" />
     <ClInclude Include="src\Game.h" />

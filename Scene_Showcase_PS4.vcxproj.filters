@@ -81,6 +81,15 @@
     <ClCompile Include="src\EventBroadcaster.cpp">
       <Filter>Utilitiy</Filter>
     </ClCompile>
+    <ClCompile Include="src\LevelDataServer.cpp">
+      <Filter>Threads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LevelDataClient.cpp">
+      <Filter>Threads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ServerMain.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\config.h">
@@ -136,6 +145,15 @@
     </ClInclude>
     <ClInclude Include="src\Debug.h">
       <Filter>Utilitiy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LevelDataServer.h">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LevelDataClient.h">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ServerMain.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
