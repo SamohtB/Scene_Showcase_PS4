@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Model.cpp" />
+    <ClCompile Include="src\AGameObject.cpp" />
+    <ClCompile Include="src\GameObjectManager.cpp" />
     <ClCompile Include="src\ServerMain.cpp" />
     <ClCompile Include="src\LevelDataClient.cpp" />
     <ClCompile Include="src\AUIScreen.cpp" />
@@ -39,8 +42,12 @@
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\TestModel.cpp" />
     <ClCompile Include="src\UIManager.cpp" />
+    <ClCompile Include="src\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Model.h" />
+    <ClInclude Include="src\AGameObject.h" />
+    <ClInclude Include="src\GameObjectManager.h" />
     <ClInclude Include="src\ServerMain.h" />
     <ClInclude Include="src\LevelDataClient.h" />
     <ClInclude Include="src\AUIScreen.h" />
@@ -62,6 +69,7 @@
     <ClInclude Include="src\Texture.h" />
     <ClInclude Include="src\TestModel.h" />
     <ClInclude Include="src\UIManager.h" />
+    <ClInclude Include="src\Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Shaders\Shader.frag">

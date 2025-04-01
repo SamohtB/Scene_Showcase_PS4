@@ -90,6 +90,18 @@
     <ClCompile Include="src\ServerMain.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameObjectManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AGameObject.cpp">
+      <Filter>Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Transform.cpp">
+      <Filter>Utilitiy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Model.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\config.h">
@@ -154,6 +166,18 @@
     </ClInclude>
     <ClInclude Include="src\ServerMain.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObjectManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AGameObject.h">
+      <Filter>Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Transform.h">
+      <Filter>Utilitiy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Model.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

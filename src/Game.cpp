@@ -8,30 +8,34 @@
 
 #include "config.h"
 #include "Debug.h"
+
+#include "GameObjectManager.h"
 #include "EventBroadcaster.h"
 #include "NetworkManager.h"
 #include "UIManager.h"
+
+#include "Model.h"
 
 Game::Game()
 {
     initializeWindow();
 
-    this->model = new TestModel("Models/spot.obj", "Models/bricks2.jpg");
+    std::shared_ptr<Model> model = std::make_shared<Model>("Test Model 1", "Models/spot.obj", "Models/bricks2.jpg");
     this->shader = new Shader("Shaders/Shader.vert", "Shaders/Shader.frag");
 
     EventBroadcaster::initialize();
     Debug::initialize();
-    NetworkManager::initialize();
     UIManager::initialize(this->gameWindow);
+    GameObjectManager::initialize();
 
-    NetworkManager::getInstance()->setThreadingEnabled(true);
-    NetworkManager::getInstance()->clientStart();
+
+    GameObjectManager::getInstance()->addGameObject(0, model);
 }
 
 Game::~Game()
 {
+    GameObjectManager::destroy();
     UIManager::destroy();
-    NetworkManager::destroy();
     Debug::destroy();
     EventBroadcaster::destroy();
 }
@@ -74,6 +78,7 @@ void Game::run()
     while (!glfwWindowShouldClose(gameWindow))
     {
         this->processInput();
+        this->update(0.0f);
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -94,10 +99,11 @@ void Game::processInput()
 
 void Game::update(float deltaTime)
 {
+    GameObjectManager::getInstance()->update(0.0166666f);
 }
 
 void Game::render()
 {
     UIManager::getInstance()->drawAllUI();
-    this->model->draw(this->shader->GetShaderProgram());
+    GameObjectManager::getInstance()->render(this->shader->GetShaderProgram());
 }
