@@ -82,6 +82,11 @@ void GameObjectManager::clearAllObjects()
     sceneTable.clear();
 }
 
+GameObjectManager::ObjectList GameObjectManager::getScene(int sceneId)
+{
+    return this->sceneTable[sceneId];
+}
+
 void GameObjectManager::processInput()
 {
 }

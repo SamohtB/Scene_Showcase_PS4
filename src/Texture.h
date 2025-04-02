@@ -8,11 +8,16 @@ class Texture
 {
 public:
 	using String = std::string;
-	Texture(String textureFilePath);
+	Texture(String textureFilePath, int id);
 	~Texture();
 
 	GLuint getTexture();
+	int getId();
+	std::string getName();
+	const GLuint& getTextureData();
 
-protected:
+private:
 	GLuint texture;
+	int id = 0;
+	String name;
 };

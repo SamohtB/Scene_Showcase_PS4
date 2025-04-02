@@ -1,7 +1,9 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "Texture.h"
 
-Texture::Texture(String textureFilePath)
+#include <filesystem>
+
+Texture::Texture(String textureFilePath, int id) : id(id)
 {
     stbi_set_flip_vertically_on_load(true);
     int img_width, img_height, colorChannels;
@@ -31,6 +33,8 @@ Texture::Texture(String textureFilePath)
     glGenerateMipmap(GL_TEXTURE_2D);
 
     stbi_image_free(tex_bytes);
+
+    name = std::filesystem::path(textureFilePath).stem().string();
 }
 
 Texture::~Texture()
@@ -39,6 +43,21 @@ Texture::~Texture()
 }
 
 GLuint Texture::getTexture()
+{
+    return this->texture;
+}
+
+int Texture::getId()
+{
+    return this->id;
+}
+
+std::string Texture::getName()
+{
+    return this->name;
+}
+
+const GLuint& Texture::getTextureData()
 {
     return this->texture;
 }

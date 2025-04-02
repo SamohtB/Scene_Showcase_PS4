@@ -30,6 +30,8 @@ public:
     void deleteObjectByName(const int& sceneId, String name);
     void clearAllObjects();
 
+    ObjectList getScene(int sceneId);
+
     void processInput();
     void update(float deltaTime);
     void render(GLuint shaderProgram);

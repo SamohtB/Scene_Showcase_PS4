@@ -21,17 +21,11 @@ public:
     virtual void update(float deltaTime) = 0;
     virtual void draw(GLuint shaderProgram) = 0;
 
-    String getName();
+    std::string getName();
     void setName(String name);
-    TexturePtr getTexture();
-    void setTexture(TexturePtr texture);
-    MeshPtr getMesh();
-    void setMesh(MeshPtr mesh);
 
 protected:
     String name;
-    TexturePtr texture;
-    MeshPtr mesh;
 
 private:
     friend class GameObjectManager;

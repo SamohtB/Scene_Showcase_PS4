@@ -56,4 +56,19 @@ void Model::draw(GLuint shaderProgram)
 	this->mesh->draw();
 }
 
+Transform* Model::getTransform()
+{
+	return this->transform.get();
+}
+
+Mesh* Model::getMesh()
+{
+	return this->mesh.get();
+}
+
+Texture* Model::getTexture()
+{
+	return this->texture.get();
+}
+
 

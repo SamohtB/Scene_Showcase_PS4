@@ -19,8 +19,6 @@
 Game::Game()
 {
     initializeWindow();
-
-    std::shared_ptr<Model> model = std::make_shared<Model>("Test Model 1", "Models/spot.obj", "Models/bricks2.jpg");
     this->shader = new Shader("Shaders/Shader.vert", "Shaders/Shader.frag");
 
     EventBroadcaster::initialize();
@@ -29,7 +27,18 @@ Game::Game()
     GameObjectManager::initialize();
 
 
+    std::shared_ptr<Model> model = std::make_shared<Model>("Test Model 1", "Models/spot.obj", "Models/bricks2.jpg");
+    model.get()->getTransform()->move(-5.0f, 0.0f, -5.0f);
     GameObjectManager::getInstance()->addGameObject(0, model);
+
+    model = std::make_shared<Model>("Test Model 2", "Models/spot.obj", "Models/Wall.jpg");
+    model.get()->getTransform()->move(0.0f, 0.0f, -5.0f);
+    GameObjectManager::getInstance()->addGameObject(0, model);
+
+    model = std::make_shared<Model>("Test Model 3", "Models/spot.obj", "Models/Circuit.jpg");
+    model.get()->getTransform()->move(5.0f, 0.0f, -5.0f);
+    GameObjectManager::getInstance()->addGameObject(0, model);
+    
 }
 
 Game::~Game()

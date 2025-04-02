@@ -2,12 +2,15 @@
 #define TINYOBJLOADER_IMPLEMENTATION
 #include "tiny_obj_loader.h"
 
+#include <filesystem>
 #include "Debug.h"
 
-Mesh::Mesh(String meshFilePath)
+Mesh::Mesh(String meshFilePath, int id) : id(id)
 {
     compileVertexData(meshFilePath);
     setupMesh();
+
+    name = std::filesystem::path(meshFilePath).stem().string();
 }
 
 void Mesh::compileVertexData(String meshFilePath)
@@ -87,4 +90,19 @@ void Mesh::draw()
     glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(vertexData.size() / 5));
     glBindVertexArray(0);
+}
+
+int Mesh::getId()
+{
+    return this->id;
+}
+
+std::string Mesh::getName()
+{
+    return this->name;
+}
+
+const std::vector<GLfloat>& Mesh::getVertexData()
+{
+    return this->vertexData;
 }

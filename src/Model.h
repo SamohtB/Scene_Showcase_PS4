@@ -19,6 +19,10 @@ public:
 
 	void draw(GLuint shaderProgram);
 
+	Transform* getTransform();
+	Mesh* getMesh();
+	Texture* getTexture();
+
 private:
 	std::shared_ptr<Mesh> mesh;
 	std::shared_ptr<Texture> texture;
