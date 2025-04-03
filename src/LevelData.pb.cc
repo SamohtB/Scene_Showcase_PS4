@@ -699,20 +699,20 @@ const char descriptor_table_protodef_LevelData_2eproto[] ABSL_ATTRIBUTE_SECTION_
     " \001(\0132\005.Vec3\022\024\n\005scale\030\004 \001(\0132\005.Vec3\022\025\n\rmes"
     "hReference\030\005 \001(\005\022\030\n\020textureReference\030\006 \001"
     "(\005\"\'\n\004Vec3\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 "
-    "\001(\0022\234\002\n\020SceneDataService\022+\n\014GetLevelData"
+    "\001(\0022\235\002\n\020SceneDataService\022+\n\014GetLevelData"
     "\022\r.LevelRequest\032\n.LevelData\"\000\022+\n\013GetMesh"
-    "Data\022\014.MeshRequest\032\n.MeshTable\"\0000\001\0223\n\016Ge"
-    "tTextureData\022\017.TextureRequest\032\014.TextureD"
-    "ata\"\0000\001\0227\n\020GetMeshDataChunk\022\021.MeshChunkR"
-    "equest\032\016.MeshDataChunk\"\000\022@\n\023GetTextureDa"
-    "taChunk\022\024.TextureChunkRequest\032\021.TextureD"
-    "ataChunk\"\000b\006proto3"
+    "Data\022\014.MeshRequest\032\n.MeshTable\"\0000\001\0224\n\016Ge"
+    "tTextureData\022\017.TextureRequest\032\r.TextureT"
+    "able\"\0000\001\0227\n\020GetMeshDataChunk\022\021.MeshChunk"
+    "Request\032\016.MeshDataChunk\"\000\022@\n\023GetTextureD"
+    "ataChunk\022\024.TextureChunkRequest\032\021.Texture"
+    "DataChunk\"\000b\006proto3"
 };
 static ::absl::once_flag descriptor_table_LevelData_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_LevelData_2eproto = {
     false,
     false,
-    1458,
+    1459,
     descriptor_table_protodef_LevelData_2eproto,
     "LevelData.proto",
     &descriptor_table_LevelData_2eproto_once,

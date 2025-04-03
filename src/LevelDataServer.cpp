@@ -142,14 +142,8 @@ grpc::Status LevelDataServer::GetTextureData(grpc::ServerContext* context, const
 		auto texture = pair.second;
 
 		std::vector<unsigned char> textureData = texture->getTextureData();
-		int width, height, channels = 3; /* current textures are jpg */
 
-		glBindTexture(GL_TEXTURE_2D, textureId);
-		glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &width);
-		glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &height);
-		glBindTexture(GL_TEXTURE_2D, 0);
-
-		size_t totalSize = width * height * channels;
+		size_t totalSize =  texture->getSize();
 
 		if (totalSize != textureData.size()) 
 		{
@@ -176,8 +170,8 @@ grpc::Status LevelDataServer::GetTextureData(grpc::ServerContext* context, const
 			textureChunk->set_chunknumber(chunkNumber);
 			textureChunk->set_maxchunknumber(totalChunks - 1);
 			textureChunk->set_islastchunk(chunkNumber == totalChunks - 1);
-			textureChunk->set_width(width);
-			textureChunk->set_height(height);
+			textureChunk->set_width(texture->getWidth());
+			textureChunk->set_height(texture->getHeight());
 		}
 
 		if (!writer->Write(textureTable))

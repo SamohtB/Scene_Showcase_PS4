@@ -81,20 +81,20 @@ void SceneDataService::Stub::async::GetMeshData(::grpc::ClientContext* context, 
   return ::grpc::internal::ClientAsyncReaderFactory< ::MeshTable>::Create(channel_.get(), cq, rpcmethod_GetMeshData_, context, request, false, nullptr);
 }
 
-::grpc::ClientReader< ::TextureData>* SceneDataService::Stub::GetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request) {
-  return ::grpc::internal::ClientReaderFactory< ::TextureData>::Create(channel_.get(), rpcmethod_GetTextureData_, context, request);
+::grpc::ClientReader< ::TextureTable>* SceneDataService::Stub::GetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request) {
+  return ::grpc::internal::ClientReaderFactory< ::TextureTable>::Create(channel_.get(), rpcmethod_GetTextureData_, context, request);
 }
 
-void SceneDataService::Stub::async::GetTextureData(::grpc::ClientContext* context, const ::TextureRequest* request, ::grpc::ClientReadReactor< ::TextureData>* reactor) {
-  ::grpc::internal::ClientCallbackReaderFactory< ::TextureData>::Create(stub_->channel_.get(), stub_->rpcmethod_GetTextureData_, context, request, reactor);
+void SceneDataService::Stub::async::GetTextureData(::grpc::ClientContext* context, const ::TextureRequest* request, ::grpc::ClientReadReactor< ::TextureTable>* reactor) {
+  ::grpc::internal::ClientCallbackReaderFactory< ::TextureTable>::Create(stub_->channel_.get(), stub_->rpcmethod_GetTextureData_, context, request, reactor);
 }
 
-::grpc::ClientAsyncReader< ::TextureData>* SceneDataService::Stub::AsyncGetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::TextureData>::Create(channel_.get(), cq, rpcmethod_GetTextureData_, context, request, true, tag);
+::grpc::ClientAsyncReader< ::TextureTable>* SceneDataService::Stub::AsyncGetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::TextureTable>::Create(channel_.get(), cq, rpcmethod_GetTextureData_, context, request, true, tag);
 }
 
-::grpc::ClientAsyncReader< ::TextureData>* SceneDataService::Stub::PrepareAsyncGetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::TextureData>::Create(channel_.get(), cq, rpcmethod_GetTextureData_, context, request, false, nullptr);
+::grpc::ClientAsyncReader< ::TextureTable>* SceneDataService::Stub::PrepareAsyncGetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::TextureTable>::Create(channel_.get(), cq, rpcmethod_GetTextureData_, context, request, false, nullptr);
 }
 
 ::grpc::Status SceneDataService::Stub::GetMeshDataChunk(::grpc::ClientContext* context, const ::MeshChunkRequest& request, ::MeshDataChunk* response) {
@@ -167,11 +167,11 @@ SceneDataService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SceneDataService_method_names[2],
       ::grpc::internal::RpcMethod::SERVER_STREAMING,
-      new ::grpc::internal::ServerStreamingHandler< SceneDataService::Service, ::TextureRequest, ::TextureData>(
+      new ::grpc::internal::ServerStreamingHandler< SceneDataService::Service, ::TextureRequest, ::TextureTable>(
           [](SceneDataService::Service* service,
              ::grpc::ServerContext* ctx,
              const ::TextureRequest* req,
-             ::grpc::ServerWriter<::TextureData>* writer) {
+             ::grpc::ServerWriter<::TextureTable>* writer) {
                return service->GetTextureData(ctx, req, writer);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
@@ -213,7 +213,7 @@ SceneDataService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status SceneDataService::Service::GetTextureData(::grpc::ServerContext* context, const ::TextureRequest* request, ::grpc::ServerWriter< ::TextureData>* writer) {
+::grpc::Status SceneDataService::Service::GetTextureData(::grpc::ServerContext* context, const ::TextureRequest* request, ::grpc::ServerWriter< ::TextureTable>* writer) {
   (void) context;
   (void) request;
   (void) writer;

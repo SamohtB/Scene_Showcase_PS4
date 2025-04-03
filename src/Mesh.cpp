@@ -14,6 +14,11 @@ Mesh::Mesh(String meshFilePath, int id, bool isRendered = true) : id(id), isRend
     name = std::filesystem::path(meshFilePath).stem().string();
 }
 
+Mesh::Mesh(const std::vector<GLfloat>& vertexData, int id, bool isRendered) : id(id), isRendered(isRendered), vertexData(vertexData)
+{
+    setupMesh();
+}
+
 void Mesh::compileVertexData(String meshFilePath)
 {
     tinyobj::attrib_t attributes;

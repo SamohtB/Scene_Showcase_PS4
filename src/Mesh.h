@@ -12,6 +12,7 @@ public:
     using String = std::string;
 
     Mesh(String meshFilePath, int id, bool isRendered);
+    Mesh(const std::vector<GLfloat>& vertexData, int id, bool isRendered);
     ~Mesh();
 
     void draw();

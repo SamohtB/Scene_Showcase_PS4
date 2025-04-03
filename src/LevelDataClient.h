@@ -17,6 +17,7 @@ public:
 	TextureDataChunk GetTextureDataChunk(int32_t levelId, std::string textureName, int32_t chunkId);
 
 	static void runClient();
+	static void requestLevel(int levelId);
 
 private:
 	std::unique_ptr<SceneDataService::Stub> stub_;

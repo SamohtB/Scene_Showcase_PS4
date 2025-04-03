@@ -4,7 +4,7 @@ service SceneDataService
 {
 	rpc GetLevelData(LevelRequest) returns (LevelData) {}
 	rpc GetMeshData(MeshRequest) returns (stream MeshTable) {}
-	rpc GetTextureData(TextureRequest) returns (stream TextureData) {}
+	rpc GetTextureData(TextureRequest) returns (stream TextureTable) {}
 	rpc GetMeshDataChunk(MeshChunkRequest) returns (MeshDataChunk) {}
 	rpc GetTextureDataChunk(TextureChunkRequest) returns (TextureDataChunk) {}
 }

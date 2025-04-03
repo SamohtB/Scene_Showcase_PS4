@@ -1,7 +1,7 @@
 #include "Game.h"
 #include "ServerMain.h"
 
-bool isServer = true;
+bool isServer = false;
 
 int main()
 {

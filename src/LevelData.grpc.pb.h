@@ -50,14 +50,14 @@ class SceneDataService final {
     std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::MeshTable>> PrepareAsyncGetMeshData(::grpc::ClientContext* context, const ::MeshRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::MeshTable>>(PrepareAsyncGetMeshDataRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientReaderInterface< ::TextureData>> GetTextureData(::grpc::ClientContext* context, const ::TextureRequest& request) {
-      return std::unique_ptr< ::grpc::ClientReaderInterface< ::TextureData>>(GetTextureDataRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::TextureTable>> GetTextureData(::grpc::ClientContext* context, const ::TextureRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::TextureTable>>(GetTextureDataRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::TextureData>> AsyncGetTextureData(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::TextureData>>(AsyncGetTextureDataRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::TextureTable>> AsyncGetTextureData(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::TextureTable>>(AsyncGetTextureDataRaw(context, request, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::TextureData>> PrepareAsyncGetTextureData(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::TextureData>>(PrepareAsyncGetTextureDataRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::TextureTable>> PrepareAsyncGetTextureData(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::TextureTable>>(PrepareAsyncGetTextureDataRaw(context, request, cq));
     }
     virtual ::grpc::Status GetMeshDataChunk(::grpc::ClientContext* context, const ::MeshChunkRequest& request, ::MeshDataChunk* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::MeshDataChunk>> AsyncGetMeshDataChunk(::grpc::ClientContext* context, const ::MeshChunkRequest& request, ::grpc::CompletionQueue* cq) {
@@ -79,7 +79,7 @@ class SceneDataService final {
       virtual void GetLevelData(::grpc::ClientContext* context, const ::LevelRequest* request, ::LevelData* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetLevelData(::grpc::ClientContext* context, const ::LevelRequest* request, ::LevelData* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void GetMeshData(::grpc::ClientContext* context, const ::MeshRequest* request, ::grpc::ClientReadReactor< ::MeshTable>* reactor) = 0;
-      virtual void GetTextureData(::grpc::ClientContext* context, const ::TextureRequest* request, ::grpc::ClientReadReactor< ::TextureData>* reactor) = 0;
+      virtual void GetTextureData(::grpc::ClientContext* context, const ::TextureRequest* request, ::grpc::ClientReadReactor< ::TextureTable>* reactor) = 0;
       virtual void GetMeshDataChunk(::grpc::ClientContext* context, const ::MeshChunkRequest* request, ::MeshDataChunk* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetMeshDataChunk(::grpc::ClientContext* context, const ::MeshChunkRequest* request, ::MeshDataChunk* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void GetTextureDataChunk(::grpc::ClientContext* context, const ::TextureChunkRequest* request, ::TextureDataChunk* response, std::function<void(::grpc::Status)>) = 0;
@@ -94,9 +94,9 @@ class SceneDataService final {
     virtual ::grpc::ClientReaderInterface< ::MeshTable>* GetMeshDataRaw(::grpc::ClientContext* context, const ::MeshRequest& request) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::MeshTable>* AsyncGetMeshDataRaw(::grpc::ClientContext* context, const ::MeshRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::MeshTable>* PrepareAsyncGetMeshDataRaw(::grpc::ClientContext* context, const ::MeshRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientReaderInterface< ::TextureData>* GetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::TextureData>* AsyncGetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::TextureData>* PrepareAsyncGetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::TextureTable>* GetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::TextureTable>* AsyncGetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::TextureTable>* PrepareAsyncGetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::MeshDataChunk>* AsyncGetMeshDataChunkRaw(::grpc::ClientContext* context, const ::MeshChunkRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::MeshDataChunk>* PrepareAsyncGetMeshDataChunkRaw(::grpc::ClientContext* context, const ::MeshChunkRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::TextureDataChunk>* AsyncGetTextureDataChunkRaw(::grpc::ClientContext* context, const ::TextureChunkRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -121,14 +121,14 @@ class SceneDataService final {
     std::unique_ptr< ::grpc::ClientAsyncReader< ::MeshTable>> PrepareAsyncGetMeshData(::grpc::ClientContext* context, const ::MeshRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReader< ::MeshTable>>(PrepareAsyncGetMeshDataRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientReader< ::TextureData>> GetTextureData(::grpc::ClientContext* context, const ::TextureRequest& request) {
-      return std::unique_ptr< ::grpc::ClientReader< ::TextureData>>(GetTextureDataRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReader< ::TextureTable>> GetTextureData(::grpc::ClientContext* context, const ::TextureRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::TextureTable>>(GetTextureDataRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::TextureData>> AsyncGetTextureData(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::TextureData>>(AsyncGetTextureDataRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::TextureTable>> AsyncGetTextureData(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::TextureTable>>(AsyncGetTextureDataRaw(context, request, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::TextureData>> PrepareAsyncGetTextureData(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::TextureData>>(PrepareAsyncGetTextureDataRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::TextureTable>> PrepareAsyncGetTextureData(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::TextureTable>>(PrepareAsyncGetTextureDataRaw(context, request, cq));
     }
     ::grpc::Status GetMeshDataChunk(::grpc::ClientContext* context, const ::MeshChunkRequest& request, ::MeshDataChunk* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::MeshDataChunk>> AsyncGetMeshDataChunk(::grpc::ClientContext* context, const ::MeshChunkRequest& request, ::grpc::CompletionQueue* cq) {
@@ -150,7 +150,7 @@ class SceneDataService final {
       void GetLevelData(::grpc::ClientContext* context, const ::LevelRequest* request, ::LevelData* response, std::function<void(::grpc::Status)>) override;
       void GetLevelData(::grpc::ClientContext* context, const ::LevelRequest* request, ::LevelData* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetMeshData(::grpc::ClientContext* context, const ::MeshRequest* request, ::grpc::ClientReadReactor< ::MeshTable>* reactor) override;
-      void GetTextureData(::grpc::ClientContext* context, const ::TextureRequest* request, ::grpc::ClientReadReactor< ::TextureData>* reactor) override;
+      void GetTextureData(::grpc::ClientContext* context, const ::TextureRequest* request, ::grpc::ClientReadReactor< ::TextureTable>* reactor) override;
       void GetMeshDataChunk(::grpc::ClientContext* context, const ::MeshChunkRequest* request, ::MeshDataChunk* response, std::function<void(::grpc::Status)>) override;
       void GetMeshDataChunk(::grpc::ClientContext* context, const ::MeshChunkRequest* request, ::MeshDataChunk* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetTextureDataChunk(::grpc::ClientContext* context, const ::TextureChunkRequest* request, ::TextureDataChunk* response, std::function<void(::grpc::Status)>) override;
@@ -171,9 +171,9 @@ class SceneDataService final {
     ::grpc::ClientReader< ::MeshTable>* GetMeshDataRaw(::grpc::ClientContext* context, const ::MeshRequest& request) override;
     ::grpc::ClientAsyncReader< ::MeshTable>* AsyncGetMeshDataRaw(::grpc::ClientContext* context, const ::MeshRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReader< ::MeshTable>* PrepareAsyncGetMeshDataRaw(::grpc::ClientContext* context, const ::MeshRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientReader< ::TextureData>* GetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request) override;
-    ::grpc::ClientAsyncReader< ::TextureData>* AsyncGetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncReader< ::TextureData>* PrepareAsyncGetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReader< ::TextureTable>* GetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request) override;
+    ::grpc::ClientAsyncReader< ::TextureTable>* AsyncGetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReader< ::TextureTable>* PrepareAsyncGetTextureDataRaw(::grpc::ClientContext* context, const ::TextureRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::MeshDataChunk>* AsyncGetMeshDataChunkRaw(::grpc::ClientContext* context, const ::MeshChunkRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::MeshDataChunk>* PrepareAsyncGetMeshDataChunkRaw(::grpc::ClientContext* context, const ::MeshChunkRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::TextureDataChunk>* AsyncGetTextureDataChunkRaw(::grpc::ClientContext* context, const ::TextureChunkRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -192,7 +192,7 @@ class SceneDataService final {
     virtual ~Service();
     virtual ::grpc::Status GetLevelData(::grpc::ServerContext* context, const ::LevelRequest* request, ::LevelData* response);
     virtual ::grpc::Status GetMeshData(::grpc::ServerContext* context, const ::MeshRequest* request, ::grpc::ServerWriter< ::MeshTable>* writer);
-    virtual ::grpc::Status GetTextureData(::grpc::ServerContext* context, const ::TextureRequest* request, ::grpc::ServerWriter< ::TextureData>* writer);
+    virtual ::grpc::Status GetTextureData(::grpc::ServerContext* context, const ::TextureRequest* request, ::grpc::ServerWriter< ::TextureTable>* writer);
     virtual ::grpc::Status GetMeshDataChunk(::grpc::ServerContext* context, const ::MeshChunkRequest* request, ::MeshDataChunk* response);
     virtual ::grpc::Status GetTextureDataChunk(::grpc::ServerContext* context, const ::TextureChunkRequest* request, ::TextureDataChunk* response);
   };
@@ -248,11 +248,11 @@ class SceneDataService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetTextureData(::grpc::ServerContext* /*context*/, const ::TextureRequest* /*request*/, ::grpc::ServerWriter< ::TextureData>* /*writer*/) override {
+    ::grpc::Status GetTextureData(::grpc::ServerContext* /*context*/, const ::TextureRequest* /*request*/, ::grpc::ServerWriter< ::TextureTable>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetTextureData(::grpc::ServerContext* context, ::TextureRequest* request, ::grpc::ServerAsyncWriter< ::TextureData>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetTextureData(::grpc::ServerContext* context, ::TextureRequest* request, ::grpc::ServerAsyncWriter< ::TextureTable>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncServerStreaming(2, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
@@ -353,7 +353,7 @@ class SceneDataService final {
    public:
     WithCallbackMethod_GetTextureData() {
       ::grpc::Service::MarkMethodCallback(2,
-          new ::grpc::internal::CallbackServerStreamingHandler< ::TextureRequest, ::TextureData>(
+          new ::grpc::internal::CallbackServerStreamingHandler< ::TextureRequest, ::TextureTable>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::TextureRequest* request) { return this->GetTextureData(context, request); }));
     }
@@ -361,11 +361,11 @@ class SceneDataService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetTextureData(::grpc::ServerContext* /*context*/, const ::TextureRequest* /*request*/, ::grpc::ServerWriter< ::TextureData>* /*writer*/) override {
+    ::grpc::Status GetTextureData(::grpc::ServerContext* /*context*/, const ::TextureRequest* /*request*/, ::grpc::ServerWriter< ::TextureTable>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerWriteReactor< ::TextureData>* GetTextureData(
+    virtual ::grpc::ServerWriteReactor< ::TextureTable>* GetTextureData(
       ::grpc::CallbackServerContext* /*context*/, const ::TextureRequest* /*request*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -470,7 +470,7 @@ class SceneDataService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetTextureData(::grpc::ServerContext* /*context*/, const ::TextureRequest* /*request*/, ::grpc::ServerWriter< ::TextureData>* /*writer*/) override {
+    ::grpc::Status GetTextureData(::grpc::ServerContext* /*context*/, const ::TextureRequest* /*request*/, ::grpc::ServerWriter< ::TextureTable>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -561,7 +561,7 @@ class SceneDataService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetTextureData(::grpc::ServerContext* /*context*/, const ::TextureRequest* /*request*/, ::grpc::ServerWriter< ::TextureData>* /*writer*/) override {
+    ::grpc::Status GetTextureData(::grpc::ServerContext* /*context*/, const ::TextureRequest* /*request*/, ::grpc::ServerWriter< ::TextureTable>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -668,7 +668,7 @@ class SceneDataService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetTextureData(::grpc::ServerContext* /*context*/, const ::TextureRequest* /*request*/, ::grpc::ServerWriter< ::TextureData>* /*writer*/) override {
+    ::grpc::Status GetTextureData(::grpc::ServerContext* /*context*/, const ::TextureRequest* /*request*/, ::grpc::ServerWriter< ::TextureTable>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -836,10 +836,10 @@ class SceneDataService final {
     WithSplitStreamingMethod_GetTextureData() {
       ::grpc::Service::MarkMethodStreamed(2,
         new ::grpc::internal::SplitServerStreamingHandler<
-          ::TextureRequest, ::TextureData>(
+          ::TextureRequest, ::TextureTable>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerSplitStreamer<
-                     ::TextureRequest, ::TextureData>* streamer) {
+                     ::TextureRequest, ::TextureTable>* streamer) {
                        return this->StreamedGetTextureData(context,
                          streamer);
                   }));
@@ -848,12 +848,12 @@ class SceneDataService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetTextureData(::grpc::ServerContext* /*context*/, const ::TextureRequest* /*request*/, ::grpc::ServerWriter< ::TextureData>* /*writer*/) override {
+    ::grpc::Status GetTextureData(::grpc::ServerContext* /*context*/, const ::TextureRequest* /*request*/, ::grpc::ServerWriter< ::TextureTable>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with split streamed
-    virtual ::grpc::Status StreamedGetTextureData(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::TextureRequest,::TextureData>* server_split_streamer) = 0;
+    virtual ::grpc::Status StreamedGetTextureData(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::TextureRequest,::TextureTable>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_GetMeshData<WithSplitStreamingMethod_GetTextureData<Service > > SplitStreamedService;
   typedef WithStreamedUnaryMethod_GetLevelData<WithSplitStreamingMethod_GetMeshData<WithSplitStreamingMethod_GetTextureData<WithStreamedUnaryMethod_GetMeshDataChunk<WithStreamedUnaryMethod_GetTextureDataChunk<Service > > > > > StreamedService;

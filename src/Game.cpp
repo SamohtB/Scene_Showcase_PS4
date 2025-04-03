@@ -11,7 +11,6 @@
 
 #include "GameObjectManager.h"
 #include "EventBroadcaster.h"
-#include "NetworkManager.h"
 #include "UIManager.h"
 
 #include "Model.h"
@@ -71,7 +70,7 @@ void Game::run()
 
     glfwSetTime(0.0f);
 
-    LevelDataClient::runClient();
+    LevelDataClient::requestLevel(0);
 
     while (!glfwWindowShouldClose(gameWindow))
     {

@@ -20,6 +20,9 @@ Texture::Texture(String textureFilePath, int id, bool isRendered = true) : id(id
     }
 
     this->textureData.assign(tex_bytes, tex_bytes + img_width * img_height * colorChannels);
+    this->width = img_width;
+    this->height = img_height;
+    this->colorChannels = colorChannels;
 
     stbi_image_free(tex_bytes);
 
@@ -42,6 +45,28 @@ Texture::Texture(String textureFilePath, int id, bool isRendered = true) : id(id
     else if (strFileType == "tga")
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, img_width, img_height, 0, GL_RGB, GL_UNSIGNED_BYTE, tex_bytes);
+    }
+
+    glGenerateMipmap(GL_TEXTURE_2D);
+}
+
+Texture::Texture(std::vector<unsigned char> textureData, int id, bool isRendered, int width, int height, int channels)
+{
+    this->width = width;
+    this->height = height;
+    this->colorChannels = colorChannels;
+
+    glGenTextures(1, &this->texture);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, this->texture);
+
+    if (channels == 4)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData.data());
+    }
+    else
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, textureData.data());
     }
 
     glGenerateMipmap(GL_TEXTURE_2D);
@@ -70,4 +95,24 @@ std::string Texture::getName()
 const std::vector<unsigned char>& Texture::getTextureData()
 {
     return this->textureData;
+}
+
+int Texture::getWidth()
+{
+    return this->width;
+}
+
+int Texture::getHeight()
+{
+    return this->height;
+}
+
+int Texture::getcolorChannels()
+{
+    return this->colorChannels;
+}
+
+int Texture::getSize()
+{
+    return this->width * this->height * this->colorChannels;
 }
