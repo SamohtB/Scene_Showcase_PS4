@@ -2,7 +2,7 @@ syntax = "proto3";
 
 service SceneDataService 
 {
-	rpc GetLevelData(LevelRequest) returns (stream LevelData) {}
+	rpc GetLevelData(LevelRequest) returns (LevelData) {}
 	rpc GetMeshData(MeshRequest) returns (stream MeshTable) {}
 	rpc GetTextureData(TextureRequest) returns (stream TextureData) {}
 	rpc GetMeshDataChunk(MeshChunkRequest) returns (MeshDataChunk) {}
@@ -17,9 +17,6 @@ message LevelRequest
 message LevelData
 {
 	repeated ObjectData objectList = 1;
-	MeshTable meshTable = 2;
-	TextureTable textureTable = 3;
-	
 }
 
 message MeshRequest

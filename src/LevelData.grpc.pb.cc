@@ -35,27 +35,34 @@ std::unique_ptr< SceneDataService::Stub> SceneDataService::NewStub(const std::sh
 }
 
 SceneDataService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_GetLevelData_(SceneDataService_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  : channel_(channel), rpcmethod_GetLevelData_(SceneDataService_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetMeshData_(SceneDataService_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
   , rpcmethod_GetTextureData_(SceneDataService_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
   , rpcmethod_GetMeshDataChunk_(SceneDataService_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetTextureDataChunk_(SceneDataService_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::ClientReader< ::LevelData>* SceneDataService::Stub::GetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request) {
-  return ::grpc::internal::ClientReaderFactory< ::LevelData>::Create(channel_.get(), rpcmethod_GetLevelData_, context, request);
+::grpc::Status SceneDataService::Stub::GetLevelData(::grpc::ClientContext* context, const ::LevelRequest& request, ::LevelData* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::LevelRequest, ::LevelData, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetLevelData_, context, request, response);
 }
 
-void SceneDataService::Stub::async::GetLevelData(::grpc::ClientContext* context, const ::LevelRequest* request, ::grpc::ClientReadReactor< ::LevelData>* reactor) {
-  ::grpc::internal::ClientCallbackReaderFactory< ::LevelData>::Create(stub_->channel_.get(), stub_->rpcmethod_GetLevelData_, context, request, reactor);
+void SceneDataService::Stub::async::GetLevelData(::grpc::ClientContext* context, const ::LevelRequest* request, ::LevelData* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::LevelRequest, ::LevelData, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetLevelData_, context, request, response, std::move(f));
 }
 
-::grpc::ClientAsyncReader< ::LevelData>* SceneDataService::Stub::AsyncGetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::LevelData>::Create(channel_.get(), cq, rpcmethod_GetLevelData_, context, request, true, tag);
+void SceneDataService::Stub::async::GetLevelData(::grpc::ClientContext* context, const ::LevelRequest* request, ::LevelData* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetLevelData_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncReader< ::LevelData>* SceneDataService::Stub::PrepareAsyncGetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::LevelData>::Create(channel_.get(), cq, rpcmethod_GetLevelData_, context, request, false, nullptr);
+::grpc::ClientAsyncResponseReader< ::LevelData>* SceneDataService::Stub::PrepareAsyncGetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::LevelData, ::LevelRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetLevelData_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::LevelData>* SceneDataService::Stub::AsyncGetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncGetLevelDataRaw(context, request, cq);
+  result->StartCall();
+  return result;
 }
 
 ::grpc::ClientReader< ::MeshTable>* SceneDataService::Stub::GetMeshDataRaw(::grpc::ClientContext* context, const ::MeshRequest& request) {
@@ -139,13 +146,13 @@ void SceneDataService::Stub::async::GetTextureDataChunk(::grpc::ClientContext* c
 SceneDataService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SceneDataService_method_names[0],
-      ::grpc::internal::RpcMethod::SERVER_STREAMING,
-      new ::grpc::internal::ServerStreamingHandler< SceneDataService::Service, ::LevelRequest, ::LevelData>(
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SceneDataService::Service, ::LevelRequest, ::LevelData, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SceneDataService::Service* service,
              ::grpc::ServerContext* ctx,
              const ::LevelRequest* req,
-             ::grpc::ServerWriter<::LevelData>* writer) {
-               return service->GetLevelData(ctx, req, writer);
+             ::LevelData* resp) {
+               return service->GetLevelData(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SceneDataService_method_names[1],
@@ -192,10 +199,10 @@ SceneDataService::Service::Service() {
 SceneDataService::Service::~Service() {
 }
 
-::grpc::Status SceneDataService::Service::GetLevelData(::grpc::ServerContext* context, const ::LevelRequest* request, ::grpc::ServerWriter< ::LevelData>* writer) {
+::grpc::Status SceneDataService::Service::GetLevelData(::grpc::ServerContext* context, const ::LevelRequest* request, ::LevelData* response) {
   (void) context;
   (void) request;
-  (void) writer;
+  (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 

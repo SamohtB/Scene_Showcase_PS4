@@ -2605,6 +2605,203 @@ class MeshTable_MeshDataTableEntry_DoNotUse final
 };
 // -------------------------------------------------------------------
 
+class LevelData final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:LevelData) */ {
+ public:
+  inline LevelData() : LevelData(nullptr) {}
+  ~LevelData() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(LevelData* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(LevelData));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR LevelData(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline LevelData(const LevelData& from) : LevelData(nullptr, from) {}
+  inline LevelData(LevelData&& from) noexcept
+      : LevelData(nullptr, std::move(from)) {}
+  inline LevelData& operator=(const LevelData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline LevelData& operator=(LevelData&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const LevelData& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const LevelData* internal_default_instance() {
+    return reinterpret_cast<const LevelData*>(
+        &_LevelData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 1;
+  friend void swap(LevelData& a, LevelData& b) { a.Swap(&b); }
+  inline void Swap(LevelData* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(LevelData* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  LevelData* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<LevelData>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const LevelData& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const LevelData& from) { LevelData::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(LevelData* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "LevelData"; }
+
+ protected:
+  explicit LevelData(::google::protobuf::Arena* arena);
+  LevelData(::google::protobuf::Arena* arena, const LevelData& from);
+  LevelData(::google::protobuf::Arena* arena, LevelData&& from) noexcept
+      : LevelData(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kObjectListFieldNumber = 1,
+  };
+  // repeated .ObjectData objectList = 1;
+  int objectlist_size() const;
+  private:
+  int _internal_objectlist_size() const;
+
+  public:
+  void clear_objectlist() ;
+  ::ObjectData* mutable_objectlist(int index);
+  ::google::protobuf::RepeatedPtrField<::ObjectData>* mutable_objectlist();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::ObjectData>& _internal_objectlist() const;
+  ::google::protobuf::RepeatedPtrField<::ObjectData>* _internal_mutable_objectlist();
+  public:
+  const ::ObjectData& objectlist(int index) const;
+  ::ObjectData* add_objectlist();
+  const ::google::protobuf::RepeatedPtrField<::ObjectData>& objectlist() const;
+  // @@protoc_insertion_point(class_scope:LevelData)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 1,
+      0, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const LevelData& from_msg);
+    ::google::protobuf::RepeatedPtrField< ::ObjectData > objectlist_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_LevelData_2eproto;
+};
+// -------------------------------------------------------------------
+
 class TextureTable final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:TextureTable) */ {
  public:
@@ -2999,238 +3196,6 @@ class MeshTable final : public ::google::protobuf::Message
   union { Impl_ _impl_; };
   friend struct ::TableStruct_LevelData_2eproto;
 };
-// -------------------------------------------------------------------
-
-class LevelData final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:LevelData) */ {
- public:
-  inline LevelData() : LevelData(nullptr) {}
-  ~LevelData() PROTOBUF_FINAL;
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(LevelData* msg, std::destroying_delete_t) {
-    SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(LevelData));
-  }
-#endif
-
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR LevelData(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline LevelData(const LevelData& from) : LevelData(nullptr, from) {}
-  inline LevelData(LevelData&& from) noexcept
-      : LevelData(nullptr, std::move(from)) {}
-  inline LevelData& operator=(const LevelData& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline LevelData& operator=(LevelData&& from) noexcept {
-    if (this == &from) return *this;
-    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const LevelData& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const LevelData* internal_default_instance() {
-    return reinterpret_cast<const LevelData*>(
-        &_LevelData_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 1;
-  friend void swap(LevelData& a, LevelData& b) { a.Swap(&b); }
-  inline void Swap(LevelData* other) {
-    if (other == this) return;
-    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(LevelData* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  LevelData* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<LevelData>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const LevelData& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const LevelData& from) { LevelData::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  static void SharedDtor(MessageLite& self);
-  void InternalSwap(LevelData* other);
- private:
-  template <typename T>
-  friend ::absl::string_view(
-      ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "LevelData"; }
-
- protected:
-  explicit LevelData(::google::protobuf::Arena* arena);
-  LevelData(::google::protobuf::Arena* arena, const LevelData& from);
-  LevelData(::google::protobuf::Arena* arena, LevelData&& from) noexcept
-      : LevelData(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static void* PlacementNew_(const void*, void* mem,
-                             ::google::protobuf::Arena* arena);
-  static constexpr auto InternalNewImpl_();
-  static const ::google::protobuf::internal::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kObjectListFieldNumber = 1,
-    kMeshTableFieldNumber = 2,
-    kTextureTableFieldNumber = 3,
-  };
-  // repeated .ObjectData objectList = 1;
-  int objectlist_size() const;
-  private:
-  int _internal_objectlist_size() const;
-
-  public:
-  void clear_objectlist() ;
-  ::ObjectData* mutable_objectlist(int index);
-  ::google::protobuf::RepeatedPtrField<::ObjectData>* mutable_objectlist();
-
-  private:
-  const ::google::protobuf::RepeatedPtrField<::ObjectData>& _internal_objectlist() const;
-  ::google::protobuf::RepeatedPtrField<::ObjectData>* _internal_mutable_objectlist();
-  public:
-  const ::ObjectData& objectlist(int index) const;
-  ::ObjectData* add_objectlist();
-  const ::google::protobuf::RepeatedPtrField<::ObjectData>& objectlist() const;
-  // .MeshTable meshTable = 2;
-  bool has_meshtable() const;
-  void clear_meshtable() ;
-  const ::MeshTable& meshtable() const;
-  PROTOBUF_NODISCARD ::MeshTable* release_meshtable();
-  ::MeshTable* mutable_meshtable();
-  void set_allocated_meshtable(::MeshTable* value);
-  void unsafe_arena_set_allocated_meshtable(::MeshTable* value);
-  ::MeshTable* unsafe_arena_release_meshtable();
-
-  private:
-  const ::MeshTable& _internal_meshtable() const;
-  ::MeshTable* _internal_mutable_meshtable();
-
-  public:
-  // .TextureTable textureTable = 3;
-  bool has_texturetable() const;
-  void clear_texturetable() ;
-  const ::TextureTable& texturetable() const;
-  PROTOBUF_NODISCARD ::TextureTable* release_texturetable();
-  ::TextureTable* mutable_texturetable();
-  void set_allocated_texturetable(::TextureTable* value);
-  void unsafe_arena_set_allocated_texturetable(::TextureTable* value);
-  ::TextureTable* unsafe_arena_release_texturetable();
-
-  private:
-  const ::TextureTable& _internal_texturetable() const;
-  ::TextureTable* _internal_mutable_texturetable();
-
-  public:
-  // @@protoc_insertion_point(class_scope:LevelData)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 3,
-      0, 2>
-      _table_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const LevelData& from_msg);
-    ::google::protobuf::internal::HasBits<1> _has_bits_;
-    ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::RepeatedPtrField< ::ObjectData > objectlist_;
-    ::MeshTable* meshtable_;
-    ::TextureTable* texturetable_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_LevelData_2eproto;
-};
 
 // ===================================================================
 
@@ -3321,198 +3286,6 @@ inline ::google::protobuf::RepeatedPtrField<::ObjectData>*
 LevelData::_internal_mutable_objectlist() {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return &_impl_.objectlist_;
-}
-
-// .MeshTable meshTable = 2;
-inline bool LevelData::has_meshtable() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.meshtable_ != nullptr);
-  return value;
-}
-inline void LevelData::clear_meshtable() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.meshtable_ != nullptr) _impl_.meshtable_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const ::MeshTable& LevelData::_internal_meshtable() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::MeshTable* p = _impl_.meshtable_;
-  return p != nullptr ? *p : reinterpret_cast<const ::MeshTable&>(::_MeshTable_default_instance_);
-}
-inline const ::MeshTable& LevelData::meshtable() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:LevelData.meshTable)
-  return _internal_meshtable();
-}
-inline void LevelData::unsafe_arena_set_allocated_meshtable(::MeshTable* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.meshtable_);
-  }
-  _impl_.meshtable_ = reinterpret_cast<::MeshTable*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:LevelData.meshTable)
-}
-inline ::MeshTable* LevelData::release_meshtable() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::MeshTable* released = _impl_.meshtable_;
-  _impl_.meshtable_ = nullptr;
-  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
-    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    if (GetArena() == nullptr) {
-      delete old;
-    }
-  } else {
-    if (GetArena() != nullptr) {
-      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    }
-  }
-  return released;
-}
-inline ::MeshTable* LevelData::unsafe_arena_release_meshtable() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:LevelData.meshTable)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::MeshTable* temp = _impl_.meshtable_;
-  _impl_.meshtable_ = nullptr;
-  return temp;
-}
-inline ::MeshTable* LevelData::_internal_mutable_meshtable() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.meshtable_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::MeshTable>(GetArena());
-    _impl_.meshtable_ = reinterpret_cast<::MeshTable*>(p);
-  }
-  return _impl_.meshtable_;
-}
-inline ::MeshTable* LevelData::mutable_meshtable() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::MeshTable* _msg = _internal_mutable_meshtable();
-  // @@protoc_insertion_point(field_mutable:LevelData.meshTable)
-  return _msg;
-}
-inline void LevelData::set_allocated_meshtable(::MeshTable* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete (_impl_.meshtable_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.meshtable_ = reinterpret_cast<::MeshTable*>(value);
-  // @@protoc_insertion_point(field_set_allocated:LevelData.meshTable)
-}
-
-// .TextureTable textureTable = 3;
-inline bool LevelData::has_texturetable() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.texturetable_ != nullptr);
-  return value;
-}
-inline void LevelData::clear_texturetable() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.texturetable_ != nullptr) _impl_.texturetable_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline const ::TextureTable& LevelData::_internal_texturetable() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::TextureTable* p = _impl_.texturetable_;
-  return p != nullptr ? *p : reinterpret_cast<const ::TextureTable&>(::_TextureTable_default_instance_);
-}
-inline const ::TextureTable& LevelData::texturetable() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:LevelData.textureTable)
-  return _internal_texturetable();
-}
-inline void LevelData::unsafe_arena_set_allocated_texturetable(::TextureTable* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.texturetable_);
-  }
-  _impl_.texturetable_ = reinterpret_cast<::TextureTable*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:LevelData.textureTable)
-}
-inline ::TextureTable* LevelData::release_texturetable() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::TextureTable* released = _impl_.texturetable_;
-  _impl_.texturetable_ = nullptr;
-  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
-    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    if (GetArena() == nullptr) {
-      delete old;
-    }
-  } else {
-    if (GetArena() != nullptr) {
-      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    }
-  }
-  return released;
-}
-inline ::TextureTable* LevelData::unsafe_arena_release_texturetable() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:LevelData.textureTable)
-
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::TextureTable* temp = _impl_.texturetable_;
-  _impl_.texturetable_ = nullptr;
-  return temp;
-}
-inline ::TextureTable* LevelData::_internal_mutable_texturetable() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.texturetable_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::TextureTable>(GetArena());
-    _impl_.texturetable_ = reinterpret_cast<::TextureTable*>(p);
-  }
-  return _impl_.texturetable_;
-}
-inline ::TextureTable* LevelData::mutable_texturetable() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  ::TextureTable* _msg = _internal_mutable_texturetable();
-  // @@protoc_insertion_point(field_mutable:LevelData.textureTable)
-  return _msg;
-}
-inline void LevelData::set_allocated_texturetable(::TextureTable* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete (_impl_.texturetable_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-
-  _impl_.texturetable_ = reinterpret_cast<::TextureTable*>(value);
-  // @@protoc_insertion_point(field_set_allocated:LevelData.textureTable)
 }
 
 // -------------------------------------------------------------------

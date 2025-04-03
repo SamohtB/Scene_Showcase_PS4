@@ -1,9 +1,6 @@
 #pragma once
 #include <string>
-#include <grpcpp/grpcpp.h> 
 #include "LevelData.grpc.pb.h" 
-#include "IETThread.h" 
-
 
 using grpc::Channel;
 using grpc::ClientContext;
@@ -14,10 +11,10 @@ class LevelDataClient
 public:
 	LevelDataClient(std::shared_ptr<grpc::ChannelInterface> channel);
 	LevelData GetLevelData(int32_t levelId);
-	/*MeshTable GetMeshData(int32_t levelId);
+	MeshTable GetMeshData(int32_t levelId);
 	TextureTable GetTextureData(int32_t levelId);
 	MeshDataChunk GetMeshDataChunk(int32_t levelId, std::string meshName, int32_t chunkId);
-	TextureDataChunk GetTextureDataChunk(int32_t levelId, std::string textureName, int32_t chunkId);*/
+	TextureDataChunk GetTextureDataChunk(int32_t levelId, std::string textureName, int32_t chunkId);
 
 	static void runClient();
 

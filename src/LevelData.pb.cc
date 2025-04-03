@@ -371,6 +371,31 @@ struct MeshTable_MeshDataTableEntry_DoNotUseDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MeshTable_MeshDataTableEntry_DoNotUseDefaultTypeInternal _MeshTable_MeshDataTableEntry_DoNotUse_default_instance_;
 
+inline constexpr LevelData::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : objectlist_{},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR LevelData::LevelData(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct LevelDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR LevelDataDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~LevelDataDefaultTypeInternal() {}
+  union {
+    LevelData _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 LevelDataDefaultTypeInternal _LevelData_default_instance_;
+
 inline constexpr TextureTable::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : texturedatatable_{},
@@ -420,33 +445,6 @@ struct MeshTableDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MeshTableDefaultTypeInternal _MeshTable_default_instance_;
-
-inline constexpr LevelData::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        objectlist_{},
-        meshtable_{nullptr},
-        texturetable_{nullptr} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR LevelData::LevelData(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct LevelDataDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR LevelDataDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~LevelDataDefaultTypeInternal() {}
-  union {
-    LevelData _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 LevelDataDefaultTypeInternal _LevelData_default_instance_;
 static constexpr const ::_pb::EnumDescriptor**
     file_level_enum_descriptors_LevelData_2eproto = nullptr;
 static constexpr const ::_pb::ServiceDescriptor**
@@ -463,7 +461,7 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::LevelRequest, _impl_.levelid_),
-        PROTOBUF_FIELD_OFFSET(::LevelData, _impl_._has_bits_),
+        ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::LevelData, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
@@ -472,11 +470,6 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::LevelData, _impl_.objectlist_),
-        PROTOBUF_FIELD_OFFSET(::LevelData, _impl_.meshtable_),
-        PROTOBUF_FIELD_OFFSET(::LevelData, _impl_.texturetable_),
-        ~0u,
-        0,
-        1,
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::MeshRequest, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -641,21 +634,21 @@ const ::uint32_t
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::LevelRequest)},
-        {9, 20, -1, sizeof(::LevelData)},
-        {23, -1, -1, sizeof(::MeshRequest)},
-        {32, 42, -1, sizeof(::MeshTable_MeshDataTableEntry_DoNotUse)},
-        {44, -1, -1, sizeof(::MeshTable)},
-        {53, -1, -1, sizeof(::MeshData)},
-        {62, -1, -1, sizeof(::MeshDataChunk)},
-        {75, -1, -1, sizeof(::TextureRequest)},
-        {84, 94, -1, sizeof(::TextureTable_TextureDataTableEntry_DoNotUse)},
-        {96, -1, -1, sizeof(::TextureTable)},
-        {105, -1, -1, sizeof(::TextureData)},
-        {114, -1, -1, sizeof(::TextureDataChunk)},
-        {129, -1, -1, sizeof(::MeshChunkRequest)},
-        {140, -1, -1, sizeof(::TextureChunkRequest)},
-        {151, 165, -1, sizeof(::ObjectData)},
-        {171, -1, -1, sizeof(::Vec3)},
+        {9, -1, -1, sizeof(::LevelData)},
+        {18, -1, -1, sizeof(::MeshRequest)},
+        {27, 37, -1, sizeof(::MeshTable_MeshDataTableEntry_DoNotUse)},
+        {39, -1, -1, sizeof(::MeshTable)},
+        {48, -1, -1, sizeof(::MeshData)},
+        {57, -1, -1, sizeof(::MeshDataChunk)},
+        {70, -1, -1, sizeof(::TextureRequest)},
+        {79, 89, -1, sizeof(::TextureTable_TextureDataTableEntry_DoNotUse)},
+        {91, -1, -1, sizeof(::TextureTable)},
+        {100, -1, -1, sizeof(::TextureData)},
+        {109, -1, -1, sizeof(::TextureDataChunk)},
+        {124, -1, -1, sizeof(::MeshChunkRequest)},
+        {135, -1, -1, sizeof(::TextureChunkRequest)},
+        {146, 160, -1, sizeof(::ObjectData)},
+        {166, -1, -1, sizeof(::Vec3)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::_LevelRequest_default_instance_._instance,
@@ -678,50 +671,48 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_LevelData_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n\017LevelData.proto\"\037\n\014LevelRequest\022\017\n\007Lev"
-    "elId\030\001 \001(\005\"p\n\tLevelData\022\037\n\nobjectList\030\001 "
-    "\003(\0132\013.ObjectData\022\035\n\tmeshTable\030\002 \001(\0132\n.Me"
-    "shTable\022#\n\014textureTable\030\003 \001(\0132\r.TextureT"
-    "able\"\036\n\013MeshRequest\022\017\n\007LevelId\030\001 \001(\005\"\202\001\n"
-    "\tMeshTable\0224\n\rmeshDataTable\030\001 \003(\0132\035.Mesh"
-    "Table.MeshDataTableEntry\032\?\n\022MeshDataTabl"
-    "eEntry\022\013\n\003key\030\001 \001(\005\022\030\n\005value\030\002 \001(\0132\t.Mes"
-    "hData:\0028\001\"1\n\010MeshData\022%\n\rmeshDataChunk\030\001"
-    " \003(\0132\016.MeshDataChunk\"r\n\rMeshDataChunk\022\014\n"
-    "\004name\030\001 \001(\t\022\021\n\tdataChunk\030\002 \001(\014\022\023\n\013chunkN"
-    "umber\030\003 \001(\005\022\026\n\016maxChunkNumber\030\004 \001(\005\022\023\n\013i"
-    "sLastChunk\030\005 \001(\010\"!\n\016TextureRequest\022\017\n\007Le"
-    "velId\030\001 \001(\005\"\224\001\n\014TextureTable\022=\n\020textureD"
-    "ataTable\030\001 \003(\0132#.TextureTable.TextureDat"
-    "aTableEntry\032E\n\025TextureDataTableEntry\022\013\n\003"
-    "key\030\001 \001(\005\022\033\n\005value\030\002 \001(\0132\014.TextureData:\002"
-    "8\001\":\n\013TextureData\022+\n\020textureDataChunk\030\001 "
-    "\003(\0132\021.TextureDataChunk\"\224\001\n\020TextureDataCh"
-    "unk\022\014\n\004name\030\001 \001(\t\022\021\n\tdataChunk\030\002 \001(\014\022\023\n\013"
-    "chunkNumber\030\003 \001(\005\022\026\n\016maxChunkNumber\030\004 \001("
-    "\005\022\023\n\013isLastChunk\030\005 \001(\010\022\r\n\005width\030\006 \001(\005\022\016\n"
-    "\006height\030\007 \001(\005\"F\n\020MeshChunkRequest\022\017\n\007Lev"
-    "elId\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013chunkNumber\030"
-    "\003 \001(\005\"I\n\023TextureChunkRequest\022\017\n\007LevelId\030"
-    "\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013chunkNumber\030\003 \001(\005"
-    "\"\223\001\n\nObjectData\022\014\n\004name\030\001 \001(\t\022\027\n\010positio"
-    "n\030\002 \001(\0132\005.Vec3\022\027\n\010rotation\030\003 \001(\0132\005.Vec3\022"
-    "\024\n\005scale\030\004 \001(\0132\005.Vec3\022\025\n\rmeshReference\030\005"
-    " \001(\005\022\030\n\020textureReference\030\006 \001(\005\"\'\n\004Vec3\022\t"
-    "\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\0022\236\002\n\020Scen"
-    "eDataService\022-\n\014GetLevelData\022\r.LevelRequ"
-    "est\032\n.LevelData\"\0000\001\022+\n\013GetMeshData\022\014.Mes"
-    "hRequest\032\n.MeshTable\"\0000\001\0223\n\016GetTextureDa"
-    "ta\022\017.TextureRequest\032\014.TextureData\"\0000\001\0227\n"
-    "\020GetMeshDataChunk\022\021.MeshChunkRequest\032\016.M"
-    "eshDataChunk\"\000\022@\n\023GetTextureDataChunk\022\024."
-    "TextureChunkRequest\032\021.TextureDataChunk\"\000"
-    "b\006proto3"
+    "elId\030\001 \001(\005\",\n\tLevelData\022\037\n\nobjectList\030\001 "
+    "\003(\0132\013.ObjectData\"\036\n\013MeshRequest\022\017\n\007Level"
+    "Id\030\001 \001(\005\"\202\001\n\tMeshTable\0224\n\rmeshDataTable\030"
+    "\001 \003(\0132\035.MeshTable.MeshDataTableEntry\032\?\n\022"
+    "MeshDataTableEntry\022\013\n\003key\030\001 \001(\005\022\030\n\005value"
+    "\030\002 \001(\0132\t.MeshData:\0028\001\"1\n\010MeshData\022%\n\rmes"
+    "hDataChunk\030\001 \003(\0132\016.MeshDataChunk\"r\n\rMesh"
+    "DataChunk\022\014\n\004name\030\001 \001(\t\022\021\n\tdataChunk\030\002 \001"
+    "(\014\022\023\n\013chunkNumber\030\003 \001(\005\022\026\n\016maxChunkNumbe"
+    "r\030\004 \001(\005\022\023\n\013isLastChunk\030\005 \001(\010\"!\n\016TextureR"
+    "equest\022\017\n\007LevelId\030\001 \001(\005\"\224\001\n\014TextureTable"
+    "\022=\n\020textureDataTable\030\001 \003(\0132#.TextureTabl"
+    "e.TextureDataTableEntry\032E\n\025TextureDataTa"
+    "bleEntry\022\013\n\003key\030\001 \001(\005\022\033\n\005value\030\002 \001(\0132\014.T"
+    "extureData:\0028\001\":\n\013TextureData\022+\n\020texture"
+    "DataChunk\030\001 \003(\0132\021.TextureDataChunk\"\224\001\n\020T"
+    "extureDataChunk\022\014\n\004name\030\001 \001(\t\022\021\n\tdataChu"
+    "nk\030\002 \001(\014\022\023\n\013chunkNumber\030\003 \001(\005\022\026\n\016maxChun"
+    "kNumber\030\004 \001(\005\022\023\n\013isLastChunk\030\005 \001(\010\022\r\n\005wi"
+    "dth\030\006 \001(\005\022\016\n\006height\030\007 \001(\005\"F\n\020MeshChunkRe"
+    "quest\022\017\n\007LevelId\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013"
+    "chunkNumber\030\003 \001(\005\"I\n\023TextureChunkRequest"
+    "\022\017\n\007LevelId\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013chunk"
+    "Number\030\003 \001(\005\"\223\001\n\nObjectData\022\014\n\004name\030\001 \001("
+    "\t\022\027\n\010position\030\002 \001(\0132\005.Vec3\022\027\n\010rotation\030\003"
+    " \001(\0132\005.Vec3\022\024\n\005scale\030\004 \001(\0132\005.Vec3\022\025\n\rmes"
+    "hReference\030\005 \001(\005\022\030\n\020textureReference\030\006 \001"
+    "(\005\"\'\n\004Vec3\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 "
+    "\001(\0022\234\002\n\020SceneDataService\022+\n\014GetLevelData"
+    "\022\r.LevelRequest\032\n.LevelData\"\000\022+\n\013GetMesh"
+    "Data\022\014.MeshRequest\032\n.MeshTable\"\0000\001\0223\n\016Ge"
+    "tTextureData\022\017.TextureRequest\032\014.TextureD"
+    "ata\"\0000\001\0227\n\020GetMeshDataChunk\022\021.MeshChunkR"
+    "equest\032\016.MeshDataChunk\"\000\022@\n\023GetTextureDa"
+    "taChunk\022\024.TextureChunkRequest\032\021.TextureD"
+    "ataChunk\"\000b\006proto3"
 };
 static ::absl::once_flag descriptor_table_LevelData_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_LevelData_2eproto = {
     false,
     false,
-    1528,
+    1458,
     descriptor_table_protodef_LevelData_2eproto,
     "LevelData.proto",
     &descriptor_table_LevelData_2eproto_once,
@@ -945,10 +936,6 @@ void LevelRequest::InternalSwap(LevelRequest* PROTOBUF_RESTRICT other) {
 
 class LevelData::_Internal {
  public:
-  using HasBits =
-      decltype(std::declval<LevelData>()._impl_._has_bits_);
-  static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(LevelData, _impl_._has_bits_);
 };
 
 LevelData::LevelData(::google::protobuf::Arena* arena)
@@ -963,9 +950,8 @@ LevelData::LevelData(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE LevelData::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::LevelData& from_msg)
-      : _has_bits_{from._has_bits_},
-        _cached_size_{0},
-        objectlist_{visibility, arena, from.objectlist_} {}
+      : objectlist_{visibility, arena, from.objectlist_},
+        _cached_size_{0} {}
 
 LevelData::LevelData(
     ::google::protobuf::Arena* arena,
@@ -980,30 +966,17 @@ LevelData::LevelData(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.meshtable_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::MeshTable>(
-                              arena, *from._impl_.meshtable_)
-                        : nullptr;
-  _impl_.texturetable_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::TextureTable>(
-                              arena, *from._impl_.texturetable_)
-                        : nullptr;
 
   // @@protoc_insertion_point(copy_constructor:LevelData)
 }
 inline PROTOBUF_NDEBUG_INLINE LevelData::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : _cached_size_{0},
-        objectlist_{visibility, arena} {}
+      : objectlist_{visibility, arena},
+        _cached_size_{0} {}
 
 inline void LevelData::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, meshtable_),
-           0,
-           offsetof(Impl_, texturetable_) -
-               offsetof(Impl_, meshtable_) +
-               sizeof(Impl_::texturetable_));
 }
 LevelData::~LevelData() {
   // @@protoc_insertion_point(destructor:LevelData)
@@ -1013,8 +986,6 @@ inline void LevelData::SharedDtor(MessageLite& self) {
   LevelData& this_ = static_cast<LevelData&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
-  delete this_._impl_.meshtable_;
-  delete this_._impl_.texturetable_;
   this_._impl_.~Impl_();
 }
 
@@ -1066,16 +1037,16 @@ const ::google::protobuf::internal::ClassData* LevelData::GetClassData() const {
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 3, 0, 2> LevelData::_table_ = {
+const ::_pbi::TcParseTable<0, 1, 1, 0, 2> LevelData::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(LevelData, _impl_._has_bits_),
+    0,  // no _has_bits_
     0, // no _extensions_
-    3, 24,  // max_field_number, fast_idx_mask
+    1, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
+    4294967294,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
-    3,  // num_aux_entries
+    1,  // num_field_entries
+    1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -1084,32 +1055,17 @@ const ::_pbi::TcParseTable<2, 3, 3, 0, 2> LevelData::_table_ = {
     ::_pbi::TcParser::GetTable<::LevelData>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
     // repeated .ObjectData objectList = 1;
     {::_pbi::TcParser::FastMtR1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(LevelData, _impl_.objectlist_)}},
-    // .MeshTable meshTable = 2;
-    {::_pbi::TcParser::FastMtS1,
-     {18, 0, 1, PROTOBUF_FIELD_OFFSET(LevelData, _impl_.meshtable_)}},
-    // .TextureTable textureTable = 3;
-    {::_pbi::TcParser::FastMtS1,
-     {26, 1, 2, PROTOBUF_FIELD_OFFSET(LevelData, _impl_.texturetable_)}},
   }}, {{
     65535, 65535
   }}, {{
     // repeated .ObjectData objectList = 1;
-    {PROTOBUF_FIELD_OFFSET(LevelData, _impl_.objectlist_), -1, 0,
+    {PROTOBUF_FIELD_OFFSET(LevelData, _impl_.objectlist_), 0, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .MeshTable meshTable = 2;
-    {PROTOBUF_FIELD_OFFSET(LevelData, _impl_.meshtable_), _Internal::kHasBitsOffset + 0, 1,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .TextureTable textureTable = 3;
-    {PROTOBUF_FIELD_OFFSET(LevelData, _impl_.texturetable_), _Internal::kHasBitsOffset + 1, 2,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::ObjectData>()},
-    {::_pbi::TcParser::GetTable<::MeshTable>()},
-    {::_pbi::TcParser::GetTable<::TextureTable>()},
   }}, {{
   }},
 };
@@ -1122,18 +1078,6 @@ PROTOBUF_NOINLINE void LevelData::Clear() {
   (void) cached_has_bits;
 
   _impl_.objectlist_.Clear();
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(_impl_.meshtable_ != nullptr);
-      _impl_.meshtable_->Clear();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ABSL_DCHECK(_impl_.texturetable_ != nullptr);
-      _impl_.texturetable_->Clear();
-    }
-  }
-  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -1161,21 +1105,6 @@ PROTOBUF_NOINLINE void LevelData::Clear() {
                 ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                     1, repfield, repfield.GetCachedSize(),
                     target, stream);
-          }
-
-          cached_has_bits = this_._impl_._has_bits_[0];
-          // .MeshTable meshTable = 2;
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                2, *this_._impl_.meshtable_, this_._impl_.meshtable_->GetCachedSize(), target,
-                stream);
-          }
-
-          // .TextureTable textureTable = 3;
-          if (cached_has_bits & 0x00000002u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                3, *this_._impl_.texturetable_, this_._impl_.texturetable_->GetCachedSize(), target,
-                stream);
           }
 
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
@@ -1211,19 +1140,6 @@ PROTOBUF_NOINLINE void LevelData::Clear() {
               }
             }
           }
-          cached_has_bits = this_._impl_._has_bits_[0];
-          if (cached_has_bits & 0x00000003u) {
-            // .MeshTable meshTable = 2;
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.meshtable_);
-            }
-            // .TextureTable textureTable = 3;
-            if (cached_has_bits & 0x00000002u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.texturetable_);
-            }
-          }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
                                                      &this_._impl_._cached_size_);
         }
@@ -1231,7 +1147,6 @@ PROTOBUF_NOINLINE void LevelData::Clear() {
 void LevelData::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
   auto* const _this = static_cast<LevelData*>(&to_msg);
   auto& from = static_cast<const LevelData&>(from_msg);
-  ::google::protobuf::Arena* arena = _this->GetArena();
   // @@protoc_insertion_point(class_specific_merge_from_start:LevelData)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
@@ -1239,28 +1154,6 @@ void LevelData::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::googl
 
   _this->_internal_mutable_objectlist()->MergeFrom(
       from._internal_objectlist());
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(from._impl_.meshtable_ != nullptr);
-      if (_this->_impl_.meshtable_ == nullptr) {
-        _this->_impl_.meshtable_ =
-            ::google::protobuf::Message::CopyConstruct<::MeshTable>(arena, *from._impl_.meshtable_);
-      } else {
-        _this->_impl_.meshtable_->MergeFrom(*from._impl_.meshtable_);
-      }
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ABSL_DCHECK(from._impl_.texturetable_ != nullptr);
-      if (_this->_impl_.texturetable_ == nullptr) {
-        _this->_impl_.texturetable_ =
-            ::google::protobuf::Message::CopyConstruct<::TextureTable>(arena, *from._impl_.texturetable_);
-      } else {
-        _this->_impl_.texturetable_->MergeFrom(*from._impl_.texturetable_);
-      }
-    }
-  }
-  _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1275,14 +1168,7 @@ void LevelData::CopyFrom(const LevelData& from) {
 void LevelData::InternalSwap(LevelData* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.objectlist_.InternalSwap(&other->_impl_.objectlist_);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(LevelData, _impl_.texturetable_)
-      + sizeof(LevelData::_impl_.texturetable_)
-      - PROTOBUF_FIELD_OFFSET(LevelData, _impl_.meshtable_)>(
-          reinterpret_cast<char*>(&_impl_.meshtable_),
-          reinterpret_cast<char*>(&other->_impl_.meshtable_));
 }
 
 ::google::protobuf::Metadata LevelData::GetMetadata() const {

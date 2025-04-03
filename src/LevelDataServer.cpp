@@ -11,11 +11,13 @@
 
 grpc::Status LevelDataServer::GetLevelData(grpc::ServerContext* context, const LevelRequest* request, LevelData* response)
 {
+	/* Get List of GameObjects */
 	int levelId = request->levelid();
-
 	GameObjectManager::ObjectList gameObjects = GameObjectManager::getInstance()->getScene(levelId);
 
-	/* gameobject list to model list */
+	LevelData levelData;
+
+	/* compile gameobject data */
 	for (const GameObjectManager::ObjectPtr& obj : gameObjects)
 	{
 		std::shared_ptr<Model> model = std::dynamic_pointer_cast<Model>(obj);
@@ -23,7 +25,6 @@ grpc::Status LevelDataServer::GetLevelData(grpc::ServerContext* context, const L
 		if (model)
 		{
 			ObjectData* modelData = response->add_objectlist();
-
 			modelData->set_name(model->getName());
 
 			Vec3* position = modelData->mutable_position();

@@ -1,19 +1,18 @@
 #include "Game.h"
 #include "ServerMain.h"
 
-//#define ISSERVER 1
+bool isServer = true;
 
 int main()
 {
-#ifdef ISSERVER
-
-	Game game;
-	game.run();
-
-#else
-
-	ServerMain server;
-	server.run();
-
-#endif
+	if (isServer)
+	{
+		ServerMain server;
+		server.run();
+	}
+	else
+	{
+		Game game;
+		game.run();
+	}
 }

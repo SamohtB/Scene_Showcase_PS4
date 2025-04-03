@@ -34,14 +34,12 @@ class SceneDataService final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    std::unique_ptr< ::grpc::ClientReaderInterface< ::LevelData>> GetLevelData(::grpc::ClientContext* context, const ::LevelRequest& request) {
-      return std::unique_ptr< ::grpc::ClientReaderInterface< ::LevelData>>(GetLevelDataRaw(context, request));
+    virtual ::grpc::Status GetLevelData(::grpc::ClientContext* context, const ::LevelRequest& request, ::LevelData* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::LevelData>> AsyncGetLevelData(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::LevelData>>(AsyncGetLevelDataRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::LevelData>> AsyncGetLevelData(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::LevelData>>(AsyncGetLevelDataRaw(context, request, cq, tag));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::LevelData>> PrepareAsyncGetLevelData(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::LevelData>>(PrepareAsyncGetLevelDataRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::LevelData>> PrepareAsyncGetLevelData(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::LevelData>>(PrepareAsyncGetLevelDataRaw(context, request, cq));
     }
     std::unique_ptr< ::grpc::ClientReaderInterface< ::MeshTable>> GetMeshData(::grpc::ClientContext* context, const ::MeshRequest& request) {
       return std::unique_ptr< ::grpc::ClientReaderInterface< ::MeshTable>>(GetMeshDataRaw(context, request));
@@ -78,7 +76,8 @@ class SceneDataService final {
     class async_interface {
      public:
       virtual ~async_interface() {}
-      virtual void GetLevelData(::grpc::ClientContext* context, const ::LevelRequest* request, ::grpc::ClientReadReactor< ::LevelData>* reactor) = 0;
+      virtual void GetLevelData(::grpc::ClientContext* context, const ::LevelRequest* request, ::LevelData* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetLevelData(::grpc::ClientContext* context, const ::LevelRequest* request, ::LevelData* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void GetMeshData(::grpc::ClientContext* context, const ::MeshRequest* request, ::grpc::ClientReadReactor< ::MeshTable>* reactor) = 0;
       virtual void GetTextureData(::grpc::ClientContext* context, const ::TextureRequest* request, ::grpc::ClientReadReactor< ::TextureData>* reactor) = 0;
       virtual void GetMeshDataChunk(::grpc::ClientContext* context, const ::MeshChunkRequest* request, ::MeshDataChunk* response, std::function<void(::grpc::Status)>) = 0;
@@ -90,9 +89,8 @@ class SceneDataService final {
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientReaderInterface< ::LevelData>* GetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::LevelData>* AsyncGetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::LevelData>* PrepareAsyncGetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::LevelData>* AsyncGetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::LevelData>* PrepareAsyncGetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientReaderInterface< ::MeshTable>* GetMeshDataRaw(::grpc::ClientContext* context, const ::MeshRequest& request) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::MeshTable>* AsyncGetMeshDataRaw(::grpc::ClientContext* context, const ::MeshRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::MeshTable>* PrepareAsyncGetMeshDataRaw(::grpc::ClientContext* context, const ::MeshRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -107,14 +105,12 @@ class SceneDataService final {
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    std::unique_ptr< ::grpc::ClientReader< ::LevelData>> GetLevelData(::grpc::ClientContext* context, const ::LevelRequest& request) {
-      return std::unique_ptr< ::grpc::ClientReader< ::LevelData>>(GetLevelDataRaw(context, request));
+    ::grpc::Status GetLevelData(::grpc::ClientContext* context, const ::LevelRequest& request, ::LevelData* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::LevelData>> AsyncGetLevelData(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::LevelData>>(AsyncGetLevelDataRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::LevelData>> AsyncGetLevelData(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::LevelData>>(AsyncGetLevelDataRaw(context, request, cq, tag));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::LevelData>> PrepareAsyncGetLevelData(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::LevelData>>(PrepareAsyncGetLevelDataRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::LevelData>> PrepareAsyncGetLevelData(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::LevelData>>(PrepareAsyncGetLevelDataRaw(context, request, cq));
     }
     std::unique_ptr< ::grpc::ClientReader< ::MeshTable>> GetMeshData(::grpc::ClientContext* context, const ::MeshRequest& request) {
       return std::unique_ptr< ::grpc::ClientReader< ::MeshTable>>(GetMeshDataRaw(context, request));
@@ -151,7 +147,8 @@ class SceneDataService final {
     class async final :
       public StubInterface::async_interface {
      public:
-      void GetLevelData(::grpc::ClientContext* context, const ::LevelRequest* request, ::grpc::ClientReadReactor< ::LevelData>* reactor) override;
+      void GetLevelData(::grpc::ClientContext* context, const ::LevelRequest* request, ::LevelData* response, std::function<void(::grpc::Status)>) override;
+      void GetLevelData(::grpc::ClientContext* context, const ::LevelRequest* request, ::LevelData* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetMeshData(::grpc::ClientContext* context, const ::MeshRequest* request, ::grpc::ClientReadReactor< ::MeshTable>* reactor) override;
       void GetTextureData(::grpc::ClientContext* context, const ::TextureRequest* request, ::grpc::ClientReadReactor< ::TextureData>* reactor) override;
       void GetMeshDataChunk(::grpc::ClientContext* context, const ::MeshChunkRequest* request, ::MeshDataChunk* response, std::function<void(::grpc::Status)>) override;
@@ -169,9 +166,8 @@ class SceneDataService final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientReader< ::LevelData>* GetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request) override;
-    ::grpc::ClientAsyncReader< ::LevelData>* AsyncGetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncReader< ::LevelData>* PrepareAsyncGetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::LevelData>* AsyncGetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::LevelData>* PrepareAsyncGetLevelDataRaw(::grpc::ClientContext* context, const ::LevelRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientReader< ::MeshTable>* GetMeshDataRaw(::grpc::ClientContext* context, const ::MeshRequest& request) override;
     ::grpc::ClientAsyncReader< ::MeshTable>* AsyncGetMeshDataRaw(::grpc::ClientContext* context, const ::MeshRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReader< ::MeshTable>* PrepareAsyncGetMeshDataRaw(::grpc::ClientContext* context, const ::MeshRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -194,7 +190,7 @@ class SceneDataService final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status GetLevelData(::grpc::ServerContext* context, const ::LevelRequest* request, ::grpc::ServerWriter< ::LevelData>* writer);
+    virtual ::grpc::Status GetLevelData(::grpc::ServerContext* context, const ::LevelRequest* request, ::LevelData* response);
     virtual ::grpc::Status GetMeshData(::grpc::ServerContext* context, const ::MeshRequest* request, ::grpc::ServerWriter< ::MeshTable>* writer);
     virtual ::grpc::Status GetTextureData(::grpc::ServerContext* context, const ::TextureRequest* request, ::grpc::ServerWriter< ::TextureData>* writer);
     virtual ::grpc::Status GetMeshDataChunk(::grpc::ServerContext* context, const ::MeshChunkRequest* request, ::MeshDataChunk* response);
@@ -212,12 +208,12 @@ class SceneDataService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetLevelData(::grpc::ServerContext* /*context*/, const ::LevelRequest* /*request*/, ::grpc::ServerWriter< ::LevelData>* /*writer*/) override {
+    ::grpc::Status GetLevelData(::grpc::ServerContext* /*context*/, const ::LevelRequest* /*request*/, ::LevelData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetLevelData(::grpc::ServerContext* context, ::LevelRequest* request, ::grpc::ServerAsyncWriter< ::LevelData>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
+    void RequestGetLevelData(::grpc::ServerContext* context, ::LevelRequest* request, ::grpc::ServerAsyncResponseWriter< ::LevelData>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -308,20 +304,25 @@ class SceneDataService final {
    public:
     WithCallbackMethod_GetLevelData() {
       ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackServerStreamingHandler< ::LevelRequest, ::LevelData>(
+          new ::grpc::internal::CallbackUnaryHandler< ::LevelRequest, ::LevelData>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::LevelRequest* request) { return this->GetLevelData(context, request); }));
+                   ::grpc::CallbackServerContext* context, const ::LevelRequest* request, ::LevelData* response) { return this->GetLevelData(context, request, response); }));}
+    void SetMessageAllocatorFor_GetLevelData(
+        ::grpc::MessageAllocator< ::LevelRequest, ::LevelData>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::LevelRequest, ::LevelData>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_GetLevelData() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetLevelData(::grpc::ServerContext* /*context*/, const ::LevelRequest* /*request*/, ::grpc::ServerWriter< ::LevelData>* /*writer*/) override {
+    ::grpc::Status GetLevelData(::grpc::ServerContext* /*context*/, const ::LevelRequest* /*request*/, ::LevelData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerWriteReactor< ::LevelData>* GetLevelData(
-      ::grpc::CallbackServerContext* /*context*/, const ::LevelRequest* /*request*/)  { return nullptr; }
+    virtual ::grpc::ServerUnaryReactor* GetLevelData(
+      ::grpc::CallbackServerContext* /*context*/, const ::LevelRequest* /*request*/, ::LevelData* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_GetMeshData : public BaseClass {
@@ -435,7 +436,7 @@ class SceneDataService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetLevelData(::grpc::ServerContext* /*context*/, const ::LevelRequest* /*request*/, ::grpc::ServerWriter< ::LevelData>* /*writer*/) override {
+    ::grpc::Status GetLevelData(::grpc::ServerContext* /*context*/, const ::LevelRequest* /*request*/, ::LevelData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -520,12 +521,12 @@ class SceneDataService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetLevelData(::grpc::ServerContext* /*context*/, const ::LevelRequest* /*request*/, ::grpc::ServerWriter< ::LevelData>* /*writer*/) override {
+    ::grpc::Status GetLevelData(::grpc::ServerContext* /*context*/, const ::LevelRequest* /*request*/, ::LevelData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetLevelData(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
+    void RequestGetLevelData(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -615,20 +616,20 @@ class SceneDataService final {
    public:
     WithRawCallbackMethod_GetLevelData() {
       ::grpc::Service::MarkMethodRawCallback(0,
-          new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const::grpc::ByteBuffer* request) { return this->GetLevelData(context, request); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetLevelData(context, request, response); }));
     }
     ~WithRawCallbackMethod_GetLevelData() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetLevelData(::grpc::ServerContext* /*context*/, const ::LevelRequest* /*request*/, ::grpc::ServerWriter< ::LevelData>* /*writer*/) override {
+    ::grpc::Status GetLevelData(::grpc::ServerContext* /*context*/, const ::LevelRequest* /*request*/, ::LevelData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* GetLevelData(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)  { return nullptr; }
+    virtual ::grpc::ServerUnaryReactor* GetLevelData(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithRawCallbackMethod_GetMeshData : public BaseClass {
@@ -719,6 +720,33 @@ class SceneDataService final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_GetLevelData : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_GetLevelData() {
+      ::grpc::Service::MarkMethodStreamed(0,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::LevelRequest, ::LevelData>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::LevelRequest, ::LevelData>* streamer) {
+                       return this->StreamedGetLevelData(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_GetLevelData() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status GetLevelData(::grpc::ServerContext* /*context*/, const ::LevelRequest* /*request*/, ::LevelData* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedGetLevelData(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::LevelRequest,::LevelData>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_GetMeshDataChunk : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -772,34 +800,7 @@ class SceneDataService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedGetTextureDataChunk(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::TextureChunkRequest,::TextureDataChunk>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GetMeshDataChunk<WithStreamedUnaryMethod_GetTextureDataChunk<Service > > StreamedUnaryService;
-  template <class BaseClass>
-  class WithSplitStreamingMethod_GetLevelData : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithSplitStreamingMethod_GetLevelData() {
-      ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::SplitServerStreamingHandler<
-          ::LevelRequest, ::LevelData>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerSplitStreamer<
-                     ::LevelRequest, ::LevelData>* streamer) {
-                       return this->StreamedGetLevelData(context,
-                         streamer);
-                  }));
-    }
-    ~WithSplitStreamingMethod_GetLevelData() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status GetLevelData(::grpc::ServerContext* /*context*/, const ::LevelRequest* /*request*/, ::grpc::ServerWriter< ::LevelData>* /*writer*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with split streamed
-    virtual ::grpc::Status StreamedGetLevelData(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::LevelRequest,::LevelData>* server_split_streamer) = 0;
-  };
+  typedef WithStreamedUnaryMethod_GetLevelData<WithStreamedUnaryMethod_GetMeshDataChunk<WithStreamedUnaryMethod_GetTextureDataChunk<Service > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_GetMeshData : public BaseClass {
    private:
@@ -854,8 +855,8 @@ class SceneDataService final {
     // replace default version of method with split streamed
     virtual ::grpc::Status StreamedGetTextureData(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::TextureRequest,::TextureData>* server_split_streamer) = 0;
   };
-  typedef WithSplitStreamingMethod_GetLevelData<WithSplitStreamingMethod_GetMeshData<WithSplitStreamingMethod_GetTextureData<Service > > > SplitStreamedService;
-  typedef WithSplitStreamingMethod_GetLevelData<WithSplitStreamingMethod_GetMeshData<WithSplitStreamingMethod_GetTextureData<WithStreamedUnaryMethod_GetMeshDataChunk<WithStreamedUnaryMethod_GetTextureDataChunk<Service > > > > > StreamedService;
+  typedef WithSplitStreamingMethod_GetMeshData<WithSplitStreamingMethod_GetTextureData<Service > > SplitStreamedService;
+  typedef WithStreamedUnaryMethod_GetLevelData<WithSplitStreamingMethod_GetMeshData<WithSplitStreamingMethod_GetTextureData<WithStreamedUnaryMethod_GetMeshDataChunk<WithStreamedUnaryMethod_GetTextureDataChunk<Service > > > > > StreamedService;
 };
 
 

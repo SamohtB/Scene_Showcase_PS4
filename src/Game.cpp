@@ -15,6 +15,7 @@
 #include "UIManager.h"
 
 #include "Model.h"
+#include "LevelDataClient.h"
 
 Game::Game()
 {
@@ -69,6 +70,8 @@ void Game::run()
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
     glfwSetTime(0.0f);
+
+    LevelDataClient::runClient();
 
     while (!glfwWindowShouldClose(gameWindow))
     {
