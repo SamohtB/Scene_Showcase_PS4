@@ -51,25 +51,13 @@
     <ClCompile Include="src\Texture.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="src\TestModel.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
     <ClCompile Include="src\AUIScreen.cpp">
       <Filter>Abstract</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ClientThread.cpp">
-      <Filter>Threads</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ServerThread.cpp">
-      <Filter>Threads</Filter>
     </ClCompile>
     <ClCompile Include="src\ConsoleScreen.cpp">
       <Filter>Object\UI</Filter>
     </ClCompile>
     <ClCompile Include="src\UIManager.cpp">
-      <Filter>Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\NetworkManager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
     <ClCompile Include="src\IETThread.cpp">
@@ -102,6 +90,9 @@
     <ClCompile Include="src\Model.cpp">
       <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="src\DownloadScreen.cpp">
+      <Filter>Object\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\config.h">
@@ -125,17 +116,8 @@
     <ClInclude Include="src\Texture.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="src\TestModel.h">
-      <Filter>Object</Filter>
-    </ClInclude>
     <ClInclude Include="src\AUIScreen.h">
       <Filter>Abstract</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ClientThread.h">
-      <Filter>Threads</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ServerThread.h">
-      <Filter>Threads</Filter>
     </ClInclude>
     <ClInclude Include="src\ConsoleScreen.h">
       <Filter>Object\UI</Filter>
@@ -147,9 +129,6 @@
       <Filter>Utilitiy</Filter>
     </ClInclude>
     <ClInclude Include="src\UIManager.h">
-      <Filter>Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\NetworkManager.h">
       <Filter>Managers</Filter>
     </ClInclude>
     <ClInclude Include="src\IETThread.h">
@@ -178,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="src\Model.h">
       <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DownloadScreen.h">
+      <Filter>Object\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

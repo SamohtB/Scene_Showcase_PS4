@@ -3,10 +3,9 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-Model::Model(String name, String mesh, String texture) : AGameObject(name)
+Model::Model(String name, std::shared_ptr<Mesh> mesh, std::shared_ptr<Texture> texture) 
+	: AGameObject(name), mesh(mesh), texture(texture)
 {
-	this->mesh = std::make_unique<Mesh>(mesh);
-	this->texture = std::make_shared<Texture>(texture);
 	this->transform = std::make_unique<Transform>();
 }
 
@@ -61,14 +60,14 @@ Transform* Model::getTransform()
 	return this->transform.get();
 }
 
-Mesh* Model::getMesh()
+std::shared_ptr<Mesh> Model::getMesh()
 {
-	return this->mesh.get();
+	return this->mesh;
 }
 
-Texture* Model::getTexture()
+std::shared_ptr<Texture> Model::getTexture()
 {
-	return this->texture.get();
+	return this->texture;
 }
 
 

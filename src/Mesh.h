@@ -11,7 +11,7 @@ class Mesh
 public:
     using String = std::string;
 
-    Mesh(String meshFilePath, int id);
+    Mesh(String meshFilePath, int id, bool isRendered);
     ~Mesh();
 
     void draw();
@@ -21,10 +21,11 @@ public:
     const std::vector<GLfloat>& getVertexData();
 
 private:
-    GLuint VAO, VBO;
+    GLuint VAO, VBO = 0;
     std::vector<GLfloat> vertexData;
     int id = 0;
     String name;
+    bool isRendered = true;
 
     void setupMesh();
     void compileVertexData(String meshFilePath);

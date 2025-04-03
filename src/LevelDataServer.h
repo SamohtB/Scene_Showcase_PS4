@@ -5,8 +5,6 @@
 #include "LevelData.grpc.pb.h"
 #include "IETThread.h"
 
-class Mesh;
-
 class LevelDataServer final : public SceneDataService::Service, public IETThread 
 {
 public:

@@ -1,7 +1,7 @@
 #include "Game.h"
 #include "ServerMain.h"
 
-#define ISSERVER 1
+//#define ISSERVER 1
 
 int main()
 {

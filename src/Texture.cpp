@@ -2,14 +2,28 @@
 #include "Texture.h"
 
 #include <filesystem>
+#include <iostream>
 
-Texture::Texture(String textureFilePath, int id) : id(id)
+Texture::Texture(String textureFilePath, int id, bool isRendered = true) : id(id), isRendered(isRendered)
 {
+    name = std::filesystem::path(textureFilePath).stem().string();
+
     stbi_set_flip_vertically_on_load(true);
     int img_width, img_height, colorChannels;
 
     const char* path = textureFilePath.c_str();
     unsigned char* tex_bytes = stbi_load(path, &img_width, &img_height, &colorChannels, 0);
+
+    if (tex_bytes == nullptr) {
+        std::cerr << "Failed to load texture file: " << textureFilePath << std::endl;
+        return;
+    }
+
+    this->textureData.assign(tex_bytes, tex_bytes + img_width * img_height * colorChannels);
+
+    stbi_image_free(tex_bytes);
+
+    if (!isRendered) return;
 
     glGenTextures(1, &this->texture);
     glActiveTexture(GL_TEXTURE0);
@@ -31,10 +45,6 @@ Texture::Texture(String textureFilePath, int id) : id(id)
     }
 
     glGenerateMipmap(GL_TEXTURE_2D);
-
-    stbi_image_free(tex_bytes);
-
-    name = std::filesystem::path(textureFilePath).stem().string();
 }
 
 Texture::~Texture()
@@ -57,7 +67,7 @@ std::string Texture::getName()
     return this->name;
 }
 
-const GLuint& Texture::getTextureData()
+const std::vector<unsigned char>& Texture::getTextureData()
 {
-    return this->texture;
+    return this->textureData;
 }

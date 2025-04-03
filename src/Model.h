@@ -14,14 +14,14 @@ class Model : public AGameObject
 public:
 	using String = std::string;
 
-	Model(String name, String mesh, String texture);
+	Model(String name, std::shared_ptr<Mesh> mesh, std::shared_ptr<Texture> texture);
 	~Model();
 
 	void draw(GLuint shaderProgram);
 
 	Transform* getTransform();
-	Mesh* getMesh();
-	Texture* getTexture();
+	std::shared_ptr<Mesh> getMesh();
+	std::shared_ptr<Texture> getTexture();
 
 private:
 	std::shared_ptr<Mesh> mesh;

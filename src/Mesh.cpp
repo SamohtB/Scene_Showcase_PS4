@@ -5,10 +5,11 @@
 #include <filesystem>
 #include "Debug.h"
 
-Mesh::Mesh(String meshFilePath, int id) : id(id)
+Mesh::Mesh(String meshFilePath, int id, bool isRendered = true) : id(id), isRendered(isRendered)
 {
     compileVertexData(meshFilePath);
-    setupMesh();
+    if(isRendered)
+        setupMesh();
 
     name = std::filesystem::path(meshFilePath).stem().string();
 }
@@ -81,8 +82,11 @@ void Mesh::setupMesh()
 
 Mesh::~Mesh()
 {
-    glDeleteVertexArrays(1, &this->VAO);
-    glDeleteBuffers(1, &this->VBO);
+    if (isRendered)
+    {
+        glDeleteVertexArrays(1, &this->VAO);
+        glDeleteBuffers(1, &this->VBO);
+    }
 }
 
 void Mesh::draw()

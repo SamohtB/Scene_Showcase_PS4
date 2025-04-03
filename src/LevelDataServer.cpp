@@ -15,9 +15,6 @@ grpc::Status LevelDataServer::GetLevelData(grpc::ServerContext* context, const L
 
 	GameObjectManager::ObjectList gameObjects = GameObjectManager::getInstance()->getScene(levelId);
 
-	MeshTable* meshTable = response->mutable_meshtable();
-	TextureTable* textureTable = response->mutable_texturetable();
-
 	/* gameobject list to model list */
 	for (const GameObjectManager::ObjectPtr& obj : gameObjects)
 	{
@@ -51,18 +48,6 @@ grpc::Status LevelDataServer::GetLevelData(grpc::ServerContext* context, const L
 			int textureId = model->getTexture()->getId();
 			modelData->set_meshreference(meshId);
 			modelData->set_texturereference(textureId);
-
-			if (meshTable->meshdatatable().find(meshId) == meshTable->meshdatatable().end())
-			{
-				MeshData& meshData = (*meshTable->mutable_meshdatatable())[meshId];
-				meshData.add_meshdatachunk()->set_name(model->getMesh()->getName());
-			}
-
-			if (textureTable->texturedatatable().find(textureId) == textureTable->texturedatatable().end())
-			{
-				TextureData& textureData = (*textureTable->mutable_texturedatatable())[textureId];
-				textureData.add_texturedatachunk()->set_name(model->getTexture()->getName());
-			}
 		}
 	}
 	
@@ -81,7 +66,7 @@ grpc::Status LevelDataServer::GetMeshData(grpc::ServerContext* context, const Me
 		auto model = std::dynamic_pointer_cast<Model>(obj);
 		if (!model) continue;
 
-		std::shared_ptr<Mesh> mesh(model->getMesh());
+		std::shared_ptr<Mesh> mesh = model->getMesh();
 		int meshId = mesh->getId();
 
 		if (uniqueMeshes.find(meshId) == uniqueMeshes.end())
@@ -155,18 +140,20 @@ grpc::Status LevelDataServer::GetTextureData(grpc::ServerContext* context, const
 		int textureId = pair.first;
 		auto texture = pair.second;
 
-		int width, height, channels;
-		std::vector<unsigned char> textureData;
+		std::vector<unsigned char> textureData = texture->getTextureData();
+		int width, height, channels = 3; /* current textures are jpg */
 
 		glBindTexture(GL_TEXTURE_2D, textureId);
 		glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &width);
 		glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &height);
-		channels = 3; /* current textures are jpg */
+		glBindTexture(GL_TEXTURE_2D, 0);
 
 		size_t totalSize = width * height * channels;
-		textureData.resize(totalSize);
-		glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData.data());
-		glBindTexture(GL_TEXTURE_2D, 0);
+
+		if (totalSize != textureData.size()) 
+		{
+			return grpc::Status(grpc::StatusCode::INTERNAL, "Texture data size mismatch.");
+		}
 
 		TextureTable textureTable;
 		TextureData& textureDataEntry = (*textureTable.mutable_texturedatatable())[textureId];
