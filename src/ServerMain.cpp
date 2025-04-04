@@ -12,10 +12,8 @@ ServerMain::ServerMain()
 {
 	this->serverService = new LevelDataServer();
 
-	/* Add Scenes and Objects */
-	GameObjectManager::initialize();
 
-	std::shared_ptr<Mesh> cowMesh = std::make_shared<Mesh>("Models/spot.obj", 0, false);
+	std::shared_ptr<RawMesh> cowMesh = std::make_shared<RawMesh>("Models/spot.obj", 0, false);
 	std::shared_ptr<Texture> brick = std::make_shared<Texture>("Models/bricks2.jpg", 0, false);
 	std::shared_ptr<Texture> wall = std::make_shared<Texture>("Models/Wall.jpg", 1, false);
 	std::shared_ptr<Texture> circuit = std::make_shared<Texture>("Models/Circuit.jpg", 2, false);
@@ -45,7 +43,7 @@ ServerMain::ServerMain()
 
 ServerMain::~ServerMain()
 {
-	GameObjectManager::getInstance()->clearAllObjects();
+
 }
 
 void ServerMain::run()

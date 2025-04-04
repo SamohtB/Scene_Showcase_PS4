@@ -5,65 +5,18 @@
 #include <filesystem>
 #include "Debug.h"
 
-Mesh::Mesh(String meshFilePath, int id, bool isRendered = true) : id(id), isRendered(isRendered)
+Mesh::Mesh(RawMesh* mesh) : rawMesh(mesh), VAO(0), VBO(0)
 {
-    compileVertexData(meshFilePath);
-    if(isRendered)
-        setupMesh();
-
-    name = std::filesystem::path(meshFilePath).stem().string();
+    initializeMesh();
 }
 
-Mesh::Mesh(const std::vector<GLfloat>& vertexData, int id, bool isRendered) : id(id), isRendered(isRendered), vertexData(vertexData)
+Mesh::~Mesh()
 {
-    setupMesh();
+    glDeleteVertexArrays(1, &this->VAO);
+    glDeleteBuffers(1, &this->VBO);
 }
 
-void Mesh::compileVertexData(String meshFilePath)
-{
-    tinyobj::attrib_t attributes;
-    std::vector<tinyobj::shape_t> shapes;
-    std::vector<tinyobj::material_t> materials;
-    std::string error, warning;
-
-    bool success = tinyobj::LoadObj(&attributes, &shapes, &materials, &error, &warning, meshFilePath.c_str());
-
-    if (!success) {
-        Debug::Log("Failed to load OBJ: " + error);
-        return;
-    }
-    if (!warning.empty()) {
-        Debug::Log("OBJ Warning: " + warning);
-    }
-
-    std::vector<glm::vec3> tangents;
-
-    /* get vertices */
-    for (size_t s = 0; s < shapes.size(); s++)
-    {
-        for (size_t i = 0; i < shapes[s].mesh.indices.size(); i++)
-        {
-            tinyobj::index_t vData = shapes[s].mesh.indices[i];
-
-            vertexData.push_back(attributes.vertices[vData.vertex_index * 3]);
-            vertexData.push_back(attributes.vertices[vData.vertex_index * 3 + 1]);
-            vertexData.push_back(attributes.vertices[vData.vertex_index * 3 + 2]);
-
-            if (!attributes.texcoords.empty() && vData.texcoord_index >= 0)
-            {
-                vertexData.push_back(attributes.texcoords[vData.texcoord_index * 2]);
-                vertexData.push_back(attributes.texcoords[vData.texcoord_index * 2 + 1]);
-            }
-            else
-            {
-                vertexData.push_back(0.0f);
-                vertexData.push_back(0.0f);
-            }
-        }
-    }
-}
-
-void Mesh::setupMesh()
+void Mesh::initializeMesh()
 {
     glGenVertexArrays(1, &this->VAO);
     glGenBuffers(1, &this->VBO);
@@ -72,7 +25,7 @@ void Mesh::setupMesh()
     glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
 
     /* GL_ARRAY_BUFFER, Size of Whole Vertex Data, Vertex Data point, GL_STATIC_DRAW*/
-    glBufferData(GL_ARRAY_BUFFER, vertexData.size() * sizeof(GLfloat), vertexData.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, rawMesh->getAllChunkedData().size() * sizeof(GLfloat), rawMesh->getAllChunkedData().data(), GL_STATIC_DRAW);
 
     /* position */
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)0);
@@ -85,33 +38,9 @@ void Mesh::setupMesh()
     glBindVertexArray(0);
 }
 
-Mesh::~Mesh()
-{
-    if (isRendered)
-    {
-        glDeleteVertexArrays(1, &this->VAO);
-        glDeleteBuffers(1, &this->VBO);
-    }
-}
-
 void Mesh::draw()
 {
     glBindVertexArray(VAO);
-    glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(vertexData.size() / 5));
+    glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(rawMesh->getAllChunkedData().size() / 5));
     glBindVertexArray(0);
-}
-
-int Mesh::getId()
-{
-    return this->id;
-}
-
-std::string Mesh::getName()
-{
-    return this->name;
-}
-
-const std::vector<GLfloat>& Mesh::getVertexData()
-{
-    return this->vertexData;
 }
