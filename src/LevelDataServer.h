@@ -16,4 +16,8 @@ public:
 	static void RunServer(uint16_t port);
 
 	void run() override;
+
+private:
+	std::mutex guard;
+	
 };

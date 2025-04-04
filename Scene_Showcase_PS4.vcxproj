@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="IETSemaphore.cpp" />
     <ClCompile Include="src\DownloadScreen.cpp" />
+    <ClCompile Include="src\imgui_impl_opengl3.cpp" />
     <ClCompile Include="src\Model.cpp" />
     <ClCompile Include="src\AGameObject.cpp" />
     <ClCompile Include="src\GameObjectManager.cpp" />
@@ -42,7 +44,10 @@
     <ClCompile Include="src\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IETSemaphore.h" />
     <ClInclude Include="src\DownloadScreen.h" />
+    <ClInclude Include="src\imgui_impl_opengl3.h" />
+    <ClInclude Include="src\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="src\Model.h" />
     <ClInclude Include="src\AGameObject.h" />
     <ClInclude Include="src\GameObjectManager.h" />

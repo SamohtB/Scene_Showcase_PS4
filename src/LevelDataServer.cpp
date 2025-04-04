@@ -16,10 +16,11 @@ grpc::Status LevelDataServer::GetLevelData(grpc::ServerContext* context, const L
 	GameObjectManager::ObjectList gameObjects = GameObjectManager::getInstance()->getScene(levelId);
 
 	LevelData levelData;
-
+	this->guard.lock();
 	/* compile gameobject data */
 	for (const GameObjectManager::ObjectPtr& obj : gameObjects)
 	{
+		
 		std::shared_ptr<Model> model = std::dynamic_pointer_cast<Model>(obj);
 
 		if (model)
@@ -51,16 +52,19 @@ grpc::Status LevelDataServer::GetLevelData(grpc::ServerContext* context, const L
 			modelData->set_texturereference(textureId);
 		}
 	}
+	this->guard.unlock();
 	
     return grpc::Status::OK;
 }
 
 grpc::Status LevelDataServer::GetMeshData(grpc::ServerContext* context, const MeshRequest* request, grpc::ServerWriter<MeshTable>* writer)
 {
+	
 	int levelId = request->levelid();
 	GameObjectManager::ObjectList gameObjects = GameObjectManager::getInstance()->getScene(levelId);
 
 	std::unordered_map<int, std::shared_ptr<Mesh>> uniqueMeshes;
+	this->guard.lock();
 
 	for (const auto& obj : gameObjects)
 	{
@@ -107,10 +111,12 @@ grpc::Status LevelDataServer::GetMeshData(grpc::ServerContext* context, const Me
 
 		if (!writer->Write(meshTable))
 		{
+			this->guard.unlock();
 			return grpc::Status(grpc::StatusCode::INTERNAL, "Failed to stream mesh data.");
 		}
 	}
 
+	this->guard.unlock();
 	return grpc::Status::OK;
 }
 
@@ -121,6 +127,8 @@ grpc::Status LevelDataServer::GetTextureData(grpc::ServerContext* context, const
 	GameObjectManager::ObjectList gameObjects = GameObjectManager::getInstance()->getScene(levelId);
 
 	std::unordered_map<int, std::shared_ptr<Texture>> uniqueTextures;
+
+	this->guard.lock();
 
 	for (const auto& obj : gameObjects)
 	{
@@ -147,6 +155,7 @@ grpc::Status LevelDataServer::GetTextureData(grpc::ServerContext* context, const
 
 		if (totalSize != textureData.size()) 
 		{
+			this->guard.unlock();
 			return grpc::Status(grpc::StatusCode::INTERNAL, "Texture data size mismatch.");
 		}
 
@@ -176,10 +185,12 @@ grpc::Status LevelDataServer::GetTextureData(grpc::ServerContext* context, const
 
 		if (!writer->Write(textureTable))
 		{
+			this->guard.unlock();
 			return grpc::Status(grpc::StatusCode::INTERNAL, "Failed to stream texture data.");
 		}
 	}
 
+	this->guard.unlock();
 	return grpc::Status::OK;
 }
 
