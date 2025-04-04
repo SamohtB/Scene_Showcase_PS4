@@ -12,6 +12,7 @@
 #include "GameObjectManager.h"
 #include "EventBroadcaster.h"
 #include "UIManager.h"
+#include "EngineTime.h"
 
 #include "Model.h"
 #include "LevelDataClient.h"
@@ -21,6 +22,8 @@ Game::Game()
     initializeWindow();
     this->shader = new Shader("Shaders/Shader.vert", "Shaders/Shader.frag");
 
+    EngineTime::initialize();
+    EngineTime::setFrameTime(60);
     EventBroadcaster::initialize();
     Debug::initialize();
     UIManager::initialize(this->gameWindow);
@@ -70,20 +73,33 @@ void Game::run()
 
     glfwSetTime(0.0f);
 
-    LevelDataClient::requestLevel(0);
-
     while (!glfwWindowShouldClose(gameWindow))
     {
-        this->processInput();
-        this->update(0.0f);
+        EngineTime::LogFrameStart();
 
+        this->processInput();
+        this->update(static_cast<float>(EngineTime::getDeltaTime()));
+        
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         this->render();
 
         glfwSwapBuffers(gameWindow);
-
         glfwPollEvents();
+
+        EngineTime::LogFrameEnd();
+
+        frameCount++;
+        totalTime += EngineTime::getDeltaTime();
+
+        if (totalTime >= updateInterval)
+        {
+            double averageFPS = frameCount / totalTime;
+            UIManager::getInstance()->updateFPS(averageFPS);
+
+            frameCount = 0;
+            totalTime = 0.0;
+        }
     }
 
     glfwDestroyWindow(this->gameWindow);
@@ -96,7 +112,8 @@ void Game::processInput()
 
 void Game::update(float deltaTime)
 {
-    GameObjectManager::getInstance()->update(1.0f/60.0f);
+    
+    GameObjectManager::getInstance()->update(deltaTime);
 }
 
 void Game::render()

@@ -93,6 +93,12 @@
     <ClCompile Include="src\DownloadScreen.cpp">
       <Filter>Object\UI</Filter>
     </ClCompile>
+    <ClCompile Include="src\EngineTime.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MenuBar.cpp">
+      <Filter>Object\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\config.h">
@@ -159,6 +165,12 @@
       <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="src\DownloadScreen.h">
+      <Filter>Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EngineTime.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MenuBar.h">
       <Filter>Object\UI</Filter>
     </ClInclude>
   </ItemGroup>

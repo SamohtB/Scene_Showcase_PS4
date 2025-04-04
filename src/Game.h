@@ -18,5 +18,9 @@ private:
 private:
 	GLFWwindow* gameWindow;
 	Shader* shader = nullptr;
+
+	int frameCount = 0;
+	double totalTime = 0;
+	const double updateInterval = 0.5;
 };
 

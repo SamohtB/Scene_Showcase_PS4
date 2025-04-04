@@ -3,14 +3,18 @@
 #include <vector>
 #include <string>
 #include <unordered_map>
-#include "AUIScreen.h"
 #include <GLFW/glfw3.h>	
+
+#include "AUIScreen.h"
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
 
 class UINames {
 public:
 	const String CONSOLE_SCREEN = "CONSOLE_SCREEN";
-	const String CONNECT_SCREEN = "CONNECT_SCREEN";
-	const String CHAT_SCREEN = "CHAT_SCREEN";
+	const String MENU_BAR = "MENU_BAR";
+	const String DOWNLOAD_SCREEN = "DOWNLOAD_SCREEN";
 };
 
 
@@ -26,6 +30,7 @@ public:
 	static void destroy();
 
 	void drawAllUI();
+	void updateFPS(double deltaTime);
 
 	static const int WINDOW_WIDTH = 1280;
 	static const int WINDOW_HEIGHT = 720;

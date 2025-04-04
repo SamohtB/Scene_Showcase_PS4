@@ -5,6 +5,7 @@ class ConsoleScreen :    public AUIScreen
 {
 public:
 	void appendText(String text);
+
 private:
 	ConsoleScreen();
 	~ConsoleScreen();
@@ -14,5 +15,7 @@ private:
 
 	ImGuiTextBuffer* textLog;
 	int lineCount = 0;
+
+
 };
 

@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\MenuBar.cpp" />
     <ClCompile Include="src\DownloadScreen.cpp" />
+    <ClCompile Include="src\EngineTime.cpp" />
     <ClCompile Include="src\Model.cpp" />
     <ClCompile Include="src\AGameObject.cpp" />
     <ClCompile Include="src\GameObjectManager.cpp" />
@@ -42,7 +44,9 @@
     <ClCompile Include="src\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\MenuBar.h" />
     <ClInclude Include="src\DownloadScreen.h" />
+    <ClInclude Include="src\EngineTime.h" />
     <ClInclude Include="src\Model.h" />
     <ClInclude Include="src\AGameObject.h" />
     <ClInclude Include="src\GameObjectManager.h" />

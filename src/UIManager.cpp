@@ -1,9 +1,12 @@
 #include "UIManager.h"
 
-#include "ConsoleScreen.h"
-#include "Debug.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+
+#include "MenuBar.h"
+#include "ConsoleScreen.h"
+#include "Debug.h"
+#include "DownloadScreen.h"
 
 UIManager* UIManager::sharedInstance = nullptr;
 
@@ -35,6 +38,16 @@ void UIManager::drawAllUI()
 
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+	ImGui::UpdatePlatformWindows();
+	ImGui::RenderPlatformWindowsDefault();
+}
+
+void UIManager::updateFPS(double fps)
+{
+	UINames names;
+	MenuBar* bar = (MenuBar*)this->uiTable[names.MENU_BAR];
+	bar->updateFPS(fps);
 }
 
 UIManager::UIManager(GLFWwindow* gameWindow)
@@ -45,7 +58,6 @@ UIManager::UIManager(GLFWwindow* gameWindow)
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
 	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-	io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
 
 	ImGui::StyleColorsDark();
 
@@ -54,10 +66,19 @@ UIManager::UIManager(GLFWwindow* gameWindow)
 
 	//populate UI table
 	UINames uiNames;
+
 	ConsoleScreen* consoleScreen = new ConsoleScreen();
 	Debug::assignConsole(consoleScreen);
 	this->uiTable[uiNames.CONSOLE_SCREEN] = consoleScreen;
 	this->uiList.push_back(consoleScreen);
+
+	MenuBar* menuBar = new MenuBar();
+	this->uiTable[uiNames.MENU_BAR] = menuBar;
+	this->uiList.push_back(menuBar);
+
+	DownloadScreen* downloadScreen = new DownloadScreen();
+	this->uiTable[uiNames.DOWNLOAD_SCREEN] = downloadScreen;
+	this->uiList.push_back(downloadScreen);
 }
 
 UIManager::~UIManager()
