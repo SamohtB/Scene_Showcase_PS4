@@ -1,6 +1,9 @@
 #include "DownloadScreen.h"
 #include "Texture.h"
 #include "Debug.h"
+#include "ClientRequestManager.h"
+#include "GameObjectManager.h"
+
 #include <imgui.h>
 #include <sstream>
 
@@ -43,7 +46,8 @@ void DownloadScreen::drawUI()
                 if (ImGui::Button(deleteID.c_str(), ImVec2(200, 20)))
                 {
                     this->isActive[i] = false;
-                    // Handle delete action
+                    //GameObjectManager::getInstance()->deleteScene(i);
+                    Debug::Log("Scene " + std::to_string(i) + " deleted\n");
                 }
                 break;
 
@@ -52,7 +56,8 @@ void DownloadScreen::drawUI()
                 if (ImGui::Button(reloadID.c_str(), ImVec2(200, 20)))
                 {
                     this->isActive[i] = true;
-                    // Handle reload action
+                    Debug::Log("Requesting " + std::to_string(i) + "...\n");
+                    ClientRequestManager::getInstance()->RequestScene(i);
                 }
             }
 

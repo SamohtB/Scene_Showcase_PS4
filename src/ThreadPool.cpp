@@ -1,6 +1,7 @@
 #include "ThreadPool.h"
 #include "PoolWorkerThread.h"
-#include "ThreadPoolMonitor.h"
+#include "ResourceMonitor.h"
+#include "Debug.h"
 
 ThreadPool::ThreadPool(String name, int worker_count) : name(name), workerCount(worker_count)
 {
@@ -9,7 +10,8 @@ ThreadPool::ThreadPool(String name, int worker_count) : name(name), workerCount(
 		this->inactiveThreadList.push(new PoolWorkerThread(i, this));
 	}
 
-	this->monitor = new ThreadPoolMonitor(workerCount);
+	this->workerCountMonitor = new ResourceMonitor(workerCount);
+	this->taskCountMonitor = new ResourceMonitor(0);
 }
 
 ThreadPool::~ThreadPool()
@@ -29,7 +31,7 @@ ThreadPool::~ThreadPool()
 		this->inactiveThreadList.pop();
 	}
 
-	delete this->monitor;
+	delete this->workerCountMonitor;
 }
 
 void ThreadPool::startScheduler()
@@ -41,21 +43,20 @@ void ThreadPool::startScheduler()
 void ThreadPool::stopScheduler()	
 {
 	this->isRunning = false;
-	this->monitor->notifyComplete();
 }
 
 void ThreadPool::scheduleTask(IWorkerAction* action)
 {
 	this->pendingActions.push(action);
+	this->taskCountMonitor->reportExit(); //increase tasks by 1
 }
 
 void ThreadPool::run()
 {
 	while (this->isRunning)
 	{
-		if (pendingActions.empty()) continue;
-
-		this->monitor->tryEnter();
+		this->taskCountMonitor->tryEnter();
+		this->workerCountMonitor->tryEnter();
 
 		PoolWorkerThread* worker_thread = this->inactiveThreadList.front();
 		this->inactiveThreadList.pop();
@@ -78,5 +79,5 @@ void ThreadPool::onFinishedTask(int threadID)
 		this->inactiveThreadList.push(worker);
 	}
 
-	this->monitor->reportExit();
+	this->workerCountMonitor->reportExit();
 }

@@ -10,12 +10,11 @@
 #include "Debug.h"
 
 #include "GameObjectManager.h"
-#include "EventBroadcaster.h"
 #include "UIManager.h"
 #include "EngineTime.h"
+#include "ClientRequestManager.h"
 
 #include "Model.h"
-#include "LevelDataClient.h"
 
 Game::Game()
 {
@@ -24,8 +23,8 @@ Game::Game()
 
     EngineTime::initialize();
     EngineTime::setFrameTime(60);
-    EventBroadcaster::initialize();
     Debug::initialize();
+    ClientRequestManager::initialize();
     UIManager::initialize(this->gameWindow);
     GameObjectManager::initialize();
 }
@@ -34,8 +33,8 @@ Game::~Game()
 {
     GameObjectManager::destroy();
     UIManager::destroy();
+    ClientRequestManager::destroy();
     Debug::destroy();
-    EventBroadcaster::destroy();
 }
 
 void Game::initializeWindow()
@@ -112,7 +111,7 @@ void Game::processInput()
 
 void Game::update(float deltaTime)
 {
-    
+    GameObjectManager::getInstance()->processPendingData();
     GameObjectManager::getInstance()->update(deltaTime);
 }
 

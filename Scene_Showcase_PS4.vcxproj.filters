@@ -28,6 +28,9 @@
     <Filter Include="Managers">
       <UniqueIdentifier>{13b24f8c-7d86-4066-a027-8820452ba5db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Monitors">
+      <UniqueIdentifier>{0030abfd-88b8-4c0e-a58e-96cef879692d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -98,6 +101,21 @@
     </ClCompile>
     <ClCompile Include="src\MenuBar.cpp">
       <Filter>Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GenericMonitor.cpp">
+      <Filter>Monitors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ResourceMonitor.cpp">
+      <Filter>Monitors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PoolWorkerThread.cpp">
+      <Filter>Threads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThreadPool.cpp">
+      <Filter>Threads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ClientRequestManager.cpp">
+      <Filter>Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +190,30 @@
     </ClInclude>
     <ClInclude Include="src\MenuBar.h">
       <Filter>Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GenericMonitor.h">
+      <Filter>Monitors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ResourceMonitor.h">
+      <Filter>Monitors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PoolWorkerThread.h">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ThreadPool.h">
+      <Filter>Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IExecutionEvent.h">
+      <Filter>Utilitiy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IFinishedTask.h">
+      <Filter>Utilitiy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IWorkerAction.h">
+      <Filter>Utilitiy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ClientRequestManager.h">
+      <Filter>Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -28,9 +28,6 @@
 #include "google/protobuf/message_lite.h"
 #include "google/protobuf/repeated_field.h"  // IWYU pragma: export
 #include "google/protobuf/extension_set.h"  // IWYU pragma: export
-#include "google/protobuf/map.h"  // IWYU pragma: export
-#include "google/protobuf/map_entry.h"
-#include "google/protobuf/map_field_inl.h"
 #include "google/protobuf/unknown_field_set.h"
 // @@protoc_insertion_point(includes)
 
@@ -63,45 +60,18 @@ extern LevelRequestDefaultTypeInternal _LevelRequest_default_instance_;
 class MeshChunkRequest;
 struct MeshChunkRequestDefaultTypeInternal;
 extern MeshChunkRequestDefaultTypeInternal _MeshChunkRequest_default_instance_;
-class MeshData;
-struct MeshDataDefaultTypeInternal;
-extern MeshDataDefaultTypeInternal _MeshData_default_instance_;
 class MeshDataChunk;
 struct MeshDataChunkDefaultTypeInternal;
 extern MeshDataChunkDefaultTypeInternal _MeshDataChunk_default_instance_;
-class MeshRequest;
-struct MeshRequestDefaultTypeInternal;
-extern MeshRequestDefaultTypeInternal _MeshRequest_default_instance_;
-class MeshTable;
-struct MeshTableDefaultTypeInternal;
-extern MeshTableDefaultTypeInternal _MeshTable_default_instance_;
-class MeshTable_MeshDataTableEntry_DoNotUse;
-struct MeshTable_MeshDataTableEntry_DoNotUseDefaultTypeInternal;
-extern MeshTable_MeshDataTableEntry_DoNotUseDefaultTypeInternal _MeshTable_MeshDataTableEntry_DoNotUse_default_instance_;
 class ObjectData;
 struct ObjectDataDefaultTypeInternal;
 extern ObjectDataDefaultTypeInternal _ObjectData_default_instance_;
 class TextureChunkRequest;
 struct TextureChunkRequestDefaultTypeInternal;
 extern TextureChunkRequestDefaultTypeInternal _TextureChunkRequest_default_instance_;
-class TextureData;
-struct TextureDataDefaultTypeInternal;
-extern TextureDataDefaultTypeInternal _TextureData_default_instance_;
 class TextureDataChunk;
 struct TextureDataChunkDefaultTypeInternal;
 extern TextureDataChunkDefaultTypeInternal _TextureDataChunk_default_instance_;
-class TextureRequest;
-struct TextureRequestDefaultTypeInternal;
-extern TextureRequestDefaultTypeInternal _TextureRequest_default_instance_;
-class TextureTable;
-struct TextureTableDefaultTypeInternal;
-extern TextureTableDefaultTypeInternal _TextureTable_default_instance_;
-class TextureTable_TextureDataTableEntry_DoNotUse;
-struct TextureTable_TextureDataTableEntry_DoNotUseDefaultTypeInternal;
-extern TextureTable_TextureDataTableEntry_DoNotUseDefaultTypeInternal _TextureTable_TextureDataTableEntry_DoNotUse_default_instance_;
-class Vec3;
-struct Vec3DefaultTypeInternal;
-extern Vec3DefaultTypeInternal _Vec3_default_instance_;
 namespace google {
 namespace protobuf {
 }  // namespace protobuf
@@ -111,410 +81,6 @@ namespace protobuf {
 // ===================================================================
 
 
-// -------------------------------------------------------------------
-
-class Vec3 final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:Vec3) */ {
- public:
-  inline Vec3() : Vec3(nullptr) {}
-  ~Vec3() PROTOBUF_FINAL;
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(Vec3* msg, std::destroying_delete_t) {
-    SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(Vec3));
-  }
-#endif
-
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR Vec3(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline Vec3(const Vec3& from) : Vec3(nullptr, from) {}
-  inline Vec3(Vec3&& from) noexcept
-      : Vec3(nullptr, std::move(from)) {}
-  inline Vec3& operator=(const Vec3& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Vec3& operator=(Vec3&& from) noexcept {
-    if (this == &from) return *this;
-    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const Vec3& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const Vec3* internal_default_instance() {
-    return reinterpret_cast<const Vec3*>(
-        &_Vec3_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 15;
-  friend void swap(Vec3& a, Vec3& b) { a.Swap(&b); }
-  inline void Swap(Vec3* other) {
-    if (other == this) return;
-    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Vec3* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  Vec3* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<Vec3>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const Vec3& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const Vec3& from) { Vec3::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  static void SharedDtor(MessageLite& self);
-  void InternalSwap(Vec3* other);
- private:
-  template <typename T>
-  friend ::absl::string_view(
-      ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "Vec3"; }
-
- protected:
-  explicit Vec3(::google::protobuf::Arena* arena);
-  Vec3(::google::protobuf::Arena* arena, const Vec3& from);
-  Vec3(::google::protobuf::Arena* arena, Vec3&& from) noexcept
-      : Vec3(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static void* PlacementNew_(const void*, void* mem,
-                             ::google::protobuf::Arena* arena);
-  static constexpr auto InternalNewImpl_();
-  static const ::google::protobuf::internal::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kXFieldNumber = 1,
-    kYFieldNumber = 2,
-    kZFieldNumber = 3,
-  };
-  // float x = 1;
-  void clear_x() ;
-  float x() const;
-  void set_x(float value);
-
-  private:
-  float _internal_x() const;
-  void _internal_set_x(float value);
-
-  public:
-  // float y = 2;
-  void clear_y() ;
-  float y() const;
-  void set_y(float value);
-
-  private:
-  float _internal_y() const;
-  void _internal_set_y(float value);
-
-  public:
-  // float z = 3;
-  void clear_z() ;
-  float z() const;
-  void set_z(float value);
-
-  private:
-  float _internal_z() const;
-  void _internal_set_z(float value);
-
-  public:
-  // @@protoc_insertion_point(class_scope:Vec3)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 0,
-      0, 2>
-      _table_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const Vec3& from_msg);
-    float x_;
-    float y_;
-    float z_;
-    ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_LevelData_2eproto;
-};
-// -------------------------------------------------------------------
-
-class TextureRequest final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:TextureRequest) */ {
- public:
-  inline TextureRequest() : TextureRequest(nullptr) {}
-  ~TextureRequest() PROTOBUF_FINAL;
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(TextureRequest* msg, std::destroying_delete_t) {
-    SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(TextureRequest));
-  }
-#endif
-
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR TextureRequest(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline TextureRequest(const TextureRequest& from) : TextureRequest(nullptr, from) {}
-  inline TextureRequest(TextureRequest&& from) noexcept
-      : TextureRequest(nullptr, std::move(from)) {}
-  inline TextureRequest& operator=(const TextureRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline TextureRequest& operator=(TextureRequest&& from) noexcept {
-    if (this == &from) return *this;
-    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const TextureRequest& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const TextureRequest* internal_default_instance() {
-    return reinterpret_cast<const TextureRequest*>(
-        &_TextureRequest_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 7;
-  friend void swap(TextureRequest& a, TextureRequest& b) { a.Swap(&b); }
-  inline void Swap(TextureRequest* other) {
-    if (other == this) return;
-    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(TextureRequest* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  TextureRequest* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<TextureRequest>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const TextureRequest& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const TextureRequest& from) { TextureRequest::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  static void SharedDtor(MessageLite& self);
-  void InternalSwap(TextureRequest* other);
- private:
-  template <typename T>
-  friend ::absl::string_view(
-      ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "TextureRequest"; }
-
- protected:
-  explicit TextureRequest(::google::protobuf::Arena* arena);
-  TextureRequest(::google::protobuf::Arena* arena, const TextureRequest& from);
-  TextureRequest(::google::protobuf::Arena* arena, TextureRequest&& from) noexcept
-      : TextureRequest(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static void* PlacementNew_(const void*, void* mem,
-                             ::google::protobuf::Arena* arena);
-  static constexpr auto InternalNewImpl_();
-  static const ::google::protobuf::internal::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kLevelIdFieldNumber = 1,
-  };
-  // int32 LevelId = 1;
-  void clear_levelid() ;
-  ::int32_t levelid() const;
-  void set_levelid(::int32_t value);
-
-  private:
-  ::int32_t _internal_levelid() const;
-  void _internal_set_levelid(::int32_t value);
-
-  public:
-  // @@protoc_insertion_point(class_scope:TextureRequest)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 0,
-      0, 2>
-      _table_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const TextureRequest& from_msg);
-    ::int32_t levelid_;
-    ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_LevelData_2eproto;
-};
 // -------------------------------------------------------------------
 
 class TextureDataChunk final : public ::google::protobuf::Message
@@ -576,7 +142,7 @@ class TextureDataChunk final : public ::google::protobuf::Message
     return reinterpret_cast<const TextureDataChunk*>(
         &_TextureDataChunk_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 11;
+  static constexpr int kIndexInFileMessages = 3;
   friend void swap(TextureDataChunk& a, TextureDataChunk& b) { a.Swap(&b); }
   inline void Swap(TextureDataChunk* other) {
     if (other == this) return;
@@ -670,6 +236,7 @@ class TextureDataChunk final : public ::google::protobuf::Message
     kIsLastChunkFieldNumber = 5,
     kWidthFieldNumber = 6,
     kHeightFieldNumber = 7,
+    kChannelFieldNumber = 8,
   };
   // string name = 1;
   void clear_name() ;
@@ -753,13 +320,23 @@ class TextureDataChunk final : public ::google::protobuf::Message
   void _internal_set_height(::int32_t value);
 
   public:
+  // int32 channel = 8;
+  void clear_channel() ;
+  ::int32_t channel() const;
+  void set_channel(::int32_t value);
+
+  private:
+  ::int32_t _internal_channel() const;
+  void _internal_set_channel(::int32_t value);
+
+  public:
   // @@protoc_insertion_point(class_scope:TextureDataChunk)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      3, 7, 0,
-      29, 2>
+      3, 8, 0,
+      37, 2>
       _table_;
 
   friend class ::google::protobuf::MessageLite;
@@ -783,6 +360,7 @@ class TextureDataChunk final : public ::google::protobuf::Message
     bool islastchunk_;
     ::int32_t width_;
     ::int32_t height_;
+    ::int32_t channel_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -850,7 +428,7 @@ class TextureChunkRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const TextureChunkRequest*>(
         &_TextureChunkRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 13;
+  static constexpr int kIndexInFileMessages = 5;
   friend void swap(TextureChunkRequest& a, TextureChunkRequest& b) { a.Swap(&b); }
   inline void Swap(TextureChunkRequest* other) {
     if (other == this) return;
@@ -1011,31 +589,31 @@ class TextureChunkRequest final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
-class MeshRequest final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:MeshRequest) */ {
+class ObjectData final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ObjectData) */ {
  public:
-  inline MeshRequest() : MeshRequest(nullptr) {}
-  ~MeshRequest() PROTOBUF_FINAL;
+  inline ObjectData() : ObjectData(nullptr) {}
+  ~ObjectData() PROTOBUF_FINAL;
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(MeshRequest* msg, std::destroying_delete_t) {
+  void operator delete(ObjectData* msg, std::destroying_delete_t) {
     SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(MeshRequest));
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(ObjectData));
   }
 #endif
 
   template <typename = void>
-  explicit PROTOBUF_CONSTEXPR MeshRequest(
+  explicit PROTOBUF_CONSTEXPR ObjectData(
       ::google::protobuf::internal::ConstantInitialized);
 
-  inline MeshRequest(const MeshRequest& from) : MeshRequest(nullptr, from) {}
-  inline MeshRequest(MeshRequest&& from) noexcept
-      : MeshRequest(nullptr, std::move(from)) {}
-  inline MeshRequest& operator=(const MeshRequest& from) {
+  inline ObjectData(const ObjectData& from) : ObjectData(nullptr, from) {}
+  inline ObjectData(ObjectData&& from) noexcept
+      : ObjectData(nullptr, std::move(from)) {}
+  inline ObjectData& operator=(const ObjectData& from) {
     CopyFrom(from);
     return *this;
   }
-  inline MeshRequest& operator=(MeshRequest&& from) noexcept {
+  inline ObjectData& operator=(ObjectData&& from) noexcept {
     if (this == &from) return *this;
     if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
       InternalSwap(&from);
@@ -1063,16 +641,16 @@ class MeshRequest final : public ::google::protobuf::Message
   static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const MeshRequest& default_instance() {
+  static const ObjectData& default_instance() {
     return *internal_default_instance();
   }
-  static inline const MeshRequest* internal_default_instance() {
-    return reinterpret_cast<const MeshRequest*>(
-        &_MeshRequest_default_instance_);
+  static inline const ObjectData* internal_default_instance() {
+    return reinterpret_cast<const ObjectData*>(
+        &_ObjectData_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 2;
-  friend void swap(MeshRequest& a, MeshRequest& b) { a.Swap(&b); }
-  inline void Swap(MeshRequest* other) {
+  static constexpr int kIndexInFileMessages = 6;
+  friend void swap(ObjectData& a, ObjectData& b) { a.Swap(&b); }
+  inline void Swap(ObjectData* other) {
     if (other == this) return;
     if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
       InternalSwap(other);
@@ -1080,7 +658,7 @@ class MeshRequest final : public ::google::protobuf::Message
       ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(MeshRequest* other) {
+  void UnsafeArenaSwap(ObjectData* other) {
     if (other == this) return;
     ABSL_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1088,13 +666,13 @@ class MeshRequest final : public ::google::protobuf::Message
 
   // implements Message ----------------------------------------------
 
-  MeshRequest* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<MeshRequest>(arena);
+  ObjectData* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<ObjectData>(arena);
   }
   using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const MeshRequest& from);
+  void CopyFrom(const ObjectData& from);
   using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const MeshRequest& from) { MeshRequest::MergeImpl(*this, from); }
+  void MergeFrom(const ObjectData& from) { ObjectData::MergeImpl(*this, from); }
 
   private:
   static void MergeImpl(
@@ -1131,18 +709,18 @@ class MeshRequest final : public ::google::protobuf::Message
   private:
   void SharedCtor(::google::protobuf::Arena* arena);
   static void SharedDtor(MessageLite& self);
-  void InternalSwap(MeshRequest* other);
+  void InternalSwap(ObjectData* other);
  private:
   template <typename T>
   friend ::absl::string_view(
       ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "MeshRequest"; }
+  static ::absl::string_view FullMessageName() { return "ObjectData"; }
 
  protected:
-  explicit MeshRequest(::google::protobuf::Arena* arena);
-  MeshRequest(::google::protobuf::Arena* arena, const MeshRequest& from);
-  MeshRequest(::google::protobuf::Arena* arena, MeshRequest&& from) noexcept
-      : MeshRequest(arena) {
+  explicit ObjectData(::google::protobuf::Arena* arena);
+  ObjectData(::google::protobuf::Arena* arena, const ObjectData& from);
+  ObjectData(::google::protobuf::Arena* arena, ObjectData&& from) noexcept
+      : ObjectData(arena) {
     *this = ::std::move(from);
   }
   const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
@@ -1157,25 +735,65 @@ class MeshRequest final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kLevelIdFieldNumber = 1,
+    kNameFieldNumber = 1,
+    kMeshReferenceFieldNumber = 5,
+    kTextureReferenceFieldNumber = 6,
   };
-  // int32 LevelId = 1;
-  void clear_levelid() ;
-  ::int32_t levelid() const;
-  void set_levelid(::int32_t value);
+  // string name = 1;
+  void clear_name() ;
+  const std::string& name() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_name(Arg_&& arg, Args_... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* value);
 
   private:
-  ::int32_t _internal_levelid() const;
-  void _internal_set_levelid(::int32_t value);
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(
+      const std::string& value);
+  std::string* _internal_mutable_name();
 
   public:
-  // @@protoc_insertion_point(class_scope:MeshRequest)
+  // string meshReference = 5;
+  void clear_meshreference() ;
+  const std::string& meshreference() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_meshreference(Arg_&& arg, Args_... args);
+  std::string* mutable_meshreference();
+  PROTOBUF_NODISCARD std::string* release_meshreference();
+  void set_allocated_meshreference(std::string* value);
+
+  private:
+  const std::string& _internal_meshreference() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_meshreference(
+      const std::string& value);
+  std::string* _internal_mutable_meshreference();
+
+  public:
+  // string textureReference = 6;
+  void clear_texturereference() ;
+  const std::string& texturereference() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_texturereference(Arg_&& arg, Args_... args);
+  std::string* mutable_texturereference();
+  PROTOBUF_NODISCARD std::string* release_texturereference();
+  void set_allocated_texturereference(std::string* value);
+
+  private:
+  const std::string& _internal_texturereference() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_texturereference(
+      const std::string& value);
+  std::string* _internal_mutable_texturereference();
+
+  public:
+  // @@protoc_insertion_point(class_scope:ObjectData)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 0,
-      0, 2>
+      1, 3, 0,
+      52, 2>
       _table_;
 
   friend class ::google::protobuf::MessageLite;
@@ -1191,8 +809,10 @@ class MeshRequest final : public ::google::protobuf::Message
                           ::google::protobuf::Arena* arena);
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
-                          const MeshRequest& from_msg);
-    ::int32_t levelid_;
+                          const ObjectData& from_msg);
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    ::google::protobuf::internal::ArenaStringPtr meshreference_;
+    ::google::protobuf::internal::ArenaStringPtr texturereference_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -1260,7 +880,7 @@ class MeshDataChunk final : public ::google::protobuf::Message
     return reinterpret_cast<const MeshDataChunk*>(
         &_MeshDataChunk_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 6;
+  static constexpr int kIndexInFileMessages = 2;
   friend void swap(MeshDataChunk& a, MeshDataChunk& b) { a.Swap(&b); }
   inline void Swap(MeshDataChunk* other) {
     if (other == this) return;
@@ -1510,7 +1130,7 @@ class MeshChunkRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const MeshChunkRequest*>(
         &_MeshChunkRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 12;
+  static constexpr int kIndexInFileMessages = 4;
   friend void swap(MeshChunkRequest& a, MeshChunkRequest& b) { a.Swap(&b); }
   inline void Swap(MeshChunkRequest* other) {
     if (other == this) return;
@@ -1861,750 +1481,6 @@ class LevelRequest final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
-class TextureData final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:TextureData) */ {
- public:
-  inline TextureData() : TextureData(nullptr) {}
-  ~TextureData() PROTOBUF_FINAL;
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(TextureData* msg, std::destroying_delete_t) {
-    SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(TextureData));
-  }
-#endif
-
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR TextureData(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline TextureData(const TextureData& from) : TextureData(nullptr, from) {}
-  inline TextureData(TextureData&& from) noexcept
-      : TextureData(nullptr, std::move(from)) {}
-  inline TextureData& operator=(const TextureData& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline TextureData& operator=(TextureData&& from) noexcept {
-    if (this == &from) return *this;
-    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const TextureData& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const TextureData* internal_default_instance() {
-    return reinterpret_cast<const TextureData*>(
-        &_TextureData_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 10;
-  friend void swap(TextureData& a, TextureData& b) { a.Swap(&b); }
-  inline void Swap(TextureData* other) {
-    if (other == this) return;
-    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(TextureData* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  TextureData* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<TextureData>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const TextureData& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const TextureData& from) { TextureData::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  static void SharedDtor(MessageLite& self);
-  void InternalSwap(TextureData* other);
- private:
-  template <typename T>
-  friend ::absl::string_view(
-      ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "TextureData"; }
-
- protected:
-  explicit TextureData(::google::protobuf::Arena* arena);
-  TextureData(::google::protobuf::Arena* arena, const TextureData& from);
-  TextureData(::google::protobuf::Arena* arena, TextureData&& from) noexcept
-      : TextureData(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static void* PlacementNew_(const void*, void* mem,
-                             ::google::protobuf::Arena* arena);
-  static constexpr auto InternalNewImpl_();
-  static const ::google::protobuf::internal::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kTextureDataChunkFieldNumber = 1,
-  };
-  // repeated .TextureDataChunk textureDataChunk = 1;
-  int texturedatachunk_size() const;
-  private:
-  int _internal_texturedatachunk_size() const;
-
-  public:
-  void clear_texturedatachunk() ;
-  ::TextureDataChunk* mutable_texturedatachunk(int index);
-  ::google::protobuf::RepeatedPtrField<::TextureDataChunk>* mutable_texturedatachunk();
-
-  private:
-  const ::google::protobuf::RepeatedPtrField<::TextureDataChunk>& _internal_texturedatachunk() const;
-  ::google::protobuf::RepeatedPtrField<::TextureDataChunk>* _internal_mutable_texturedatachunk();
-  public:
-  const ::TextureDataChunk& texturedatachunk(int index) const;
-  ::TextureDataChunk* add_texturedatachunk();
-  const ::google::protobuf::RepeatedPtrField<::TextureDataChunk>& texturedatachunk() const;
-  // @@protoc_insertion_point(class_scope:TextureData)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 1,
-      0, 2>
-      _table_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const TextureData& from_msg);
-    ::google::protobuf::RepeatedPtrField< ::TextureDataChunk > texturedatachunk_;
-    ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_LevelData_2eproto;
-};
-// -------------------------------------------------------------------
-
-class ObjectData final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:ObjectData) */ {
- public:
-  inline ObjectData() : ObjectData(nullptr) {}
-  ~ObjectData() PROTOBUF_FINAL;
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(ObjectData* msg, std::destroying_delete_t) {
-    SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(ObjectData));
-  }
-#endif
-
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR ObjectData(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline ObjectData(const ObjectData& from) : ObjectData(nullptr, from) {}
-  inline ObjectData(ObjectData&& from) noexcept
-      : ObjectData(nullptr, std::move(from)) {}
-  inline ObjectData& operator=(const ObjectData& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline ObjectData& operator=(ObjectData&& from) noexcept {
-    if (this == &from) return *this;
-    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const ObjectData& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const ObjectData* internal_default_instance() {
-    return reinterpret_cast<const ObjectData*>(
-        &_ObjectData_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 14;
-  friend void swap(ObjectData& a, ObjectData& b) { a.Swap(&b); }
-  inline void Swap(ObjectData* other) {
-    if (other == this) return;
-    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(ObjectData* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  ObjectData* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<ObjectData>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const ObjectData& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const ObjectData& from) { ObjectData::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  static void SharedDtor(MessageLite& self);
-  void InternalSwap(ObjectData* other);
- private:
-  template <typename T>
-  friend ::absl::string_view(
-      ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "ObjectData"; }
-
- protected:
-  explicit ObjectData(::google::protobuf::Arena* arena);
-  ObjectData(::google::protobuf::Arena* arena, const ObjectData& from);
-  ObjectData(::google::protobuf::Arena* arena, ObjectData&& from) noexcept
-      : ObjectData(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static void* PlacementNew_(const void*, void* mem,
-                             ::google::protobuf::Arena* arena);
-  static constexpr auto InternalNewImpl_();
-  static const ::google::protobuf::internal::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kNameFieldNumber = 1,
-    kPositionFieldNumber = 2,
-    kRotationFieldNumber = 3,
-    kScaleFieldNumber = 4,
-    kMeshReferenceFieldNumber = 5,
-    kTextureReferenceFieldNumber = 6,
-  };
-  // string name = 1;
-  void clear_name() ;
-  const std::string& name() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_name(Arg_&& arg, Args_... args);
-  std::string* mutable_name();
-  PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* value);
-
-  private:
-  const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(
-      const std::string& value);
-  std::string* _internal_mutable_name();
-
-  public:
-  // .Vec3 position = 2;
-  bool has_position() const;
-  void clear_position() ;
-  const ::Vec3& position() const;
-  PROTOBUF_NODISCARD ::Vec3* release_position();
-  ::Vec3* mutable_position();
-  void set_allocated_position(::Vec3* value);
-  void unsafe_arena_set_allocated_position(::Vec3* value);
-  ::Vec3* unsafe_arena_release_position();
-
-  private:
-  const ::Vec3& _internal_position() const;
-  ::Vec3* _internal_mutable_position();
-
-  public:
-  // .Vec3 rotation = 3;
-  bool has_rotation() const;
-  void clear_rotation() ;
-  const ::Vec3& rotation() const;
-  PROTOBUF_NODISCARD ::Vec3* release_rotation();
-  ::Vec3* mutable_rotation();
-  void set_allocated_rotation(::Vec3* value);
-  void unsafe_arena_set_allocated_rotation(::Vec3* value);
-  ::Vec3* unsafe_arena_release_rotation();
-
-  private:
-  const ::Vec3& _internal_rotation() const;
-  ::Vec3* _internal_mutable_rotation();
-
-  public:
-  // .Vec3 scale = 4;
-  bool has_scale() const;
-  void clear_scale() ;
-  const ::Vec3& scale() const;
-  PROTOBUF_NODISCARD ::Vec3* release_scale();
-  ::Vec3* mutable_scale();
-  void set_allocated_scale(::Vec3* value);
-  void unsafe_arena_set_allocated_scale(::Vec3* value);
-  ::Vec3* unsafe_arena_release_scale();
-
-  private:
-  const ::Vec3& _internal_scale() const;
-  ::Vec3* _internal_mutable_scale();
-
-  public:
-  // int32 meshReference = 5;
-  void clear_meshreference() ;
-  ::int32_t meshreference() const;
-  void set_meshreference(::int32_t value);
-
-  private:
-  ::int32_t _internal_meshreference() const;
-  void _internal_set_meshreference(::int32_t value);
-
-  public:
-  // int32 textureReference = 6;
-  void clear_texturereference() ;
-  ::int32_t texturereference() const;
-  void set_texturereference(::int32_t value);
-
-  private:
-  ::int32_t _internal_texturereference() const;
-  void _internal_set_texturereference(::int32_t value);
-
-  public:
-  // @@protoc_insertion_point(class_scope:ObjectData)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      3, 6, 3,
-      23, 2>
-      _table_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const ObjectData& from_msg);
-    ::google::protobuf::internal::HasBits<1> _has_bits_;
-    ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::internal::ArenaStringPtr name_;
-    ::Vec3* position_;
-    ::Vec3* rotation_;
-    ::Vec3* scale_;
-    ::int32_t meshreference_;
-    ::int32_t texturereference_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_LevelData_2eproto;
-};
-// -------------------------------------------------------------------
-
-class MeshData final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:MeshData) */ {
- public:
-  inline MeshData() : MeshData(nullptr) {}
-  ~MeshData() PROTOBUF_FINAL;
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(MeshData* msg, std::destroying_delete_t) {
-    SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(MeshData));
-  }
-#endif
-
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR MeshData(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline MeshData(const MeshData& from) : MeshData(nullptr, from) {}
-  inline MeshData(MeshData&& from) noexcept
-      : MeshData(nullptr, std::move(from)) {}
-  inline MeshData& operator=(const MeshData& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline MeshData& operator=(MeshData&& from) noexcept {
-    if (this == &from) return *this;
-    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const MeshData& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const MeshData* internal_default_instance() {
-    return reinterpret_cast<const MeshData*>(
-        &_MeshData_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 5;
-  friend void swap(MeshData& a, MeshData& b) { a.Swap(&b); }
-  inline void Swap(MeshData* other) {
-    if (other == this) return;
-    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(MeshData* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  MeshData* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<MeshData>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const MeshData& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const MeshData& from) { MeshData::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  static void SharedDtor(MessageLite& self);
-  void InternalSwap(MeshData* other);
- private:
-  template <typename T>
-  friend ::absl::string_view(
-      ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "MeshData"; }
-
- protected:
-  explicit MeshData(::google::protobuf::Arena* arena);
-  MeshData(::google::protobuf::Arena* arena, const MeshData& from);
-  MeshData(::google::protobuf::Arena* arena, MeshData&& from) noexcept
-      : MeshData(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static void* PlacementNew_(const void*, void* mem,
-                             ::google::protobuf::Arena* arena);
-  static constexpr auto InternalNewImpl_();
-  static const ::google::protobuf::internal::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kMeshDataChunkFieldNumber = 1,
-  };
-  // repeated .MeshDataChunk meshDataChunk = 1;
-  int meshdatachunk_size() const;
-  private:
-  int _internal_meshdatachunk_size() const;
-
-  public:
-  void clear_meshdatachunk() ;
-  ::MeshDataChunk* mutable_meshdatachunk(int index);
-  ::google::protobuf::RepeatedPtrField<::MeshDataChunk>* mutable_meshdatachunk();
-
-  private:
-  const ::google::protobuf::RepeatedPtrField<::MeshDataChunk>& _internal_meshdatachunk() const;
-  ::google::protobuf::RepeatedPtrField<::MeshDataChunk>* _internal_mutable_meshdatachunk();
-  public:
-  const ::MeshDataChunk& meshdatachunk(int index) const;
-  ::MeshDataChunk* add_meshdatachunk();
-  const ::google::protobuf::RepeatedPtrField<::MeshDataChunk>& meshdatachunk() const;
-  // @@protoc_insertion_point(class_scope:MeshData)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 1,
-      0, 2>
-      _table_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const MeshData& from_msg);
-    ::google::protobuf::RepeatedPtrField< ::MeshDataChunk > meshdatachunk_;
-    ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_LevelData_2eproto;
-};
-// -------------------------------------------------------------------
-
-class TextureTable_TextureDataTableEntry_DoNotUse final
-    : public ::google::protobuf::internal::MapEntry<
-          ::int32_t, ::google::protobuf::Message,
-          ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
-          ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE> {
- public:
-  using SuperType = ::google::protobuf::internal::MapEntry<
-      ::int32_t, ::google::protobuf::Message,
-      ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
-      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
-  TextureTable_TextureDataTableEntry_DoNotUse();
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR TextureTable_TextureDataTableEntry_DoNotUse(
-      ::google::protobuf::internal::ConstantInitialized);
-  explicit TextureTable_TextureDataTableEntry_DoNotUse(::google::protobuf::Arena* arena);
-  static const TextureTable_TextureDataTableEntry_DoNotUse* internal_default_instance() {
-    return reinterpret_cast<const TextureTable_TextureDataTableEntry_DoNotUse*>(
-        &_TextureTable_TextureDataTableEntry_DoNotUse_default_instance_);
-  }
-
-
- private:
-  friend class ::google::protobuf::MessageLite;
-  friend struct ::TableStruct_LevelData_2eproto;
-
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 1,
-      0, 2>
-      _table_;
-
-  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static void* PlacementNew_(const void*, void* mem,
-                             ::google::protobuf::Arena* arena);
-  static constexpr auto InternalNewImpl_();
-  static const ::google::protobuf::internal::ClassDataFull _class_data_;
-};
-// -------------------------------------------------------------------
-
-class MeshTable_MeshDataTableEntry_DoNotUse final
-    : public ::google::protobuf::internal::MapEntry<
-          ::int32_t, ::google::protobuf::Message,
-          ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
-          ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE> {
- public:
-  using SuperType = ::google::protobuf::internal::MapEntry<
-      ::int32_t, ::google::protobuf::Message,
-      ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
-      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
-  MeshTable_MeshDataTableEntry_DoNotUse();
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR MeshTable_MeshDataTableEntry_DoNotUse(
-      ::google::protobuf::internal::ConstantInitialized);
-  explicit MeshTable_MeshDataTableEntry_DoNotUse(::google::protobuf::Arena* arena);
-  static const MeshTable_MeshDataTableEntry_DoNotUse* internal_default_instance() {
-    return reinterpret_cast<const MeshTable_MeshDataTableEntry_DoNotUse*>(
-        &_MeshTable_MeshDataTableEntry_DoNotUse_default_instance_);
-  }
-
-
- private:
-  friend class ::google::protobuf::MessageLite;
-  friend struct ::TableStruct_LevelData_2eproto;
-
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 1,
-      0, 2>
-      _table_;
-
-  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static void* PlacementNew_(const void*, void* mem,
-                             ::google::protobuf::Arena* arena);
-  static constexpr auto InternalNewImpl_();
-  static const ::google::protobuf::internal::ClassDataFull _class_data_;
-};
-// -------------------------------------------------------------------
-
 class LevelData final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:LevelData) */ {
  public:
@@ -2800,402 +1676,6 @@ class LevelData final : public ::google::protobuf::Message
   union { Impl_ _impl_; };
   friend struct ::TableStruct_LevelData_2eproto;
 };
-// -------------------------------------------------------------------
-
-class TextureTable final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:TextureTable) */ {
- public:
-  inline TextureTable() : TextureTable(nullptr) {}
-  ~TextureTable() PROTOBUF_FINAL;
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(TextureTable* msg, std::destroying_delete_t) {
-    SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(TextureTable));
-  }
-#endif
-
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR TextureTable(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline TextureTable(const TextureTable& from) : TextureTable(nullptr, from) {}
-  inline TextureTable(TextureTable&& from) noexcept
-      : TextureTable(nullptr, std::move(from)) {}
-  inline TextureTable& operator=(const TextureTable& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline TextureTable& operator=(TextureTable&& from) noexcept {
-    if (this == &from) return *this;
-    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const TextureTable& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const TextureTable* internal_default_instance() {
-    return reinterpret_cast<const TextureTable*>(
-        &_TextureTable_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 9;
-  friend void swap(TextureTable& a, TextureTable& b) { a.Swap(&b); }
-  inline void Swap(TextureTable* other) {
-    if (other == this) return;
-    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(TextureTable* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  TextureTable* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<TextureTable>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const TextureTable& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const TextureTable& from) { TextureTable::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  static void SharedDtor(MessageLite& self);
-  void InternalSwap(TextureTable* other);
- private:
-  template <typename T>
-  friend ::absl::string_view(
-      ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "TextureTable"; }
-
- protected:
-  explicit TextureTable(::google::protobuf::Arena* arena);
-  TextureTable(::google::protobuf::Arena* arena, const TextureTable& from);
-  TextureTable(::google::protobuf::Arena* arena, TextureTable&& from) noexcept
-      : TextureTable(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static void* PlacementNew_(const void*, void* mem,
-                             ::google::protobuf::Arena* arena);
-  static constexpr auto InternalNewImpl_();
-  static const ::google::protobuf::internal::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kTextureDataTableFieldNumber = 1,
-  };
-  // map<int32, .TextureData> textureDataTable = 1;
-  int texturedatatable_size() const;
-  private:
-  int _internal_texturedatatable_size() const;
-
-  public:
-  void clear_texturedatatable() ;
-  const ::google::protobuf::Map<::int32_t, ::TextureData>& texturedatatable() const;
-  ::google::protobuf::Map<::int32_t, ::TextureData>* mutable_texturedatatable();
-
-  private:
-  const ::google::protobuf::Map<::int32_t, ::TextureData>& _internal_texturedatatable() const;
-  ::google::protobuf::Map<::int32_t, ::TextureData>* _internal_mutable_texturedatatable();
-
-  public:
-  // @@protoc_insertion_point(class_scope:TextureTable)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 2,
-      0, 2>
-      _table_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const TextureTable& from_msg);
-    ::google::protobuf::internal::MapField<TextureTable_TextureDataTableEntry_DoNotUse, ::int32_t, ::TextureData,
-                      ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
-                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>
-        texturedatatable_;
-    ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_LevelData_2eproto;
-};
-// -------------------------------------------------------------------
-
-class MeshTable final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:MeshTable) */ {
- public:
-  inline MeshTable() : MeshTable(nullptr) {}
-  ~MeshTable() PROTOBUF_FINAL;
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(MeshTable* msg, std::destroying_delete_t) {
-    SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(MeshTable));
-  }
-#endif
-
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR MeshTable(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline MeshTable(const MeshTable& from) : MeshTable(nullptr, from) {}
-  inline MeshTable(MeshTable&& from) noexcept
-      : MeshTable(nullptr, std::move(from)) {}
-  inline MeshTable& operator=(const MeshTable& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline MeshTable& operator=(MeshTable&& from) noexcept {
-    if (this == &from) return *this;
-    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const MeshTable& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const MeshTable* internal_default_instance() {
-    return reinterpret_cast<const MeshTable*>(
-        &_MeshTable_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 4;
-  friend void swap(MeshTable& a, MeshTable& b) { a.Swap(&b); }
-  inline void Swap(MeshTable* other) {
-    if (other == this) return;
-    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(MeshTable* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  MeshTable* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<MeshTable>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const MeshTable& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const MeshTable& from) { MeshTable::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  static void SharedDtor(MessageLite& self);
-  void InternalSwap(MeshTable* other);
- private:
-  template <typename T>
-  friend ::absl::string_view(
-      ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "MeshTable"; }
-
- protected:
-  explicit MeshTable(::google::protobuf::Arena* arena);
-  MeshTable(::google::protobuf::Arena* arena, const MeshTable& from);
-  MeshTable(::google::protobuf::Arena* arena, MeshTable&& from) noexcept
-      : MeshTable(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static void* PlacementNew_(const void*, void* mem,
-                             ::google::protobuf::Arena* arena);
-  static constexpr auto InternalNewImpl_();
-  static const ::google::protobuf::internal::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kMeshDataTableFieldNumber = 1,
-  };
-  // map<int32, .MeshData> meshDataTable = 1;
-  int meshdatatable_size() const;
-  private:
-  int _internal_meshdatatable_size() const;
-
-  public:
-  void clear_meshdatatable() ;
-  const ::google::protobuf::Map<::int32_t, ::MeshData>& meshdatatable() const;
-  ::google::protobuf::Map<::int32_t, ::MeshData>* mutable_meshdatatable();
-
-  private:
-  const ::google::protobuf::Map<::int32_t, ::MeshData>& _internal_meshdatatable() const;
-  ::google::protobuf::Map<::int32_t, ::MeshData>* _internal_mutable_meshdatatable();
-
-  public:
-  // @@protoc_insertion_point(class_scope:MeshTable)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 2,
-      0, 2>
-      _table_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const MeshTable& from_msg);
-    ::google::protobuf::internal::MapField<MeshTable_MeshDataTableEntry_DoNotUse, ::int32_t, ::MeshData,
-                      ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
-                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>
-        meshdatatable_;
-    ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_LevelData_2eproto;
-};
 
 // ===================================================================
 
@@ -3286,119 +1766,6 @@ inline ::google::protobuf::RepeatedPtrField<::ObjectData>*
 LevelData::_internal_mutable_objectlist() {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return &_impl_.objectlist_;
-}
-
-// -------------------------------------------------------------------
-
-// MeshRequest
-
-// int32 LevelId = 1;
-inline void MeshRequest::clear_levelid() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.levelid_ = 0;
-}
-inline ::int32_t MeshRequest::levelid() const {
-  // @@protoc_insertion_point(field_get:MeshRequest.LevelId)
-  return _internal_levelid();
-}
-inline void MeshRequest::set_levelid(::int32_t value) {
-  _internal_set_levelid(value);
-  // @@protoc_insertion_point(field_set:MeshRequest.LevelId)
-}
-inline ::int32_t MeshRequest::_internal_levelid() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.levelid_;
-}
-inline void MeshRequest::_internal_set_levelid(::int32_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.levelid_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// MeshTable
-
-// map<int32, .MeshData> meshDataTable = 1;
-inline int MeshTable::_internal_meshdatatable_size() const {
-  return _internal_meshdatatable().size();
-}
-inline int MeshTable::meshdatatable_size() const {
-  return _internal_meshdatatable_size();
-}
-inline void MeshTable::clear_meshdatatable() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.meshdatatable_.Clear();
-}
-inline const ::google::protobuf::Map<::int32_t, ::MeshData>& MeshTable::_internal_meshdatatable() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.meshdatatable_.GetMap();
-}
-inline const ::google::protobuf::Map<::int32_t, ::MeshData>& MeshTable::meshdatatable() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_map:MeshTable.meshDataTable)
-  return _internal_meshdatatable();
-}
-inline ::google::protobuf::Map<::int32_t, ::MeshData>* MeshTable::_internal_mutable_meshdatatable() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.meshdatatable_.MutableMap();
-}
-inline ::google::protobuf::Map<::int32_t, ::MeshData>* MeshTable::mutable_meshdatatable() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_map:MeshTable.meshDataTable)
-  return _internal_mutable_meshdatatable();
-}
-
-// -------------------------------------------------------------------
-
-// MeshData
-
-// repeated .MeshDataChunk meshDataChunk = 1;
-inline int MeshData::_internal_meshdatachunk_size() const {
-  return _internal_meshdatachunk().size();
-}
-inline int MeshData::meshdatachunk_size() const {
-  return _internal_meshdatachunk_size();
-}
-inline void MeshData::clear_meshdatachunk() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.meshdatachunk_.Clear();
-}
-inline ::MeshDataChunk* MeshData::mutable_meshdatachunk(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:MeshData.meshDataChunk)
-  return _internal_mutable_meshdatachunk()->Mutable(index);
-}
-inline ::google::protobuf::RepeatedPtrField<::MeshDataChunk>* MeshData::mutable_meshdatachunk()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:MeshData.meshDataChunk)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_meshdatachunk();
-}
-inline const ::MeshDataChunk& MeshData::meshdatachunk(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:MeshData.meshDataChunk)
-  return _internal_meshdatachunk().Get(index);
-}
-inline ::MeshDataChunk* MeshData::add_meshdatachunk() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::MeshDataChunk* _add = _internal_mutable_meshdatachunk()->Add();
-  // @@protoc_insertion_point(field_add:MeshData.meshDataChunk)
-  return _add;
-}
-inline const ::google::protobuf::RepeatedPtrField<::MeshDataChunk>& MeshData::meshdatachunk() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:MeshData.meshDataChunk)
-  return _internal_meshdatachunk();
-}
-inline const ::google::protobuf::RepeatedPtrField<::MeshDataChunk>&
-MeshData::_internal_meshdatachunk() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.meshdatachunk_;
-}
-inline ::google::protobuf::RepeatedPtrField<::MeshDataChunk>*
-MeshData::_internal_mutable_meshdatachunk() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.meshdatachunk_;
 }
 
 // -------------------------------------------------------------------
@@ -3565,119 +1932,6 @@ inline bool MeshDataChunk::_internal_islastchunk() const {
 inline void MeshDataChunk::_internal_set_islastchunk(bool value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.islastchunk_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// TextureRequest
-
-// int32 LevelId = 1;
-inline void TextureRequest::clear_levelid() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.levelid_ = 0;
-}
-inline ::int32_t TextureRequest::levelid() const {
-  // @@protoc_insertion_point(field_get:TextureRequest.LevelId)
-  return _internal_levelid();
-}
-inline void TextureRequest::set_levelid(::int32_t value) {
-  _internal_set_levelid(value);
-  // @@protoc_insertion_point(field_set:TextureRequest.LevelId)
-}
-inline ::int32_t TextureRequest::_internal_levelid() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.levelid_;
-}
-inline void TextureRequest::_internal_set_levelid(::int32_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.levelid_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// TextureTable
-
-// map<int32, .TextureData> textureDataTable = 1;
-inline int TextureTable::_internal_texturedatatable_size() const {
-  return _internal_texturedatatable().size();
-}
-inline int TextureTable::texturedatatable_size() const {
-  return _internal_texturedatatable_size();
-}
-inline void TextureTable::clear_texturedatatable() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.texturedatatable_.Clear();
-}
-inline const ::google::protobuf::Map<::int32_t, ::TextureData>& TextureTable::_internal_texturedatatable() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.texturedatatable_.GetMap();
-}
-inline const ::google::protobuf::Map<::int32_t, ::TextureData>& TextureTable::texturedatatable() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_map:TextureTable.textureDataTable)
-  return _internal_texturedatatable();
-}
-inline ::google::protobuf::Map<::int32_t, ::TextureData>* TextureTable::_internal_mutable_texturedatatable() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.texturedatatable_.MutableMap();
-}
-inline ::google::protobuf::Map<::int32_t, ::TextureData>* TextureTable::mutable_texturedatatable() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_map:TextureTable.textureDataTable)
-  return _internal_mutable_texturedatatable();
-}
-
-// -------------------------------------------------------------------
-
-// TextureData
-
-// repeated .TextureDataChunk textureDataChunk = 1;
-inline int TextureData::_internal_texturedatachunk_size() const {
-  return _internal_texturedatachunk().size();
-}
-inline int TextureData::texturedatachunk_size() const {
-  return _internal_texturedatachunk_size();
-}
-inline void TextureData::clear_texturedatachunk() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.texturedatachunk_.Clear();
-}
-inline ::TextureDataChunk* TextureData::mutable_texturedatachunk(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:TextureData.textureDataChunk)
-  return _internal_mutable_texturedatachunk()->Mutable(index);
-}
-inline ::google::protobuf::RepeatedPtrField<::TextureDataChunk>* TextureData::mutable_texturedatachunk()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:TextureData.textureDataChunk)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_texturedatachunk();
-}
-inline const ::TextureDataChunk& TextureData::texturedatachunk(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:TextureData.textureDataChunk)
-  return _internal_texturedatachunk().Get(index);
-}
-inline ::TextureDataChunk* TextureData::add_texturedatachunk() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::TextureDataChunk* _add = _internal_mutable_texturedatachunk()->Add();
-  // @@protoc_insertion_point(field_add:TextureData.textureDataChunk)
-  return _add;
-}
-inline const ::google::protobuf::RepeatedPtrField<::TextureDataChunk>& TextureData::texturedatachunk() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:TextureData.textureDataChunk)
-  return _internal_texturedatachunk();
-}
-inline const ::google::protobuf::RepeatedPtrField<::TextureDataChunk>&
-TextureData::_internal_texturedatachunk() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.texturedatachunk_;
-}
-inline ::google::protobuf::RepeatedPtrField<::TextureDataChunk>*
-TextureData::_internal_mutable_texturedatachunk() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.texturedatachunk_;
 }
 
 // -------------------------------------------------------------------
@@ -3888,6 +2142,28 @@ inline ::int32_t TextureDataChunk::_internal_height() const {
 inline void TextureDataChunk::_internal_set_height(::int32_t value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.height_ = value;
+}
+
+// int32 channel = 8;
+inline void TextureDataChunk::clear_channel() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.channel_ = 0;
+}
+inline ::int32_t TextureDataChunk::channel() const {
+  // @@protoc_insertion_point(field_get:TextureDataChunk.channel)
+  return _internal_channel();
+}
+inline void TextureDataChunk::set_channel(::int32_t value) {
+  _internal_set_channel(value);
+  // @@protoc_insertion_point(field_set:TextureDataChunk.channel)
+}
+inline ::int32_t TextureDataChunk::_internal_channel() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.channel_;
+}
+inline void TextureDataChunk::_internal_set_channel(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.channel_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -4134,406 +2410,100 @@ inline void ObjectData::set_allocated_name(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:ObjectData.name)
 }
 
-// .Vec3 position = 2;
-inline bool ObjectData::has_position() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.position_ != nullptr);
-  return value;
-}
-inline void ObjectData::clear_position() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const ::Vec3& ObjectData::_internal_position() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::Vec3* p = _impl_.position_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Vec3&>(::_Vec3_default_instance_);
-}
-inline const ::Vec3& ObjectData::position() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:ObjectData.position)
-  return _internal_position();
-}
-inline void ObjectData::unsafe_arena_set_allocated_position(::Vec3* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.position_);
-  }
-  _impl_.position_ = reinterpret_cast<::Vec3*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ObjectData.position)
-}
-inline ::Vec3* ObjectData::release_position() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::Vec3* released = _impl_.position_;
-  _impl_.position_ = nullptr;
-  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
-    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    if (GetArena() == nullptr) {
-      delete old;
-    }
-  } else {
-    if (GetArena() != nullptr) {
-      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    }
-  }
-  return released;
-}
-inline ::Vec3* ObjectData::unsafe_arena_release_position() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:ObjectData.position)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::Vec3* temp = _impl_.position_;
-  _impl_.position_ = nullptr;
-  return temp;
-}
-inline ::Vec3* ObjectData::_internal_mutable_position() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.position_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::Vec3>(GetArena());
-    _impl_.position_ = reinterpret_cast<::Vec3*>(p);
-  }
-  return _impl_.position_;
-}
-inline ::Vec3* ObjectData::mutable_position() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::Vec3* _msg = _internal_mutable_position();
-  // @@protoc_insertion_point(field_mutable:ObjectData.position)
-  return _msg;
-}
-inline void ObjectData::set_allocated_position(::Vec3* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete (_impl_.position_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.position_ = reinterpret_cast<::Vec3*>(value);
-  // @@protoc_insertion_point(field_set_allocated:ObjectData.position)
-}
-
-// .Vec3 rotation = 3;
-inline bool ObjectData::has_rotation() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.rotation_ != nullptr);
-  return value;
-}
-inline void ObjectData::clear_rotation() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.rotation_ != nullptr) _impl_.rotation_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline const ::Vec3& ObjectData::_internal_rotation() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::Vec3* p = _impl_.rotation_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Vec3&>(::_Vec3_default_instance_);
-}
-inline const ::Vec3& ObjectData::rotation() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:ObjectData.rotation)
-  return _internal_rotation();
-}
-inline void ObjectData::unsafe_arena_set_allocated_rotation(::Vec3* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.rotation_);
-  }
-  _impl_.rotation_ = reinterpret_cast<::Vec3*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ObjectData.rotation)
-}
-inline ::Vec3* ObjectData::release_rotation() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::Vec3* released = _impl_.rotation_;
-  _impl_.rotation_ = nullptr;
-  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
-    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    if (GetArena() == nullptr) {
-      delete old;
-    }
-  } else {
-    if (GetArena() != nullptr) {
-      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    }
-  }
-  return released;
-}
-inline ::Vec3* ObjectData::unsafe_arena_release_rotation() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:ObjectData.rotation)
-
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::Vec3* temp = _impl_.rotation_;
-  _impl_.rotation_ = nullptr;
-  return temp;
-}
-inline ::Vec3* ObjectData::_internal_mutable_rotation() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.rotation_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::Vec3>(GetArena());
-    _impl_.rotation_ = reinterpret_cast<::Vec3*>(p);
-  }
-  return _impl_.rotation_;
-}
-inline ::Vec3* ObjectData::mutable_rotation() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  ::Vec3* _msg = _internal_mutable_rotation();
-  // @@protoc_insertion_point(field_mutable:ObjectData.rotation)
-  return _msg;
-}
-inline void ObjectData::set_allocated_rotation(::Vec3* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete (_impl_.rotation_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-
-  _impl_.rotation_ = reinterpret_cast<::Vec3*>(value);
-  // @@protoc_insertion_point(field_set_allocated:ObjectData.rotation)
-}
-
-// .Vec3 scale = 4;
-inline bool ObjectData::has_scale() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.scale_ != nullptr);
-  return value;
-}
-inline void ObjectData::clear_scale() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.scale_ != nullptr) _impl_.scale_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline const ::Vec3& ObjectData::_internal_scale() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::Vec3* p = _impl_.scale_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Vec3&>(::_Vec3_default_instance_);
-}
-inline const ::Vec3& ObjectData::scale() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:ObjectData.scale)
-  return _internal_scale();
-}
-inline void ObjectData::unsafe_arena_set_allocated_scale(::Vec3* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.scale_);
-  }
-  _impl_.scale_ = reinterpret_cast<::Vec3*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000004u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ObjectData.scale)
-}
-inline ::Vec3* ObjectData::release_scale() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000004u;
-  ::Vec3* released = _impl_.scale_;
-  _impl_.scale_ = nullptr;
-  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
-    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    if (GetArena() == nullptr) {
-      delete old;
-    }
-  } else {
-    if (GetArena() != nullptr) {
-      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    }
-  }
-  return released;
-}
-inline ::Vec3* ObjectData::unsafe_arena_release_scale() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:ObjectData.scale)
-
-  _impl_._has_bits_[0] &= ~0x00000004u;
-  ::Vec3* temp = _impl_.scale_;
-  _impl_.scale_ = nullptr;
-  return temp;
-}
-inline ::Vec3* ObjectData::_internal_mutable_scale() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.scale_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::Vec3>(GetArena());
-    _impl_.scale_ = reinterpret_cast<::Vec3*>(p);
-  }
-  return _impl_.scale_;
-}
-inline ::Vec3* ObjectData::mutable_scale() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  ::Vec3* _msg = _internal_mutable_scale();
-  // @@protoc_insertion_point(field_mutable:ObjectData.scale)
-  return _msg;
-}
-inline void ObjectData::set_allocated_scale(::Vec3* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete (_impl_.scale_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000004u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
-  }
-
-  _impl_.scale_ = reinterpret_cast<::Vec3*>(value);
-  // @@protoc_insertion_point(field_set_allocated:ObjectData.scale)
-}
-
-// int32 meshReference = 5;
+// string meshReference = 5;
 inline void ObjectData::clear_meshreference() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.meshreference_ = 0;
+  _impl_.meshreference_.ClearToEmpty();
 }
-inline ::int32_t ObjectData::meshreference() const {
+inline const std::string& ObjectData::meshreference() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_get:ObjectData.meshReference)
   return _internal_meshreference();
 }
-inline void ObjectData::set_meshreference(::int32_t value) {
-  _internal_set_meshreference(value);
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void ObjectData::set_meshreference(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.meshreference_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
   // @@protoc_insertion_point(field_set:ObjectData.meshReference)
 }
-inline ::int32_t ObjectData::_internal_meshreference() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.meshreference_;
+inline std::string* ObjectData::mutable_meshreference() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_meshreference();
+  // @@protoc_insertion_point(field_mutable:ObjectData.meshReference)
+  return _s;
 }
-inline void ObjectData::_internal_set_meshreference(::int32_t value) {
+inline const std::string& ObjectData::_internal_meshreference() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.meshreference_.Get();
+}
+inline void ObjectData::_internal_set_meshreference(const std::string& value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.meshreference_ = value;
+  _impl_.meshreference_.Set(value, GetArena());
+}
+inline std::string* ObjectData::_internal_mutable_meshreference() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.meshreference_.Mutable( GetArena());
+}
+inline std::string* ObjectData::release_meshreference() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:ObjectData.meshReference)
+  return _impl_.meshreference_.Release();
+}
+inline void ObjectData::set_allocated_meshreference(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.meshreference_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.meshreference_.IsDefault()) {
+    _impl_.meshreference_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:ObjectData.meshReference)
 }
 
-// int32 textureReference = 6;
+// string textureReference = 6;
 inline void ObjectData::clear_texturereference() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.texturereference_ = 0;
+  _impl_.texturereference_.ClearToEmpty();
 }
-inline ::int32_t ObjectData::texturereference() const {
+inline const std::string& ObjectData::texturereference() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_get:ObjectData.textureReference)
   return _internal_texturereference();
 }
-inline void ObjectData::set_texturereference(::int32_t value) {
-  _internal_set_texturereference(value);
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void ObjectData::set_texturereference(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.texturereference_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
   // @@protoc_insertion_point(field_set:ObjectData.textureReference)
 }
-inline ::int32_t ObjectData::_internal_texturereference() const {
+inline std::string* ObjectData::mutable_texturereference() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_texturereference();
+  // @@protoc_insertion_point(field_mutable:ObjectData.textureReference)
+  return _s;
+}
+inline const std::string& ObjectData::_internal_texturereference() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.texturereference_;
+  return _impl_.texturereference_.Get();
 }
-inline void ObjectData::_internal_set_texturereference(::int32_t value) {
+inline void ObjectData::_internal_set_texturereference(const std::string& value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.texturereference_ = value;
+  _impl_.texturereference_.Set(value, GetArena());
 }
-
-// -------------------------------------------------------------------
-
-// Vec3
-
-// float x = 1;
-inline void Vec3::clear_x() {
+inline std::string* ObjectData::_internal_mutable_texturereference() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.x_ = 0;
+  return _impl_.texturereference_.Mutable( GetArena());
 }
-inline float Vec3::x() const {
-  // @@protoc_insertion_point(field_get:Vec3.x)
-  return _internal_x();
-}
-inline void Vec3::set_x(float value) {
-  _internal_set_x(value);
-  // @@protoc_insertion_point(field_set:Vec3.x)
-}
-inline float Vec3::_internal_x() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.x_;
-}
-inline void Vec3::_internal_set_x(float value) {
+inline std::string* ObjectData::release_texturereference() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.x_ = value;
+  // @@protoc_insertion_point(field_release:ObjectData.textureReference)
+  return _impl_.texturereference_.Release();
 }
-
-// float y = 2;
-inline void Vec3::clear_y() {
+inline void ObjectData::set_allocated_texturereference(std::string* value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.y_ = 0;
-}
-inline float Vec3::y() const {
-  // @@protoc_insertion_point(field_get:Vec3.y)
-  return _internal_y();
-}
-inline void Vec3::set_y(float value) {
-  _internal_set_y(value);
-  // @@protoc_insertion_point(field_set:Vec3.y)
-}
-inline float Vec3::_internal_y() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.y_;
-}
-inline void Vec3::_internal_set_y(float value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.y_ = value;
-}
-
-// float z = 3;
-inline void Vec3::clear_z() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.z_ = 0;
-}
-inline float Vec3::z() const {
-  // @@protoc_insertion_point(field_get:Vec3.z)
-  return _internal_z();
-}
-inline void Vec3::set_z(float value) {
-  _internal_set_z(value);
-  // @@protoc_insertion_point(field_set:Vec3.z)
-}
-inline float Vec3::_internal_z() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.z_;
-}
-inline void Vec3::_internal_set_z(float value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.z_ = value;
+  _impl_.texturereference_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.texturereference_.IsDefault()) {
+    _impl_.texturereference_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:ObjectData.textureReference)
 }
 
 #ifdef __GNUC__

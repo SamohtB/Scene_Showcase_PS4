@@ -3,8 +3,6 @@ syntax = "proto3";
 service SceneDataService 
 {
 	rpc GetLevelData(LevelRequest) returns (LevelData) {}
-	rpc GetMeshData(MeshRequest) returns (stream MeshTable) {}
-	rpc GetTextureData(TextureRequest) returns (stream TextureTable) {}
 	rpc GetMeshDataChunk(MeshChunkRequest) returns (MeshDataChunk) {}
 	rpc GetTextureDataChunk(TextureChunkRequest) returns (TextureDataChunk) {}
 }
@@ -19,21 +17,6 @@ message LevelData
 	repeated ObjectData objectList = 1;
 }
 
-message MeshRequest
-{
-	int32 LevelId = 1;
-}
-
-message MeshTable
-{
-	map<int32, MeshData> meshDataTable = 1;
-}
-
-message MeshData
-{
-	repeated MeshDataChunk meshDataChunk = 1;
-}
-
 message MeshDataChunk
 {
 	string name =1;
@@ -41,21 +24,6 @@ message MeshDataChunk
 	int32 chunkNumber = 3; 
 	int32 maxChunkNumber = 4;
     bool isLastChunk = 5;  
-}
-
-message TextureRequest
-{
-	int32 LevelId = 1;
-}
-
-message TextureTable
-{
-	map<int32, TextureData> textureDataTable = 1;
-}
-
-message TextureData
-{
-	repeated TextureDataChunk textureDataChunk = 1;
 }
 
 message TextureDataChunk
@@ -67,13 +35,14 @@ message TextureDataChunk
 	bool isLastChunk = 5;
 	int32 width =6;
 	int32 height = 7;
+	int32 channel = 8;
 }
 
 message MeshChunkRequest
 {
 	int32 LevelId = 1;
 	string name = 2;
-	int32 chunkNumber =3;
+	int32 chunkNumber = 3;
 }
 
 message TextureChunkRequest
@@ -86,16 +55,6 @@ message TextureChunkRequest
 message ObjectData
 {
 	string name = 1;
-	Vec3 position =2;
-	Vec3 rotation = 3;
-	Vec3 scale = 4;
-	int32 meshReference = 5;
-	int32 textureReference = 6;
-}
-
-message Vec3 
-{
-    float x = 1;
-    float y = 2;
-    float z = 3;
+	string meshReference = 5;
+	string textureReference = 6;
 }

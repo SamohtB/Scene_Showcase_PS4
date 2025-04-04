@@ -16,7 +16,8 @@ void Debug::destroy()
 
 void Debug::Log(String msg)
 {
-	if (sharedInstance->console != NULL) {
+	if (sharedInstance->console != NULL) 
+	{
 		sharedInstance->console->appendText(msg);
 	}
 	else {

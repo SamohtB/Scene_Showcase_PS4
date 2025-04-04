@@ -8,7 +8,7 @@
 class PoolWorkerThread;
 class IWorkerAction;
 class IFinishedTask;
-class ThreadPoolMonitor;
+class ResourceMonitor;
 
 class ThreadPool : public IETThread, public IFinishedTask
 {
@@ -38,7 +38,8 @@ private:
 	ThreadList inactiveThreadList;
 	ActionList pendingActions;
 
-	ThreadPoolMonitor* monitor = nullptr;
+	ResourceMonitor* workerCountMonitor = nullptr;
+	ResourceMonitor* taskCountMonitor = nullptr;
 	std::mutex workerMutex;
 	
 };

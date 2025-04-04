@@ -22,7 +22,8 @@ public:
     const std::vector<GLfloat>& getVertexData();
 
 private:
-    GLuint VAO, VBO = 0;
+    GLuint VAO = 0;
+    GLuint VBO = 0;
     std::vector<GLfloat> vertexData;
     int id = 0;
     String name;

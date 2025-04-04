@@ -25,58 +25,6 @@ namespace _pb = ::google::protobuf;
 namespace _pbi = ::google::protobuf::internal;
 namespace _fl = ::google::protobuf::internal::field_layout;
 
-inline constexpr Vec3::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : x_{0},
-        y_{0},
-        z_{0},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR Vec3::Vec3(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct Vec3DefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Vec3DefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~Vec3DefaultTypeInternal() {}
-  union {
-    Vec3 _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Vec3DefaultTypeInternal _Vec3_default_instance_;
-
-inline constexpr TextureRequest::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : levelid_{0},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TextureRequest::TextureRequest(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TextureRequestDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TextureRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TextureRequestDefaultTypeInternal() {}
-  union {
-    TextureRequest _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TextureRequestDefaultTypeInternal _TextureRequest_default_instance_;
-
 inline constexpr TextureDataChunk::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : name_(
@@ -90,6 +38,7 @@ inline constexpr TextureDataChunk::Impl_::Impl_(
         islastchunk_{false},
         width_{0},
         height_{0},
+        channel_{0},
         _cached_size_{0} {}
 
 template <typename>
@@ -141,13 +90,21 @@ struct TextureChunkRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TextureChunkRequestDefaultTypeInternal _TextureChunkRequest_default_instance_;
 
-inline constexpr MeshRequest::Impl_::Impl_(
+inline constexpr ObjectData::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : levelid_{0},
+      : name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        meshreference_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        texturereference_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
 template <typename>
-PROTOBUF_CONSTEXPR MeshRequest::MeshRequest(::_pbi::ConstantInitialized)
+PROTOBUF_CONSTEXPR ObjectData::ObjectData(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
@@ -155,16 +112,16 @@ PROTOBUF_CONSTEXPR MeshRequest::MeshRequest(::_pbi::ConstantInitialized)
 #endif  // PROTOBUF_CUSTOM_VTABLE
       _impl_(::_pbi::ConstantInitialized()) {
 }
-struct MeshRequestDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR MeshRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~MeshRequestDefaultTypeInternal() {}
+struct ObjectDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ObjectDataDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ObjectDataDefaultTypeInternal() {}
   union {
-    MeshRequest _instance;
+    ObjectData _instance;
   };
 };
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MeshRequestDefaultTypeInternal _MeshRequest_default_instance_;
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ObjectDataDefaultTypeInternal _ObjectData_default_instance_;
 
 inline constexpr MeshDataChunk::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -253,124 +210,6 @@ struct LevelRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 LevelRequestDefaultTypeInternal _LevelRequest_default_instance_;
 
-inline constexpr TextureData::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : texturedatachunk_{},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TextureData::TextureData(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TextureDataDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TextureDataDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TextureDataDefaultTypeInternal() {}
-  union {
-    TextureData _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TextureDataDefaultTypeInternal _TextureData_default_instance_;
-
-inline constexpr ObjectData::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        name_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        position_{nullptr},
-        rotation_{nullptr},
-        scale_{nullptr},
-        meshreference_{0},
-        texturereference_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR ObjectData::ObjectData(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct ObjectDataDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR ObjectDataDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~ObjectDataDefaultTypeInternal() {}
-  union {
-    ObjectData _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ObjectDataDefaultTypeInternal _ObjectData_default_instance_;
-
-inline constexpr MeshData::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : meshdatachunk_{},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR MeshData::MeshData(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct MeshDataDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR MeshDataDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~MeshDataDefaultTypeInternal() {}
-  union {
-    MeshData _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MeshDataDefaultTypeInternal _MeshData_default_instance_;
-              template <typename>
-PROTOBUF_CONSTEXPR TextureTable_TextureDataTableEntry_DoNotUse::TextureTable_TextureDataTableEntry_DoNotUse(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : TextureTable_TextureDataTableEntry_DoNotUse::MapEntry(_class_data_.base()){}
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : TextureTable_TextureDataTableEntry_DoNotUse::MapEntry() {
-}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-struct TextureTable_TextureDataTableEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TextureTable_TextureDataTableEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TextureTable_TextureDataTableEntry_DoNotUseDefaultTypeInternal() {}
-  union {
-    TextureTable_TextureDataTableEntry_DoNotUse _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TextureTable_TextureDataTableEntry_DoNotUseDefaultTypeInternal _TextureTable_TextureDataTableEntry_DoNotUse_default_instance_;
-              template <typename>
-PROTOBUF_CONSTEXPR MeshTable_MeshDataTableEntry_DoNotUse::MeshTable_MeshDataTableEntry_DoNotUse(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : MeshTable_MeshDataTableEntry_DoNotUse::MapEntry(_class_data_.base()){}
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : MeshTable_MeshDataTableEntry_DoNotUse::MapEntry() {
-}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-struct MeshTable_MeshDataTableEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR MeshTable_MeshDataTableEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~MeshTable_MeshDataTableEntry_DoNotUseDefaultTypeInternal() {}
-  union {
-    MeshTable_MeshDataTableEntry_DoNotUse _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MeshTable_MeshDataTableEntry_DoNotUseDefaultTypeInternal _MeshTable_MeshDataTableEntry_DoNotUse_default_instance_;
-
 inline constexpr LevelData::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : objectlist_{},
@@ -395,56 +234,6 @@ struct LevelDataDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 LevelDataDefaultTypeInternal _LevelData_default_instance_;
-
-inline constexpr TextureTable::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : texturedatatable_{},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TextureTable::TextureTable(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TextureTableDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TextureTableDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TextureTableDefaultTypeInternal() {}
-  union {
-    TextureTable _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TextureTableDefaultTypeInternal _TextureTable_default_instance_;
-
-inline constexpr MeshTable::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : meshdatatable_{},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR MeshTable::MeshTable(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct MeshTableDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR MeshTableDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~MeshTableDefaultTypeInternal() {}
-  union {
-    MeshTable _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MeshTableDefaultTypeInternal _MeshTable_default_instance_;
 static constexpr const ::_pb::EnumDescriptor**
     file_level_enum_descriptors_LevelData_2eproto = nullptr;
 static constexpr const ::_pb::ServiceDescriptor**
@@ -471,45 +260,6 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::LevelData, _impl_.objectlist_),
         ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::MeshRequest, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::MeshRequest, _impl_.levelid_),
-        PROTOBUF_FIELD_OFFSET(::MeshTable_MeshDataTableEntry_DoNotUse, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::MeshTable_MeshDataTableEntry_DoNotUse, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::MeshTable_MeshDataTableEntry_DoNotUse, _impl_.key_),
-        PROTOBUF_FIELD_OFFSET(::MeshTable_MeshDataTableEntry_DoNotUse, _impl_.value_),
-        0,
-        1,
-        ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::MeshTable, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::MeshTable, _impl_.meshdatatable_),
-        ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::MeshData, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::MeshData, _impl_.meshdatachunk_),
-        ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::MeshDataChunk, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
@@ -522,45 +272,6 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::MeshDataChunk, _impl_.chunknumber_),
         PROTOBUF_FIELD_OFFSET(::MeshDataChunk, _impl_.maxchunknumber_),
         PROTOBUF_FIELD_OFFSET(::MeshDataChunk, _impl_.islastchunk_),
-        ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::TextureRequest, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::TextureRequest, _impl_.levelid_),
-        PROTOBUF_FIELD_OFFSET(::TextureTable_TextureDataTableEntry_DoNotUse, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::TextureTable_TextureDataTableEntry_DoNotUse, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::TextureTable_TextureDataTableEntry_DoNotUse, _impl_.key_),
-        PROTOBUF_FIELD_OFFSET(::TextureTable_TextureDataTableEntry_DoNotUse, _impl_.value_),
-        0,
-        1,
-        ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::TextureTable, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::TextureTable, _impl_.texturedatatable_),
-        ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::TextureData, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::TextureData, _impl_.texturedatachunk_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::TextureDataChunk, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -576,6 +287,7 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::TextureDataChunk, _impl_.islastchunk_),
         PROTOBUF_FIELD_OFFSET(::TextureDataChunk, _impl_.width_),
         PROTOBUF_FIELD_OFFSET(::TextureDataChunk, _impl_.height_),
+        PROTOBUF_FIELD_OFFSET(::TextureDataChunk, _impl_.channel_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::MeshChunkRequest, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -598,7 +310,7 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::TextureChunkRequest, _impl_.levelid_),
         PROTOBUF_FIELD_OFFSET(::TextureChunkRequest, _impl_.name_),
         PROTOBUF_FIELD_OFFSET(::TextureChunkRequest, _impl_.chunknumber_),
-        PROTOBUF_FIELD_OFFSET(::ObjectData, _impl_._has_bits_),
+        ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::ObjectData, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
@@ -607,118 +319,64 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::ObjectData, _impl_.name_),
-        PROTOBUF_FIELD_OFFSET(::ObjectData, _impl_.position_),
-        PROTOBUF_FIELD_OFFSET(::ObjectData, _impl_.rotation_),
-        PROTOBUF_FIELD_OFFSET(::ObjectData, _impl_.scale_),
         PROTOBUF_FIELD_OFFSET(::ObjectData, _impl_.meshreference_),
         PROTOBUF_FIELD_OFFSET(::ObjectData, _impl_.texturereference_),
-        ~0u,
-        0,
-        1,
-        2,
-        ~0u,
-        ~0u,
-        ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::Vec3, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::Vec3, _impl_.x_),
-        PROTOBUF_FIELD_OFFSET(::Vec3, _impl_.y_),
-        PROTOBUF_FIELD_OFFSET(::Vec3, _impl_.z_),
 };
 
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::LevelRequest)},
         {9, -1, -1, sizeof(::LevelData)},
-        {18, -1, -1, sizeof(::MeshRequest)},
-        {27, 37, -1, sizeof(::MeshTable_MeshDataTableEntry_DoNotUse)},
-        {39, -1, -1, sizeof(::MeshTable)},
-        {48, -1, -1, sizeof(::MeshData)},
-        {57, -1, -1, sizeof(::MeshDataChunk)},
-        {70, -1, -1, sizeof(::TextureRequest)},
-        {79, 89, -1, sizeof(::TextureTable_TextureDataTableEntry_DoNotUse)},
-        {91, -1, -1, sizeof(::TextureTable)},
-        {100, -1, -1, sizeof(::TextureData)},
-        {109, -1, -1, sizeof(::TextureDataChunk)},
-        {124, -1, -1, sizeof(::MeshChunkRequest)},
-        {135, -1, -1, sizeof(::TextureChunkRequest)},
-        {146, 160, -1, sizeof(::ObjectData)},
-        {166, -1, -1, sizeof(::Vec3)},
+        {18, -1, -1, sizeof(::MeshDataChunk)},
+        {31, -1, -1, sizeof(::TextureDataChunk)},
+        {47, -1, -1, sizeof(::MeshChunkRequest)},
+        {58, -1, -1, sizeof(::TextureChunkRequest)},
+        {69, -1, -1, sizeof(::ObjectData)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::_LevelRequest_default_instance_._instance,
     &::_LevelData_default_instance_._instance,
-    &::_MeshRequest_default_instance_._instance,
-    &::_MeshTable_MeshDataTableEntry_DoNotUse_default_instance_._instance,
-    &::_MeshTable_default_instance_._instance,
-    &::_MeshData_default_instance_._instance,
     &::_MeshDataChunk_default_instance_._instance,
-    &::_TextureRequest_default_instance_._instance,
-    &::_TextureTable_TextureDataTableEntry_DoNotUse_default_instance_._instance,
-    &::_TextureTable_default_instance_._instance,
-    &::_TextureData_default_instance_._instance,
     &::_TextureDataChunk_default_instance_._instance,
     &::_MeshChunkRequest_default_instance_._instance,
     &::_TextureChunkRequest_default_instance_._instance,
     &::_ObjectData_default_instance_._instance,
-    &::_Vec3_default_instance_._instance,
 };
 const char descriptor_table_protodef_LevelData_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n\017LevelData.proto\"\037\n\014LevelRequest\022\017\n\007Lev"
     "elId\030\001 \001(\005\",\n\tLevelData\022\037\n\nobjectList\030\001 "
-    "\003(\0132\013.ObjectData\"\036\n\013MeshRequest\022\017\n\007Level"
-    "Id\030\001 \001(\005\"\202\001\n\tMeshTable\0224\n\rmeshDataTable\030"
-    "\001 \003(\0132\035.MeshTable.MeshDataTableEntry\032\?\n\022"
-    "MeshDataTableEntry\022\013\n\003key\030\001 \001(\005\022\030\n\005value"
-    "\030\002 \001(\0132\t.MeshData:\0028\001\"1\n\010MeshData\022%\n\rmes"
-    "hDataChunk\030\001 \003(\0132\016.MeshDataChunk\"r\n\rMesh"
-    "DataChunk\022\014\n\004name\030\001 \001(\t\022\021\n\tdataChunk\030\002 \001"
-    "(\014\022\023\n\013chunkNumber\030\003 \001(\005\022\026\n\016maxChunkNumbe"
-    "r\030\004 \001(\005\022\023\n\013isLastChunk\030\005 \001(\010\"!\n\016TextureR"
-    "equest\022\017\n\007LevelId\030\001 \001(\005\"\224\001\n\014TextureTable"
-    "\022=\n\020textureDataTable\030\001 \003(\0132#.TextureTabl"
-    "e.TextureDataTableEntry\032E\n\025TextureDataTa"
-    "bleEntry\022\013\n\003key\030\001 \001(\005\022\033\n\005value\030\002 \001(\0132\014.T"
-    "extureData:\0028\001\":\n\013TextureData\022+\n\020texture"
-    "DataChunk\030\001 \003(\0132\021.TextureDataChunk\"\224\001\n\020T"
-    "extureDataChunk\022\014\n\004name\030\001 \001(\t\022\021\n\tdataChu"
-    "nk\030\002 \001(\014\022\023\n\013chunkNumber\030\003 \001(\005\022\026\n\016maxChun"
-    "kNumber\030\004 \001(\005\022\023\n\013isLastChunk\030\005 \001(\010\022\r\n\005wi"
-    "dth\030\006 \001(\005\022\016\n\006height\030\007 \001(\005\"F\n\020MeshChunkRe"
-    "quest\022\017\n\007LevelId\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013"
-    "chunkNumber\030\003 \001(\005\"I\n\023TextureChunkRequest"
+    "\003(\0132\013.ObjectData\"r\n\rMeshDataChunk\022\014\n\004nam"
+    "e\030\001 \001(\t\022\021\n\tdataChunk\030\002 \001(\014\022\023\n\013chunkNumbe"
+    "r\030\003 \001(\005\022\026\n\016maxChunkNumber\030\004 \001(\005\022\023\n\013isLas"
+    "tChunk\030\005 \001(\010\"\245\001\n\020TextureDataChunk\022\014\n\004nam"
+    "e\030\001 \001(\t\022\021\n\tdataChunk\030\002 \001(\014\022\023\n\013chunkNumbe"
+    "r\030\003 \001(\005\022\026\n\016maxChunkNumber\030\004 \001(\005\022\023\n\013isLas"
+    "tChunk\030\005 \001(\010\022\r\n\005width\030\006 \001(\005\022\016\n\006height\030\007 "
+    "\001(\005\022\017\n\007channel\030\010 \001(\005\"F\n\020MeshChunkRequest"
     "\022\017\n\007LevelId\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013chunk"
-    "Number\030\003 \001(\005\"\223\001\n\nObjectData\022\014\n\004name\030\001 \001("
-    "\t\022\027\n\010position\030\002 \001(\0132\005.Vec3\022\027\n\010rotation\030\003"
-    " \001(\0132\005.Vec3\022\024\n\005scale\030\004 \001(\0132\005.Vec3\022\025\n\rmes"
-    "hReference\030\005 \001(\005\022\030\n\020textureReference\030\006 \001"
-    "(\005\"\'\n\004Vec3\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 "
-    "\001(\0022\235\002\n\020SceneDataService\022+\n\014GetLevelData"
-    "\022\r.LevelRequest\032\n.LevelData\"\000\022+\n\013GetMesh"
-    "Data\022\014.MeshRequest\032\n.MeshTable\"\0000\001\0224\n\016Ge"
-    "tTextureData\022\017.TextureRequest\032\r.TextureT"
-    "able\"\0000\001\0227\n\020GetMeshDataChunk\022\021.MeshChunk"
-    "Request\032\016.MeshDataChunk\"\000\022@\n\023GetTextureD"
-    "ataChunk\022\024.TextureChunkRequest\032\021.Texture"
-    "DataChunk\"\000b\006proto3"
+    "Number\030\003 \001(\005\"I\n\023TextureChunkRequest\022\017\n\007L"
+    "evelId\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013chunkNumbe"
+    "r\030\003 \001(\005\"K\n\nObjectData\022\014\n\004name\030\001 \001(\t\022\025\n\rm"
+    "eshReference\030\005 \001(\t\022\030\n\020textureReference\030\006"
+    " \001(\t2\272\001\n\020SceneDataService\022+\n\014GetLevelDat"
+    "a\022\r.LevelRequest\032\n.LevelData\"\000\0227\n\020GetMes"
+    "hDataChunk\022\021.MeshChunkRequest\032\016.MeshData"
+    "Chunk\"\000\022@\n\023GetTextureDataChunk\022\024.Texture"
+    "ChunkRequest\032\021.TextureDataChunk\"\000b\006proto"
+    "3"
 };
 static ::absl::once_flag descriptor_table_LevelData_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_LevelData_2eproto = {
     false,
     false,
-    1459,
+    801,
     descriptor_table_protodef_LevelData_2eproto,
     "LevelData.proto",
     &descriptor_table_LevelData_2eproto_once,
     nullptr,
     0,
-    16,
+    7,
     schemas,
     file_default_instances,
     TableStruct_LevelData_2eproto::offsets,
@@ -1176,802 +834,6 @@ void LevelData::InternalSwap(LevelData* PROTOBUF_RESTRICT other) {
 }
 // ===================================================================
 
-class MeshRequest::_Internal {
- public:
-};
-
-MeshRequest::MeshRequest(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:MeshRequest)
-}
-MeshRequest::MeshRequest(
-    ::google::protobuf::Arena* arena, const MeshRequest& from)
-    : MeshRequest(arena) {
-  MergeFrom(from);
-}
-inline PROTOBUF_NDEBUG_INLINE MeshRequest::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : _cached_size_{0} {}
-
-inline void MeshRequest::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.levelid_ = {};
-}
-MeshRequest::~MeshRequest() {
-  // @@protoc_insertion_point(destructor:MeshRequest)
-  SharedDtor(*this);
-}
-inline void MeshRequest::SharedDtor(MessageLite& self) {
-  MeshRequest& this_ = static_cast<MeshRequest&>(self);
-  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.~Impl_();
-}
-
-inline void* MeshRequest::PlacementNew_(const void*, void* mem,
-                                        ::google::protobuf::Arena* arena) {
-  return ::new (mem) MeshRequest(arena);
-}
-constexpr auto MeshRequest::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(MeshRequest),
-                                            alignof(MeshRequest));
-}
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull MeshRequest::_class_data_ = {
-    ::google::protobuf::internal::ClassData{
-        &_MeshRequest_default_instance_._instance,
-        &_table_.header,
-        nullptr,  // OnDemandRegisterArenaDtor
-        nullptr,  // IsInitialized
-        &MeshRequest::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<MeshRequest>(),
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        &MeshRequest::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<MeshRequest>(), &MeshRequest::ByteSizeLong,
-            &MeshRequest::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(MeshRequest, _impl_._cached_size_),
-        false,
-    },
-    &MeshRequest::kDescriptorMethods,
-    &descriptor_table_LevelData_2eproto,
-    nullptr,  // tracker
-};
-const ::google::protobuf::internal::ClassData* MeshRequest::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 0, 0, 2> MeshRequest::_table_ = {
-  {
-    0,  // no _has_bits_
-    0, // no _extensions_
-    1, 0,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967294,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::MeshRequest>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    // int32 LevelId = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(MeshRequest, _impl_.levelid_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(MeshRequest, _impl_.levelid_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // int32 LevelId = 1;
-    {PROTOBUF_FIELD_OFFSET(MeshRequest, _impl_.levelid_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
-  }},
-  // no aux_entries
-  {{
-  }},
-};
-
-PROTOBUF_NOINLINE void MeshRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:MeshRequest)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.levelid_ = 0;
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* MeshRequest::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const MeshRequest& this_ = static_cast<const MeshRequest&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* MeshRequest::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const MeshRequest& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:MeshRequest)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          // int32 LevelId = 1;
-          if (this_._internal_levelid() != 0) {
-            target = ::google::protobuf::internal::WireFormatLite::
-                WriteInt32ToArrayWithField<1>(
-                    stream, this_._internal_levelid(), target);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:MeshRequest)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t MeshRequest::ByteSizeLong(const MessageLite& base) {
-          const MeshRequest& this_ = static_cast<const MeshRequest&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t MeshRequest::ByteSizeLong() const {
-          const MeshRequest& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:MeshRequest)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-           {
-            // int32 LevelId = 1;
-            if (this_._internal_levelid() != 0) {
-              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
-                  this_._internal_levelid());
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void MeshRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<MeshRequest*>(&to_msg);
-  auto& from = static_cast<const MeshRequest&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:MeshRequest)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_levelid() != 0) {
-    _this->_impl_.levelid_ = from._impl_.levelid_;
-  }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void MeshRequest::CopyFrom(const MeshRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:MeshRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void MeshRequest::InternalSwap(MeshRequest* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-        swap(_impl_.levelid_, other->_impl_.levelid_);
-}
-
-::google::protobuf::Metadata MeshRequest::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-              MeshTable_MeshDataTableEntry_DoNotUse::MeshTable_MeshDataTableEntry_DoNotUse() : SuperType(_class_data_.base()) {}
-              MeshTable_MeshDataTableEntry_DoNotUse::MeshTable_MeshDataTableEntry_DoNotUse(::google::protobuf::Arena* arena)
-                  : SuperType(arena, _class_data_.base()) {}
-#else   // PROTOBUF_CUSTOM_VTABLE
-              MeshTable_MeshDataTableEntry_DoNotUse::MeshTable_MeshDataTableEntry_DoNotUse() : SuperType() {}
-              MeshTable_MeshDataTableEntry_DoNotUse::MeshTable_MeshDataTableEntry_DoNotUse(::google::protobuf::Arena* arena) : SuperType(arena) {}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-              inline void* MeshTable_MeshDataTableEntry_DoNotUse::PlacementNew_(const void*, void* mem,
-                                                      ::google::protobuf::Arena* arena) {
-                return ::new (mem) MeshTable_MeshDataTableEntry_DoNotUse(arena);
-              }
-              constexpr auto MeshTable_MeshDataTableEntry_DoNotUse::InternalNewImpl_() {
-                return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(MeshTable_MeshDataTableEntry_DoNotUse),
-                                                          alignof(MeshTable_MeshDataTableEntry_DoNotUse));
-              }
-              PROTOBUF_CONSTINIT
-              PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-              const ::google::protobuf::internal::ClassDataFull MeshTable_MeshDataTableEntry_DoNotUse::_class_data_ = {
-                  ::google::protobuf::internal::ClassData{
-                      &_MeshTable_MeshDataTableEntry_DoNotUse_default_instance_._instance,
-                      &_table_.header,
-                      nullptr,  // OnDemandRegisterArenaDtor
-                      nullptr,  // IsInitialized
-                      &MeshTable_MeshDataTableEntry_DoNotUse::MergeImpl,
-                      ::google::protobuf::Message::GetNewImpl<MeshTable_MeshDataTableEntry_DoNotUse>(),
-              #if defined(PROTOBUF_CUSTOM_VTABLE)
-                      &MeshTable_MeshDataTableEntry_DoNotUse::SharedDtor,
-                      static_cast<void (::google::protobuf::MessageLite::*)()>(
-                          &MeshTable_MeshDataTableEntry_DoNotUse::ClearImpl),
-                          ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
-                          ,
-              #endif  // PROTOBUF_CUSTOM_VTABLE
-                      PROTOBUF_FIELD_OFFSET(MeshTable_MeshDataTableEntry_DoNotUse, _impl_._cached_size_),
-                      false,
-                  },
-                  &MeshTable_MeshDataTableEntry_DoNotUse::kDescriptorMethods,
-                  &descriptor_table_LevelData_2eproto,
-                  nullptr,  // tracker
-              };
-              const ::google::protobuf::internal::ClassData* MeshTable_MeshDataTableEntry_DoNotUse::GetClassData() const {
-                ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-                ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-                return _class_data_.base();
-              }
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 1, 0, 2> MeshTable_MeshDataTableEntry_DoNotUse::_table_ = {
-  {
-    PROTOBUF_FIELD_OFFSET(MeshTable_MeshDataTableEntry_DoNotUse, _impl_._has_bits_),
-    0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
-    1,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::MeshTable_MeshDataTableEntry_DoNotUse>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    // .MeshData value = 2;
-    {::_pbi::TcParser::FastMtS1,
-     {18, 0, 0, PROTOBUF_FIELD_OFFSET(MeshTable_MeshDataTableEntry_DoNotUse, _impl_.value_)}},
-    // int32 key = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(MeshTable_MeshDataTableEntry_DoNotUse, _impl_.key_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(MeshTable_MeshDataTableEntry_DoNotUse, _impl_.key_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // int32 key = 1;
-    {PROTOBUF_FIELD_OFFSET(MeshTable_MeshDataTableEntry_DoNotUse, _impl_.key_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
-    // .MeshData value = 2;
-    {PROTOBUF_FIELD_OFFSET(MeshTable_MeshDataTableEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-  }}, {{
-    {::_pbi::TcParser::GetTable<::MeshData>()},
-  }}, {{
-  }},
-};
-
-// ===================================================================
-
-class MeshTable::_Internal {
- public:
-};
-
-MeshTable::MeshTable(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:MeshTable)
-}
-inline PROTOBUF_NDEBUG_INLINE MeshTable::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::MeshTable& from_msg)
-      : meshdatatable_{visibility, arena, from.meshdatatable_},
-        _cached_size_{0} {}
-
-MeshTable::MeshTable(
-    ::google::protobuf::Arena* arena,
-    const MeshTable& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  MeshTable* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-
-  // @@protoc_insertion_point(copy_constructor:MeshTable)
-}
-inline PROTOBUF_NDEBUG_INLINE MeshTable::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : meshdatatable_{visibility, arena},
-        _cached_size_{0} {}
-
-inline void MeshTable::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-}
-MeshTable::~MeshTable() {
-  // @@protoc_insertion_point(destructor:MeshTable)
-  SharedDtor(*this);
-}
-inline void MeshTable::SharedDtor(MessageLite& self) {
-  MeshTable& this_ = static_cast<MeshTable&>(self);
-  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.~Impl_();
-}
-
-inline void* MeshTable::PlacementNew_(const void*, void* mem,
-                                        ::google::protobuf::Arena* arena) {
-  return ::new (mem) MeshTable(arena);
-}
-constexpr auto MeshTable::InternalNewImpl_() {
-  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(MeshTable, _impl_.meshdatatable_) +
-          decltype(MeshTable::_impl_.meshdatatable_)::
-              InternalGetArenaOffset(
-                  ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(MeshTable, _impl_.meshdatatable_) +
-          decltype(MeshTable::_impl_.meshdatatable_)::
-              InternalGetArenaOffsetAlt(
-                  ::google::protobuf::Message::internal_visibility()),
-  });
-  if (arena_bits.has_value()) {
-    return ::google::protobuf::internal::MessageCreator::CopyInit(
-        sizeof(MeshTable), alignof(MeshTable), *arena_bits);
-  } else {
-    return ::google::protobuf::internal::MessageCreator(&MeshTable::PlacementNew_,
-                                 sizeof(MeshTable),
-                                 alignof(MeshTable));
-  }
-}
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull MeshTable::_class_data_ = {
-    ::google::protobuf::internal::ClassData{
-        &_MeshTable_default_instance_._instance,
-        &_table_.header,
-        nullptr,  // OnDemandRegisterArenaDtor
-        nullptr,  // IsInitialized
-        &MeshTable::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<MeshTable>(),
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        &MeshTable::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<MeshTable>(), &MeshTable::ByteSizeLong,
-            &MeshTable::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(MeshTable, _impl_._cached_size_),
-        false,
-    },
-    &MeshTable::kDescriptorMethods,
-    &descriptor_table_LevelData_2eproto,
-    nullptr,  // tracker
-};
-const ::google::protobuf::internal::ClassData* MeshTable::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 2, 0, 2> MeshTable::_table_ = {
-  {
-    0,  // no _has_bits_
-    0, // no _extensions_
-    1, 0,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967294,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
-    2,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::MeshTable>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // map<int32, .MeshData> meshDataTable = 1;
-    {PROTOBUF_FIELD_OFFSET(MeshTable, _impl_.meshdatatable_), 0, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
-  }}, {{
-    {::_pbi::TcParser::GetMapAuxInfo<
-        decltype(MeshTable()._impl_.meshdatatable_)>(
-        0, 0, 0, 5,
-        11)},
-    {::_pbi::TcParser::GetTable<::MeshData>()},
-  }}, {{
-  }},
-};
-
-PROTOBUF_NOINLINE void MeshTable::Clear() {
-// @@protoc_insertion_point(message_clear_start:MeshTable)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.meshdatatable_.Clear();
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* MeshTable::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const MeshTable& this_ = static_cast<const MeshTable&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* MeshTable::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const MeshTable& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:MeshTable)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          // map<int32, .MeshData> meshDataTable = 1;
-          if (!this_._internal_meshdatatable().empty()) {
-            using MapType = ::google::protobuf::Map<::int32_t, ::MeshData>;
-            using WireHelper = _pbi::MapEntryFuncs<::int32_t, ::MeshData,
-                                           _pbi::WireFormatLite::TYPE_INT32,
-                                           _pbi::WireFormatLite::TYPE_MESSAGE>;
-            const auto& field = this_._internal_meshdatatable();
-
-            if (stream->IsSerializationDeterministic() && field.size() > 1) {
-              for (const auto& entry : ::google::protobuf::internal::MapSorterFlat<MapType>(field)) {
-                target = WireHelper::InternalSerialize(
-                    1, entry.first, entry.second, target, stream);
-              }
-            } else {
-              for (const auto& entry : field) {
-                target = WireHelper::InternalSerialize(
-                    1, entry.first, entry.second, target, stream);
-              }
-            }
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:MeshTable)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t MeshTable::ByteSizeLong(const MessageLite& base) {
-          const MeshTable& this_ = static_cast<const MeshTable&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t MeshTable::ByteSizeLong() const {
-          const MeshTable& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:MeshTable)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-           {
-            // map<int32, .MeshData> meshDataTable = 1;
-            {
-              total_size +=
-                  1 * ::google::protobuf::internal::FromIntSize(this_._internal_meshdatatable_size());
-              for (const auto& entry : this_._internal_meshdatatable()) {
-                total_size += _pbi::MapEntryFuncs<::int32_t, ::MeshData,
-                                               _pbi::WireFormatLite::TYPE_INT32,
-                                               _pbi::WireFormatLite::TYPE_MESSAGE>::ByteSizeLong(entry.first, entry.second);
-              }
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void MeshTable::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<MeshTable*>(&to_msg);
-  auto& from = static_cast<const MeshTable&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:MeshTable)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _this->_impl_.meshdatatable_.MergeFrom(from._impl_.meshdatatable_);
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void MeshTable::CopyFrom(const MeshTable& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:MeshTable)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void MeshTable::InternalSwap(MeshTable* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.meshdatatable_.InternalSwap(&other->_impl_.meshdatatable_);
-}
-
-::google::protobuf::Metadata MeshTable::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-class MeshData::_Internal {
- public:
-};
-
-MeshData::MeshData(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:MeshData)
-}
-inline PROTOBUF_NDEBUG_INLINE MeshData::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::MeshData& from_msg)
-      : meshdatachunk_{visibility, arena, from.meshdatachunk_},
-        _cached_size_{0} {}
-
-MeshData::MeshData(
-    ::google::protobuf::Arena* arena,
-    const MeshData& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  MeshData* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-
-  // @@protoc_insertion_point(copy_constructor:MeshData)
-}
-inline PROTOBUF_NDEBUG_INLINE MeshData::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : meshdatachunk_{visibility, arena},
-        _cached_size_{0} {}
-
-inline void MeshData::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-}
-MeshData::~MeshData() {
-  // @@protoc_insertion_point(destructor:MeshData)
-  SharedDtor(*this);
-}
-inline void MeshData::SharedDtor(MessageLite& self) {
-  MeshData& this_ = static_cast<MeshData&>(self);
-  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.~Impl_();
-}
-
-inline void* MeshData::PlacementNew_(const void*, void* mem,
-                                        ::google::protobuf::Arena* arena) {
-  return ::new (mem) MeshData(arena);
-}
-constexpr auto MeshData::InternalNewImpl_() {
-  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(MeshData, _impl_.meshdatachunk_) +
-          decltype(MeshData::_impl_.meshdatachunk_)::
-              InternalGetArenaOffset(
-                  ::google::protobuf::Message::internal_visibility()),
-  });
-  if (arena_bits.has_value()) {
-    return ::google::protobuf::internal::MessageCreator::ZeroInit(
-        sizeof(MeshData), alignof(MeshData), *arena_bits);
-  } else {
-    return ::google::protobuf::internal::MessageCreator(&MeshData::PlacementNew_,
-                                 sizeof(MeshData),
-                                 alignof(MeshData));
-  }
-}
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull MeshData::_class_data_ = {
-    ::google::protobuf::internal::ClassData{
-        &_MeshData_default_instance_._instance,
-        &_table_.header,
-        nullptr,  // OnDemandRegisterArenaDtor
-        nullptr,  // IsInitialized
-        &MeshData::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<MeshData>(),
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        &MeshData::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<MeshData>(), &MeshData::ByteSizeLong,
-            &MeshData::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(MeshData, _impl_._cached_size_),
-        false,
-    },
-    &MeshData::kDescriptorMethods,
-    &descriptor_table_LevelData_2eproto,
-    nullptr,  // tracker
-};
-const ::google::protobuf::internal::ClassData* MeshData::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 1, 0, 2> MeshData::_table_ = {
-  {
-    0,  // no _has_bits_
-    0, // no _extensions_
-    1, 0,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967294,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
-    1,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::MeshData>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    // repeated .MeshDataChunk meshDataChunk = 1;
-    {::_pbi::TcParser::FastMtR1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(MeshData, _impl_.meshdatachunk_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // repeated .MeshDataChunk meshDataChunk = 1;
-    {PROTOBUF_FIELD_OFFSET(MeshData, _impl_.meshdatachunk_), 0, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
-  }}, {{
-    {::_pbi::TcParser::GetTable<::MeshDataChunk>()},
-  }}, {{
-  }},
-};
-
-PROTOBUF_NOINLINE void MeshData::Clear() {
-// @@protoc_insertion_point(message_clear_start:MeshData)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.meshdatachunk_.Clear();
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* MeshData::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const MeshData& this_ = static_cast<const MeshData&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* MeshData::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const MeshData& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:MeshData)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          // repeated .MeshDataChunk meshDataChunk = 1;
-          for (unsigned i = 0, n = static_cast<unsigned>(
-                                   this_._internal_meshdatachunk_size());
-               i < n; i++) {
-            const auto& repfield = this_._internal_meshdatachunk().Get(i);
-            target =
-                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                    1, repfield, repfield.GetCachedSize(),
-                    target, stream);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:MeshData)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t MeshData::ByteSizeLong(const MessageLite& base) {
-          const MeshData& this_ = static_cast<const MeshData&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t MeshData::ByteSizeLong() const {
-          const MeshData& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:MeshData)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-           {
-            // repeated .MeshDataChunk meshDataChunk = 1;
-            {
-              total_size += 1UL * this_._internal_meshdatachunk_size();
-              for (const auto& msg : this_._internal_meshdatachunk()) {
-                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
-              }
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void MeshData::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<MeshData*>(&to_msg);
-  auto& from = static_cast<const MeshData&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:MeshData)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _this->_internal_mutable_meshdatachunk()->MergeFrom(
-      from._internal_meshdatachunk());
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void MeshData::CopyFrom(const MeshData& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:MeshData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void MeshData::InternalSwap(MeshData* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.meshdatachunk_.InternalSwap(&other->_impl_.meshdatachunk_);
-}
-
-::google::protobuf::Metadata MeshData::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
 class MeshDataChunk::_Internal {
  public:
 };
@@ -2316,802 +1178,6 @@ void MeshDataChunk::InternalSwap(MeshDataChunk* PROTOBUF_RESTRICT other) {
 }
 // ===================================================================
 
-class TextureRequest::_Internal {
- public:
-};
-
-TextureRequest::TextureRequest(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:TextureRequest)
-}
-TextureRequest::TextureRequest(
-    ::google::protobuf::Arena* arena, const TextureRequest& from)
-    : TextureRequest(arena) {
-  MergeFrom(from);
-}
-inline PROTOBUF_NDEBUG_INLINE TextureRequest::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : _cached_size_{0} {}
-
-inline void TextureRequest::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.levelid_ = {};
-}
-TextureRequest::~TextureRequest() {
-  // @@protoc_insertion_point(destructor:TextureRequest)
-  SharedDtor(*this);
-}
-inline void TextureRequest::SharedDtor(MessageLite& self) {
-  TextureRequest& this_ = static_cast<TextureRequest&>(self);
-  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.~Impl_();
-}
-
-inline void* TextureRequest::PlacementNew_(const void*, void* mem,
-                                        ::google::protobuf::Arena* arena) {
-  return ::new (mem) TextureRequest(arena);
-}
-constexpr auto TextureRequest::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TextureRequest),
-                                            alignof(TextureRequest));
-}
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull TextureRequest::_class_data_ = {
-    ::google::protobuf::internal::ClassData{
-        &_TextureRequest_default_instance_._instance,
-        &_table_.header,
-        nullptr,  // OnDemandRegisterArenaDtor
-        nullptr,  // IsInitialized
-        &TextureRequest::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<TextureRequest>(),
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        &TextureRequest::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<TextureRequest>(), &TextureRequest::ByteSizeLong,
-            &TextureRequest::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(TextureRequest, _impl_._cached_size_),
-        false,
-    },
-    &TextureRequest::kDescriptorMethods,
-    &descriptor_table_LevelData_2eproto,
-    nullptr,  // tracker
-};
-const ::google::protobuf::internal::ClassData* TextureRequest::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 0, 0, 2> TextureRequest::_table_ = {
-  {
-    0,  // no _has_bits_
-    0, // no _extensions_
-    1, 0,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967294,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::TextureRequest>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    // int32 LevelId = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TextureRequest, _impl_.levelid_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(TextureRequest, _impl_.levelid_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // int32 LevelId = 1;
-    {PROTOBUF_FIELD_OFFSET(TextureRequest, _impl_.levelid_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
-  }},
-  // no aux_entries
-  {{
-  }},
-};
-
-PROTOBUF_NOINLINE void TextureRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:TextureRequest)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.levelid_ = 0;
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* TextureRequest::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const TextureRequest& this_ = static_cast<const TextureRequest&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* TextureRequest::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const TextureRequest& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:TextureRequest)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          // int32 LevelId = 1;
-          if (this_._internal_levelid() != 0) {
-            target = ::google::protobuf::internal::WireFormatLite::
-                WriteInt32ToArrayWithField<1>(
-                    stream, this_._internal_levelid(), target);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:TextureRequest)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t TextureRequest::ByteSizeLong(const MessageLite& base) {
-          const TextureRequest& this_ = static_cast<const TextureRequest&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t TextureRequest::ByteSizeLong() const {
-          const TextureRequest& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:TextureRequest)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-           {
-            // int32 LevelId = 1;
-            if (this_._internal_levelid() != 0) {
-              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
-                  this_._internal_levelid());
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void TextureRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<TextureRequest*>(&to_msg);
-  auto& from = static_cast<const TextureRequest&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:TextureRequest)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_levelid() != 0) {
-    _this->_impl_.levelid_ = from._impl_.levelid_;
-  }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void TextureRequest::CopyFrom(const TextureRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:TextureRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void TextureRequest::InternalSwap(TextureRequest* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-        swap(_impl_.levelid_, other->_impl_.levelid_);
-}
-
-::google::protobuf::Metadata TextureRequest::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-              TextureTable_TextureDataTableEntry_DoNotUse::TextureTable_TextureDataTableEntry_DoNotUse() : SuperType(_class_data_.base()) {}
-              TextureTable_TextureDataTableEntry_DoNotUse::TextureTable_TextureDataTableEntry_DoNotUse(::google::protobuf::Arena* arena)
-                  : SuperType(arena, _class_data_.base()) {}
-#else   // PROTOBUF_CUSTOM_VTABLE
-              TextureTable_TextureDataTableEntry_DoNotUse::TextureTable_TextureDataTableEntry_DoNotUse() : SuperType() {}
-              TextureTable_TextureDataTableEntry_DoNotUse::TextureTable_TextureDataTableEntry_DoNotUse(::google::protobuf::Arena* arena) : SuperType(arena) {}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-              inline void* TextureTable_TextureDataTableEntry_DoNotUse::PlacementNew_(const void*, void* mem,
-                                                      ::google::protobuf::Arena* arena) {
-                return ::new (mem) TextureTable_TextureDataTableEntry_DoNotUse(arena);
-              }
-              constexpr auto TextureTable_TextureDataTableEntry_DoNotUse::InternalNewImpl_() {
-                return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TextureTable_TextureDataTableEntry_DoNotUse),
-                                                          alignof(TextureTable_TextureDataTableEntry_DoNotUse));
-              }
-              PROTOBUF_CONSTINIT
-              PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-              const ::google::protobuf::internal::ClassDataFull TextureTable_TextureDataTableEntry_DoNotUse::_class_data_ = {
-                  ::google::protobuf::internal::ClassData{
-                      &_TextureTable_TextureDataTableEntry_DoNotUse_default_instance_._instance,
-                      &_table_.header,
-                      nullptr,  // OnDemandRegisterArenaDtor
-                      nullptr,  // IsInitialized
-                      &TextureTable_TextureDataTableEntry_DoNotUse::MergeImpl,
-                      ::google::protobuf::Message::GetNewImpl<TextureTable_TextureDataTableEntry_DoNotUse>(),
-              #if defined(PROTOBUF_CUSTOM_VTABLE)
-                      &TextureTable_TextureDataTableEntry_DoNotUse::SharedDtor,
-                      static_cast<void (::google::protobuf::MessageLite::*)()>(
-                          &TextureTable_TextureDataTableEntry_DoNotUse::ClearImpl),
-                          ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
-                          ,
-              #endif  // PROTOBUF_CUSTOM_VTABLE
-                      PROTOBUF_FIELD_OFFSET(TextureTable_TextureDataTableEntry_DoNotUse, _impl_._cached_size_),
-                      false,
-                  },
-                  &TextureTable_TextureDataTableEntry_DoNotUse::kDescriptorMethods,
-                  &descriptor_table_LevelData_2eproto,
-                  nullptr,  // tracker
-              };
-              const ::google::protobuf::internal::ClassData* TextureTable_TextureDataTableEntry_DoNotUse::GetClassData() const {
-                ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-                ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-                return _class_data_.base();
-              }
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 1, 0, 2> TextureTable_TextureDataTableEntry_DoNotUse::_table_ = {
-  {
-    PROTOBUF_FIELD_OFFSET(TextureTable_TextureDataTableEntry_DoNotUse, _impl_._has_bits_),
-    0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
-    1,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::TextureTable_TextureDataTableEntry_DoNotUse>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    // .TextureData value = 2;
-    {::_pbi::TcParser::FastMtS1,
-     {18, 0, 0, PROTOBUF_FIELD_OFFSET(TextureTable_TextureDataTableEntry_DoNotUse, _impl_.value_)}},
-    // int32 key = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TextureTable_TextureDataTableEntry_DoNotUse, _impl_.key_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(TextureTable_TextureDataTableEntry_DoNotUse, _impl_.key_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // int32 key = 1;
-    {PROTOBUF_FIELD_OFFSET(TextureTable_TextureDataTableEntry_DoNotUse, _impl_.key_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
-    // .TextureData value = 2;
-    {PROTOBUF_FIELD_OFFSET(TextureTable_TextureDataTableEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-  }}, {{
-    {::_pbi::TcParser::GetTable<::TextureData>()},
-  }}, {{
-  }},
-};
-
-// ===================================================================
-
-class TextureTable::_Internal {
- public:
-};
-
-TextureTable::TextureTable(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:TextureTable)
-}
-inline PROTOBUF_NDEBUG_INLINE TextureTable::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::TextureTable& from_msg)
-      : texturedatatable_{visibility, arena, from.texturedatatable_},
-        _cached_size_{0} {}
-
-TextureTable::TextureTable(
-    ::google::protobuf::Arena* arena,
-    const TextureTable& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  TextureTable* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-
-  // @@protoc_insertion_point(copy_constructor:TextureTable)
-}
-inline PROTOBUF_NDEBUG_INLINE TextureTable::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : texturedatatable_{visibility, arena},
-        _cached_size_{0} {}
-
-inline void TextureTable::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-}
-TextureTable::~TextureTable() {
-  // @@protoc_insertion_point(destructor:TextureTable)
-  SharedDtor(*this);
-}
-inline void TextureTable::SharedDtor(MessageLite& self) {
-  TextureTable& this_ = static_cast<TextureTable&>(self);
-  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.~Impl_();
-}
-
-inline void* TextureTable::PlacementNew_(const void*, void* mem,
-                                        ::google::protobuf::Arena* arena) {
-  return ::new (mem) TextureTable(arena);
-}
-constexpr auto TextureTable::InternalNewImpl_() {
-  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(TextureTable, _impl_.texturedatatable_) +
-          decltype(TextureTable::_impl_.texturedatatable_)::
-              InternalGetArenaOffset(
-                  ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TextureTable, _impl_.texturedatatable_) +
-          decltype(TextureTable::_impl_.texturedatatable_)::
-              InternalGetArenaOffsetAlt(
-                  ::google::protobuf::Message::internal_visibility()),
-  });
-  if (arena_bits.has_value()) {
-    return ::google::protobuf::internal::MessageCreator::CopyInit(
-        sizeof(TextureTable), alignof(TextureTable), *arena_bits);
-  } else {
-    return ::google::protobuf::internal::MessageCreator(&TextureTable::PlacementNew_,
-                                 sizeof(TextureTable),
-                                 alignof(TextureTable));
-  }
-}
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull TextureTable::_class_data_ = {
-    ::google::protobuf::internal::ClassData{
-        &_TextureTable_default_instance_._instance,
-        &_table_.header,
-        nullptr,  // OnDemandRegisterArenaDtor
-        nullptr,  // IsInitialized
-        &TextureTable::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<TextureTable>(),
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        &TextureTable::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<TextureTable>(), &TextureTable::ByteSizeLong,
-            &TextureTable::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(TextureTable, _impl_._cached_size_),
-        false,
-    },
-    &TextureTable::kDescriptorMethods,
-    &descriptor_table_LevelData_2eproto,
-    nullptr,  // tracker
-};
-const ::google::protobuf::internal::ClassData* TextureTable::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 2, 0, 2> TextureTable::_table_ = {
-  {
-    0,  // no _has_bits_
-    0, // no _extensions_
-    1, 0,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967294,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
-    2,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::TextureTable>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // map<int32, .TextureData> textureDataTable = 1;
-    {PROTOBUF_FIELD_OFFSET(TextureTable, _impl_.texturedatatable_), 0, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
-  }}, {{
-    {::_pbi::TcParser::GetMapAuxInfo<
-        decltype(TextureTable()._impl_.texturedatatable_)>(
-        0, 0, 0, 5,
-        11)},
-    {::_pbi::TcParser::GetTable<::TextureData>()},
-  }}, {{
-  }},
-};
-
-PROTOBUF_NOINLINE void TextureTable::Clear() {
-// @@protoc_insertion_point(message_clear_start:TextureTable)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.texturedatatable_.Clear();
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* TextureTable::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const TextureTable& this_ = static_cast<const TextureTable&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* TextureTable::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const TextureTable& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:TextureTable)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          // map<int32, .TextureData> textureDataTable = 1;
-          if (!this_._internal_texturedatatable().empty()) {
-            using MapType = ::google::protobuf::Map<::int32_t, ::TextureData>;
-            using WireHelper = _pbi::MapEntryFuncs<::int32_t, ::TextureData,
-                                           _pbi::WireFormatLite::TYPE_INT32,
-                                           _pbi::WireFormatLite::TYPE_MESSAGE>;
-            const auto& field = this_._internal_texturedatatable();
-
-            if (stream->IsSerializationDeterministic() && field.size() > 1) {
-              for (const auto& entry : ::google::protobuf::internal::MapSorterFlat<MapType>(field)) {
-                target = WireHelper::InternalSerialize(
-                    1, entry.first, entry.second, target, stream);
-              }
-            } else {
-              for (const auto& entry : field) {
-                target = WireHelper::InternalSerialize(
-                    1, entry.first, entry.second, target, stream);
-              }
-            }
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:TextureTable)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t TextureTable::ByteSizeLong(const MessageLite& base) {
-          const TextureTable& this_ = static_cast<const TextureTable&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t TextureTable::ByteSizeLong() const {
-          const TextureTable& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:TextureTable)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-           {
-            // map<int32, .TextureData> textureDataTable = 1;
-            {
-              total_size +=
-                  1 * ::google::protobuf::internal::FromIntSize(this_._internal_texturedatatable_size());
-              for (const auto& entry : this_._internal_texturedatatable()) {
-                total_size += _pbi::MapEntryFuncs<::int32_t, ::TextureData,
-                                               _pbi::WireFormatLite::TYPE_INT32,
-                                               _pbi::WireFormatLite::TYPE_MESSAGE>::ByteSizeLong(entry.first, entry.second);
-              }
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void TextureTable::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<TextureTable*>(&to_msg);
-  auto& from = static_cast<const TextureTable&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:TextureTable)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _this->_impl_.texturedatatable_.MergeFrom(from._impl_.texturedatatable_);
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void TextureTable::CopyFrom(const TextureTable& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:TextureTable)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void TextureTable::InternalSwap(TextureTable* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.texturedatatable_.InternalSwap(&other->_impl_.texturedatatable_);
-}
-
-::google::protobuf::Metadata TextureTable::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-class TextureData::_Internal {
- public:
-};
-
-TextureData::TextureData(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:TextureData)
-}
-inline PROTOBUF_NDEBUG_INLINE TextureData::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::TextureData& from_msg)
-      : texturedatachunk_{visibility, arena, from.texturedatachunk_},
-        _cached_size_{0} {}
-
-TextureData::TextureData(
-    ::google::protobuf::Arena* arena,
-    const TextureData& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  TextureData* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-
-  // @@protoc_insertion_point(copy_constructor:TextureData)
-}
-inline PROTOBUF_NDEBUG_INLINE TextureData::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : texturedatachunk_{visibility, arena},
-        _cached_size_{0} {}
-
-inline void TextureData::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-}
-TextureData::~TextureData() {
-  // @@protoc_insertion_point(destructor:TextureData)
-  SharedDtor(*this);
-}
-inline void TextureData::SharedDtor(MessageLite& self) {
-  TextureData& this_ = static_cast<TextureData&>(self);
-  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.~Impl_();
-}
-
-inline void* TextureData::PlacementNew_(const void*, void* mem,
-                                        ::google::protobuf::Arena* arena) {
-  return ::new (mem) TextureData(arena);
-}
-constexpr auto TextureData::InternalNewImpl_() {
-  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(TextureData, _impl_.texturedatachunk_) +
-          decltype(TextureData::_impl_.texturedatachunk_)::
-              InternalGetArenaOffset(
-                  ::google::protobuf::Message::internal_visibility()),
-  });
-  if (arena_bits.has_value()) {
-    return ::google::protobuf::internal::MessageCreator::ZeroInit(
-        sizeof(TextureData), alignof(TextureData), *arena_bits);
-  } else {
-    return ::google::protobuf::internal::MessageCreator(&TextureData::PlacementNew_,
-                                 sizeof(TextureData),
-                                 alignof(TextureData));
-  }
-}
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull TextureData::_class_data_ = {
-    ::google::protobuf::internal::ClassData{
-        &_TextureData_default_instance_._instance,
-        &_table_.header,
-        nullptr,  // OnDemandRegisterArenaDtor
-        nullptr,  // IsInitialized
-        &TextureData::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<TextureData>(),
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        &TextureData::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<TextureData>(), &TextureData::ByteSizeLong,
-            &TextureData::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(TextureData, _impl_._cached_size_),
-        false,
-    },
-    &TextureData::kDescriptorMethods,
-    &descriptor_table_LevelData_2eproto,
-    nullptr,  // tracker
-};
-const ::google::protobuf::internal::ClassData* TextureData::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 1, 0, 2> TextureData::_table_ = {
-  {
-    0,  // no _has_bits_
-    0, // no _extensions_
-    1, 0,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967294,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
-    1,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::TextureData>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    // repeated .TextureDataChunk textureDataChunk = 1;
-    {::_pbi::TcParser::FastMtR1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(TextureData, _impl_.texturedatachunk_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // repeated .TextureDataChunk textureDataChunk = 1;
-    {PROTOBUF_FIELD_OFFSET(TextureData, _impl_.texturedatachunk_), 0, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
-  }}, {{
-    {::_pbi::TcParser::GetTable<::TextureDataChunk>()},
-  }}, {{
-  }},
-};
-
-PROTOBUF_NOINLINE void TextureData::Clear() {
-// @@protoc_insertion_point(message_clear_start:TextureData)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.texturedatachunk_.Clear();
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* TextureData::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const TextureData& this_ = static_cast<const TextureData&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* TextureData::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const TextureData& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:TextureData)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          // repeated .TextureDataChunk textureDataChunk = 1;
-          for (unsigned i = 0, n = static_cast<unsigned>(
-                                   this_._internal_texturedatachunk_size());
-               i < n; i++) {
-            const auto& repfield = this_._internal_texturedatachunk().Get(i);
-            target =
-                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                    1, repfield, repfield.GetCachedSize(),
-                    target, stream);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:TextureData)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t TextureData::ByteSizeLong(const MessageLite& base) {
-          const TextureData& this_ = static_cast<const TextureData&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t TextureData::ByteSizeLong() const {
-          const TextureData& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:TextureData)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-           {
-            // repeated .TextureDataChunk textureDataChunk = 1;
-            {
-              total_size += 1UL * this_._internal_texturedatachunk_size();
-              for (const auto& msg : this_._internal_texturedatachunk()) {
-                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
-              }
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void TextureData::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<TextureData*>(&to_msg);
-  auto& from = static_cast<const TextureData&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:TextureData)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _this->_internal_mutable_texturedatachunk()->MergeFrom(
-      from._internal_texturedatachunk());
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void TextureData::CopyFrom(const TextureData& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:TextureData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void TextureData::InternalSwap(TextureData* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.texturedatachunk_.InternalSwap(&other->_impl_.texturedatachunk_);
-}
-
-::google::protobuf::Metadata TextureData::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
 class TextureDataChunk::_Internal {
  public:
 };
@@ -3149,9 +1215,9 @@ TextureDataChunk::TextureDataChunk(
                offsetof(Impl_, chunknumber_),
            reinterpret_cast<const char *>(&from._impl_) +
                offsetof(Impl_, chunknumber_),
-           offsetof(Impl_, height_) -
+           offsetof(Impl_, channel_) -
                offsetof(Impl_, chunknumber_) +
-               sizeof(Impl_::height_));
+               sizeof(Impl_::channel_));
 
   // @@protoc_insertion_point(copy_constructor:TextureDataChunk)
 }
@@ -3167,9 +1233,9 @@ inline void TextureDataChunk::SharedCtor(::_pb::Arena* arena) {
   ::memset(reinterpret_cast<char *>(&_impl_) +
                offsetof(Impl_, chunknumber_),
            0,
-           offsetof(Impl_, height_) -
+           offsetof(Impl_, channel_) -
                offsetof(Impl_, chunknumber_) +
-               sizeof(Impl_::height_));
+               sizeof(Impl_::channel_));
 }
 TextureDataChunk::~TextureDataChunk() {
   // @@protoc_insertion_point(destructor:TextureDataChunk)
@@ -3220,15 +1286,15 @@ const ::google::protobuf::internal::ClassData* TextureDataChunk::GetClassData() 
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 7, 0, 29, 2> TextureDataChunk::_table_ = {
+const ::_pbi::TcParseTable<3, 8, 0, 37, 2> TextureDataChunk::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    7, 56,  // max_field_number, fast_idx_mask
+    8, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967168,  // skipmap
+    4294967040,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    7,  // num_field_entries
+    8,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -3238,7 +1304,9 @@ const ::_pbi::TcParseTable<3, 7, 0, 29, 2> TextureDataChunk::_table_ = {
     ::_pbi::TcParser::GetTable<::TextureDataChunk>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
+    // int32 channel = 8;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TextureDataChunk, _impl_.channel_), 63>(),
+     {64, 63, 0, PROTOBUF_FIELD_OFFSET(TextureDataChunk, _impl_.channel_)}},
     // string name = 1;
     {::_pbi::TcParser::FastUS1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(TextureDataChunk, _impl_.name_)}},
@@ -3284,10 +1352,13 @@ const ::_pbi::TcParseTable<3, 7, 0, 29, 2> TextureDataChunk::_table_ = {
     // int32 height = 7;
     {PROTOBUF_FIELD_OFFSET(TextureDataChunk, _impl_.height_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // int32 channel = 8;
+    {PROTOBUF_FIELD_OFFSET(TextureDataChunk, _impl_.channel_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
   }},
   // no aux_entries
   {{
-    "\20\4\0\0\0\0\0\0"
+    "\20\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
     "TextureDataChunk"
     "name"
   }},
@@ -3303,8 +1374,8 @@ PROTOBUF_NOINLINE void TextureDataChunk::Clear() {
   _impl_.name_.ClearToEmpty();
   _impl_.datachunk_.ClearToEmpty();
   ::memset(&_impl_.chunknumber_, 0, static_cast<::size_t>(
-      reinterpret_cast<char*>(&_impl_.height_) -
-      reinterpret_cast<char*>(&_impl_.chunknumber_)) + sizeof(_impl_.height_));
+      reinterpret_cast<char*>(&_impl_.channel_) -
+      reinterpret_cast<char*>(&_impl_.chunknumber_)) + sizeof(_impl_.channel_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -3372,6 +1443,13 @@ PROTOBUF_NOINLINE void TextureDataChunk::Clear() {
                     stream, this_._internal_height(), target);
           }
 
+          // int32 channel = 8;
+          if (this_._internal_channel() != 0) {
+            target = ::google::protobuf::internal::WireFormatLite::
+                WriteInt32ToArrayWithField<8>(
+                    stream, this_._internal_channel(), target);
+          }
+
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -3431,6 +1509,11 @@ PROTOBUF_NOINLINE void TextureDataChunk::Clear() {
               total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
                   this_._internal_height());
             }
+            // int32 channel = 8;
+            if (this_._internal_channel() != 0) {
+              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+                  this_._internal_channel());
+            }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
                                                      &this_._impl_._cached_size_);
@@ -3465,6 +1548,9 @@ void TextureDataChunk::MergeImpl(::google::protobuf::MessageLite& to_msg, const 
   if (from._internal_height() != 0) {
     _this->_impl_.height_ = from._impl_.height_;
   }
+  if (from._internal_channel() != 0) {
+    _this->_impl_.channel_ = from._impl_.channel_;
+  }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -3484,8 +1570,8 @@ void TextureDataChunk::InternalSwap(TextureDataChunk* PROTOBUF_RESTRICT other) {
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.datachunk_, &other->_impl_.datachunk_, arena);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TextureDataChunk, _impl_.height_)
-      + sizeof(TextureDataChunk::_impl_.height_)
+      PROTOBUF_FIELD_OFFSET(TextureDataChunk, _impl_.channel_)
+      + sizeof(TextureDataChunk::_impl_.channel_)
       - PROTOBUF_FIELD_OFFSET(TextureDataChunk, _impl_.chunknumber_)>(
           reinterpret_cast<char*>(&_impl_.chunknumber_),
           reinterpret_cast<char*>(&other->_impl_.chunknumber_));
@@ -4092,10 +2178,6 @@ void TextureChunkRequest::InternalSwap(TextureChunkRequest* PROTOBUF_RESTRICT ot
 
 class ObjectData::_Internal {
  public:
-  using HasBits =
-      decltype(std::declval<ObjectData>()._impl_._has_bits_);
-  static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(ObjectData, _impl_._has_bits_);
 };
 
 ObjectData::ObjectData(::google::protobuf::Arena* arena)
@@ -4110,9 +2192,10 @@ ObjectData::ObjectData(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE ObjectData::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::ObjectData& from_msg)
-      : _has_bits_{from._has_bits_},
-        _cached_size_{0},
-        name_(arena, from.name_) {}
+      : name_(arena, from.name_),
+        meshreference_(arena, from.meshreference_),
+        texturereference_(arena, from.texturereference_),
+        _cached_size_{0} {}
 
 ObjectData::ObjectData(
     ::google::protobuf::Arena* arena,
@@ -4127,40 +2210,19 @@ ObjectData::ObjectData(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.position_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::Vec3>(
-                              arena, *from._impl_.position_)
-                        : nullptr;
-  _impl_.rotation_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::Vec3>(
-                              arena, *from._impl_.rotation_)
-                        : nullptr;
-  _impl_.scale_ = (cached_has_bits & 0x00000004u) ? ::google::protobuf::Message::CopyConstruct<::Vec3>(
-                              arena, *from._impl_.scale_)
-                        : nullptr;
-  ::memcpy(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, meshreference_),
-           reinterpret_cast<const char *>(&from._impl_) +
-               offsetof(Impl_, meshreference_),
-           offsetof(Impl_, texturereference_) -
-               offsetof(Impl_, meshreference_) +
-               sizeof(Impl_::texturereference_));
 
   // @@protoc_insertion_point(copy_constructor:ObjectData)
 }
 inline PROTOBUF_NDEBUG_INLINE ObjectData::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : _cached_size_{0},
-        name_(arena) {}
+      : name_(arena),
+        meshreference_(arena),
+        texturereference_(arena),
+        _cached_size_{0} {}
 
 inline void ObjectData::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, position_),
-           0,
-           offsetof(Impl_, texturereference_) -
-               offsetof(Impl_, position_) +
-               sizeof(Impl_::texturereference_));
 }
 ObjectData::~ObjectData() {
   // @@protoc_insertion_point(destructor:ObjectData)
@@ -4171,9 +2233,8 @@ inline void ObjectData::SharedDtor(MessageLite& self) {
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.name_.Destroy();
-  delete this_._impl_.position_;
-  delete this_._impl_.rotation_;
-  delete this_._impl_.scale_;
+  this_._impl_.meshreference_.Destroy();
+  this_._impl_.texturereference_.Destroy();
   this_._impl_.~Impl_();
 }
 
@@ -4213,17 +2274,17 @@ const ::google::protobuf::internal::ClassData* ObjectData::GetClassData() const 
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 6, 3, 23, 2> ObjectData::_table_ = {
+const ::_pbi::TcParseTable<1, 3, 0, 52, 2> ObjectData::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(ObjectData, _impl_._has_bits_),
+    0,  // no _has_bits_
     0, // no _extensions_
-    6, 56,  // max_field_number, fast_idx_mask
+    6, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967232,  // skipmap
+    4294967246,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    6,  // num_field_entries
-    3,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
+    3,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
@@ -4231,55 +2292,32 @@ const ::_pbi::TcParseTable<3, 6, 3, 23, 2> ObjectData::_table_ = {
     ::_pbi::TcParser::GetTable<::ObjectData>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
+    // string textureReference = 6;
+    {::_pbi::TcParser::FastUS1,
+     {50, 63, 0, PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.texturereference_)}},
     // string name = 1;
     {::_pbi::TcParser::FastUS1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.name_)}},
-    // .Vec3 position = 2;
-    {::_pbi::TcParser::FastMtS1,
-     {18, 0, 0, PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.position_)}},
-    // .Vec3 rotation = 3;
-    {::_pbi::TcParser::FastMtS1,
-     {26, 1, 1, PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.rotation_)}},
-    // .Vec3 scale = 4;
-    {::_pbi::TcParser::FastMtS1,
-     {34, 2, 2, PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.scale_)}},
-    // int32 meshReference = 5;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ObjectData, _impl_.meshreference_), 63>(),
-     {40, 63, 0, PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.meshreference_)}},
-    // int32 textureReference = 6;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ObjectData, _impl_.texturereference_), 63>(),
-     {48, 63, 0, PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.texturereference_)}},
-    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
     // string name = 1;
-    {PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.name_), -1, 0,
+    {PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.name_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // .Vec3 position = 2;
-    {PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.position_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .Vec3 rotation = 3;
-    {PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.rotation_), _Internal::kHasBitsOffset + 1, 1,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .Vec3 scale = 4;
-    {PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.scale_), _Internal::kHasBitsOffset + 2, 2,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // int32 meshReference = 5;
-    {PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.meshreference_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
-    // int32 textureReference = 6;
-    {PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.texturereference_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
-  }}, {{
-    {::_pbi::TcParser::GetTable<::Vec3>()},
-    {::_pbi::TcParser::GetTable<::Vec3>()},
-    {::_pbi::TcParser::GetTable<::Vec3>()},
-  }}, {{
-    "\12\4\0\0\0\0\0\0"
+    // string meshReference = 5;
+    {PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.meshreference_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string textureReference = 6;
+    {PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.texturereference_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\12\4\15\20\0\0\0\0"
     "ObjectData"
     "name"
+    "meshReference"
+    "textureReference"
   }},
 };
 
@@ -4291,25 +2329,8 @@ PROTOBUF_NOINLINE void ObjectData::Clear() {
   (void) cached_has_bits;
 
   _impl_.name_.ClearToEmpty();
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(_impl_.position_ != nullptr);
-      _impl_.position_->Clear();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ABSL_DCHECK(_impl_.rotation_ != nullptr);
-      _impl_.rotation_->Clear();
-    }
-    if (cached_has_bits & 0x00000004u) {
-      ABSL_DCHECK(_impl_.scale_ != nullptr);
-      _impl_.scale_->Clear();
-    }
-  }
-  ::memset(&_impl_.meshreference_, 0, static_cast<::size_t>(
-      reinterpret_cast<char*>(&_impl_.texturereference_) -
-      reinterpret_cast<char*>(&_impl_.meshreference_)) + sizeof(_impl_.texturereference_));
-  _impl_._has_bits_.Clear();
+  _impl_.meshreference_.ClearToEmpty();
+  _impl_.texturereference_.ClearToEmpty();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -4336,40 +2357,20 @@ PROTOBUF_NOINLINE void ObjectData::Clear() {
             target = stream->WriteStringMaybeAliased(1, _s, target);
           }
 
-          cached_has_bits = this_._impl_._has_bits_[0];
-          // .Vec3 position = 2;
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
-                stream);
+          // string meshReference = 5;
+          if (!this_._internal_meshreference().empty()) {
+            const std::string& _s = this_._internal_meshreference();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ObjectData.meshReference");
+            target = stream->WriteStringMaybeAliased(5, _s, target);
           }
 
-          // .Vec3 rotation = 3;
-          if (cached_has_bits & 0x00000002u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                3, *this_._impl_.rotation_, this_._impl_.rotation_->GetCachedSize(), target,
-                stream);
-          }
-
-          // .Vec3 scale = 4;
-          if (cached_has_bits & 0x00000004u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                4, *this_._impl_.scale_, this_._impl_.scale_->GetCachedSize(), target,
-                stream);
-          }
-
-          // int32 meshReference = 5;
-          if (this_._internal_meshreference() != 0) {
-            target = ::google::protobuf::internal::WireFormatLite::
-                WriteInt32ToArrayWithField<5>(
-                    stream, this_._internal_meshreference(), target);
-          }
-
-          // int32 textureReference = 6;
-          if (this_._internal_texturereference() != 0) {
-            target = ::google::protobuf::internal::WireFormatLite::
-                WriteInt32ToArrayWithField<6>(
-                    stream, this_._internal_texturereference(), target);
+          // string textureReference = 6;
+          if (!this_._internal_texturereference().empty()) {
+            const std::string& _s = this_._internal_texturereference();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ObjectData.textureReference");
+            target = stream->WriteStringMaybeAliased(6, _s, target);
           }
 
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
@@ -4402,35 +2403,15 @@ PROTOBUF_NOINLINE void ObjectData::Clear() {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                               this_._internal_name());
             }
-          }
-          cached_has_bits = this_._impl_._has_bits_[0];
-          if (cached_has_bits & 0x00000007u) {
-            // .Vec3 position = 2;
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+            // string meshReference = 5;
+            if (!this_._internal_meshreference().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_meshreference());
             }
-            // .Vec3 rotation = 3;
-            if (cached_has_bits & 0x00000002u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.rotation_);
-            }
-            // .Vec3 scale = 4;
-            if (cached_has_bits & 0x00000004u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.scale_);
-            }
-          }
-           {
-            // int32 meshReference = 5;
-            if (this_._internal_meshreference() != 0) {
-              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
-                  this_._internal_meshreference());
-            }
-            // int32 textureReference = 6;
-            if (this_._internal_texturereference() != 0) {
-              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
-                  this_._internal_texturereference());
+            // string textureReference = 6;
+            if (!this_._internal_texturereference().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_texturereference());
             }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
@@ -4440,7 +2421,6 @@ PROTOBUF_NOINLINE void ObjectData::Clear() {
 void ObjectData::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
   auto* const _this = static_cast<ObjectData*>(&to_msg);
   auto& from = static_cast<const ObjectData&>(from_msg);
-  ::google::protobuf::Arena* arena = _this->GetArena();
   // @@protoc_insertion_point(class_specific_merge_from_start:ObjectData)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
@@ -4449,43 +2429,12 @@ void ObjectData::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goog
   if (!from._internal_name().empty()) {
     _this->_internal_set_name(from._internal_name());
   }
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(from._impl_.position_ != nullptr);
-      if (_this->_impl_.position_ == nullptr) {
-        _this->_impl_.position_ =
-            ::google::protobuf::Message::CopyConstruct<::Vec3>(arena, *from._impl_.position_);
-      } else {
-        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
-      }
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ABSL_DCHECK(from._impl_.rotation_ != nullptr);
-      if (_this->_impl_.rotation_ == nullptr) {
-        _this->_impl_.rotation_ =
-            ::google::protobuf::Message::CopyConstruct<::Vec3>(arena, *from._impl_.rotation_);
-      } else {
-        _this->_impl_.rotation_->MergeFrom(*from._impl_.rotation_);
-      }
-    }
-    if (cached_has_bits & 0x00000004u) {
-      ABSL_DCHECK(from._impl_.scale_ != nullptr);
-      if (_this->_impl_.scale_ == nullptr) {
-        _this->_impl_.scale_ =
-            ::google::protobuf::Message::CopyConstruct<::Vec3>(arena, *from._impl_.scale_);
-      } else {
-        _this->_impl_.scale_->MergeFrom(*from._impl_.scale_);
-      }
-    }
+  if (!from._internal_meshreference().empty()) {
+    _this->_internal_set_meshreference(from._internal_meshreference());
   }
-  if (from._internal_meshreference() != 0) {
-    _this->_impl_.meshreference_ = from._impl_.meshreference_;
+  if (!from._internal_texturereference().empty()) {
+    _this->_internal_set_texturereference(from._internal_texturereference());
   }
-  if (from._internal_texturereference() != 0) {
-    _this->_impl_.texturereference_ = from._impl_.texturereference_;
-  }
-  _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -4502,277 +2451,12 @@ void ObjectData::InternalSwap(ObjectData* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.texturereference_)
-      + sizeof(ObjectData::_impl_.texturereference_)
-      - PROTOBUF_FIELD_OFFSET(ObjectData, _impl_.position_)>(
-          reinterpret_cast<char*>(&_impl_.position_),
-          reinterpret_cast<char*>(&other->_impl_.position_));
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.meshreference_, &other->_impl_.meshreference_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.texturereference_, &other->_impl_.texturereference_, arena);
 }
 
 ::google::protobuf::Metadata ObjectData::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-class Vec3::_Internal {
- public:
-};
-
-Vec3::Vec3(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:Vec3)
-}
-Vec3::Vec3(
-    ::google::protobuf::Arena* arena, const Vec3& from)
-    : Vec3(arena) {
-  MergeFrom(from);
-}
-inline PROTOBUF_NDEBUG_INLINE Vec3::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : _cached_size_{0} {}
-
-inline void Vec3::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, x_),
-           0,
-           offsetof(Impl_, z_) -
-               offsetof(Impl_, x_) +
-               sizeof(Impl_::z_));
-}
-Vec3::~Vec3() {
-  // @@protoc_insertion_point(destructor:Vec3)
-  SharedDtor(*this);
-}
-inline void Vec3::SharedDtor(MessageLite& self) {
-  Vec3& this_ = static_cast<Vec3&>(self);
-  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.~Impl_();
-}
-
-inline void* Vec3::PlacementNew_(const void*, void* mem,
-                                        ::google::protobuf::Arena* arena) {
-  return ::new (mem) Vec3(arena);
-}
-constexpr auto Vec3::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(Vec3),
-                                            alignof(Vec3));
-}
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull Vec3::_class_data_ = {
-    ::google::protobuf::internal::ClassData{
-        &_Vec3_default_instance_._instance,
-        &_table_.header,
-        nullptr,  // OnDemandRegisterArenaDtor
-        nullptr,  // IsInitialized
-        &Vec3::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<Vec3>(),
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        &Vec3::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<Vec3>(), &Vec3::ByteSizeLong,
-            &Vec3::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(Vec3, _impl_._cached_size_),
-        false,
-    },
-    &Vec3::kDescriptorMethods,
-    &descriptor_table_LevelData_2eproto,
-    nullptr,  // tracker
-};
-const ::google::protobuf::internal::ClassData* Vec3::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 0, 0, 2> Vec3::_table_ = {
-  {
-    0,  // no _has_bits_
-    0, // no _extensions_
-    3, 24,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::Vec3>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-    // float x = 1;
-    {::_pbi::TcParser::FastF32S1,
-     {13, 63, 0, PROTOBUF_FIELD_OFFSET(Vec3, _impl_.x_)}},
-    // float y = 2;
-    {::_pbi::TcParser::FastF32S1,
-     {21, 63, 0, PROTOBUF_FIELD_OFFSET(Vec3, _impl_.y_)}},
-    // float z = 3;
-    {::_pbi::TcParser::FastF32S1,
-     {29, 63, 0, PROTOBUF_FIELD_OFFSET(Vec3, _impl_.z_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // float x = 1;
-    {PROTOBUF_FIELD_OFFSET(Vec3, _impl_.x_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
-    // float y = 2;
-    {PROTOBUF_FIELD_OFFSET(Vec3, _impl_.y_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
-    // float z = 3;
-    {PROTOBUF_FIELD_OFFSET(Vec3, _impl_.z_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
-  }},
-  // no aux_entries
-  {{
-  }},
-};
-
-PROTOBUF_NOINLINE void Vec3::Clear() {
-// @@protoc_insertion_point(message_clear_start:Vec3)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  ::memset(&_impl_.x_, 0, static_cast<::size_t>(
-      reinterpret_cast<char*>(&_impl_.z_) -
-      reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.z_));
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* Vec3::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const Vec3& this_ = static_cast<const Vec3&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* Vec3::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const Vec3& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:Vec3)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          // float x = 1;
-          if (::absl::bit_cast<::uint32_t>(this_._internal_x()) != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteFloatToArray(
-                1, this_._internal_x(), target);
-          }
-
-          // float y = 2;
-          if (::absl::bit_cast<::uint32_t>(this_._internal_y()) != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteFloatToArray(
-                2, this_._internal_y(), target);
-          }
-
-          // float z = 3;
-          if (::absl::bit_cast<::uint32_t>(this_._internal_z()) != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteFloatToArray(
-                3, this_._internal_z(), target);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:Vec3)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t Vec3::ByteSizeLong(const MessageLite& base) {
-          const Vec3& this_ = static_cast<const Vec3&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t Vec3::ByteSizeLong() const {
-          const Vec3& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:Vec3)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-           {
-            // float x = 1;
-            if (::absl::bit_cast<::uint32_t>(this_._internal_x()) != 0) {
-              total_size += 5;
-            }
-            // float y = 2;
-            if (::absl::bit_cast<::uint32_t>(this_._internal_y()) != 0) {
-              total_size += 5;
-            }
-            // float z = 3;
-            if (::absl::bit_cast<::uint32_t>(this_._internal_z()) != 0) {
-              total_size += 5;
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void Vec3::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<Vec3*>(&to_msg);
-  auto& from = static_cast<const Vec3&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:Vec3)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (::absl::bit_cast<::uint32_t>(from._internal_x()) != 0) {
-    _this->_impl_.x_ = from._impl_.x_;
-  }
-  if (::absl::bit_cast<::uint32_t>(from._internal_y()) != 0) {
-    _this->_impl_.y_ = from._impl_.y_;
-  }
-  if (::absl::bit_cast<::uint32_t>(from._internal_z()) != 0) {
-    _this->_impl_.z_ = from._impl_.z_;
-  }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void Vec3::CopyFrom(const Vec3& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Vec3)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void Vec3::InternalSwap(Vec3* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Vec3, _impl_.z_)
-      + sizeof(Vec3::_impl_.z_)
-      - PROTOBUF_FIELD_OFFSET(Vec3, _impl_.x_)>(
-          reinterpret_cast<char*>(&_impl_.x_),
-          reinterpret_cast<char*>(&other->_impl_.x_));
-}
-
-::google::protobuf::Metadata Vec3::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)
